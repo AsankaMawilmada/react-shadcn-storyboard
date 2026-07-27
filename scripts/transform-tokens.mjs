@@ -456,16 +456,24 @@ ${cssVarBlock(DARK_MODE_COLORS)}
   writeFileSync(path.join(CSS_DIR, 'tokens.css'), tokensCss)
 
   // ---- src/styles/theme.css ----
+  // Deliberately NOT registering spacingVars here: Tailwind v4 shares the
+  // bare `--spacing-*` theme namespace across every sizing utility family
+  // (w-*, h-*, max-w-*, max-h-*, min-w-*, min-h-*, size-*, gap-*, p-*, m-*,
+  // inset-*, ...), not just padding/margin/gap. Our Figma spacing scale's
+  // key names (xs/sm/md/lg/xl/2xl/3xl/...) collide with Tailwind's own
+  // t-shirt-size vocabulary for max-w-*/w-*/etc — registering
+  // `--spacing-md` here silently redefines `max-w-md` from Tailwind's
+  // stock 28rem down to our spacing token's 0.5rem project-wide. The named
+  // spacing scale is still fully available as plain CSS custom properties
+  // in tokens.css `:root` (usable via `var(--spacing-md)` / arbitrary
+  // value syntax) and in src/tokens/spacing.ts — just not auto-wired into
+  // Tailwind's utility-generating theme.
   const themeCss = `${banner}@theme inline {
 ${Object.keys(defaultColors)
     .map((key) => `  --color-${key}: var(--${key});`)
     .join('\n')}
 
 ${Object.keys(radiusVars)
-    .map((key) => `  --${key}: var(--${key});`)
-    .join('\n')}
-
-${Object.keys(spacingVars)
     .map((key) => `  --${key}: var(--${key});`)
     .join('\n')}
 
