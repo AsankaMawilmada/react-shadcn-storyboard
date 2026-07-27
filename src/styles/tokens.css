@@ -25,6 +25,9 @@
   --warning: #D46600;
   --warning-foreground: #FFFFFF;
   --ring: #7F24FF;
+  --link: #5700D1;
+  --link-hover: #5700D1;
+  --link-pressed: #3F1579;
   --border: #EAECF0;
   --input: #EAECF0;
 
@@ -135,6 +138,9 @@
   --warning: #FBBF24;
   --warning-foreground: #17131F;
   --ring: #C9A6FF;
+  --link: #C9A6FF;
+  --link-hover: #DCC4FF;
+  --link-pressed: #B088F0;
   --border: #342B47;
   --input: #342B47;
 }
@@ -166,6 +172,9 @@
   --border: #2A2340;
   --input: #2A2340;
   --ring: #C9A6FF;
+  --link: #C9A6FF;
+  --link-hover: #DCC4FF;
+  --link-pressed: #B088F0;
   }
 }
 
@@ -193,4 +202,7 @@
   --border: #2A2340;
   --input: #2A2340;
   --ring: #C9A6FF;
+  --link: #C9A6FF;
+  --link-hover: #DCC4FF;
+  --link-pressed: #B088F0;
 }

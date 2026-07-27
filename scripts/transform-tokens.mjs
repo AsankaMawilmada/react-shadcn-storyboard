@@ -162,6 +162,9 @@ const COLOR_VAR_MAP = {
   warning: ['border', 'status', 'warning'],
   'warning-foreground': ['text', 'inverse'],
   ring: ['border', 'focused'],
+  link: ['text', 'link'],
+  'link-hover': ['text', 'link-hover'],
+  'link-pressed': ['text', 'link-pressed'],
 }
 
 const buildThemeColors = async (theme, { pinBorderInputToPrimitive }) => {
@@ -357,6 +360,9 @@ const DARK_MODE_COLORS = {
   border: '#2A2340',
   input: '#2A2340',
   ring: '#C9A6FF',
+  link: '#C9A6FF',
+  'link-hover': '#DCC4FF',
+  'link-pressed': '#B088F0',
 }
 
 const main = async () => {

@@ -24,6 +24,9 @@
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
   --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+  --color-link-pressed: var(--link-pressed);
   --color-border: var(--border);
   --color-input: var(--input);
 
