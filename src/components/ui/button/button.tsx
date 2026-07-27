@@ -13,13 +13,17 @@ const buttonVariants = cva(
         outline:
           'border border-border bg-background hover:bg-accent hover:text-accent-foreground',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+        link: 'text-link underline-offset-4 hover:text-link-hover hover:underline active:text-link-pressed',
       },
       size: {
         sm: 'h-8 rounded-sm px-3 text-xs',
         md: 'h-9 px-4',
         lg: 'h-10 rounded-xl px-6',
+        // Icon-only, square at each height — for buttons whose only content
+        // is a single icon (always pair with an `aria-label`).
+        'icon-sm': 'size-8 rounded-sm',
         icon: 'size-9',
+        'icon-lg': 'size-10 rounded-xl',
       },
     },
     defaultVariants: {
