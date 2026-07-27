@@ -1,0 +1,33 @@
+{
+  "$description": "Hand-authored second brand theme (no Figma dark-mode export exists for this one). Deliberately only overrides color — radius/spacing/typography/layout are inherited from the default theme via CSS cascade. Values are plain hex strings rather than Figma's {colorSpace,components,alpha,hex} object shape, to exercise both value shapes in the transform pipeline.",
+  "surface": {
+    "default": { "$type": "color", "$value": "#17131F" },
+    "subtle": { "$type": "color", "$value": "#211B2E" },
+    "subtle-dark": { "$type": "color", "$value": "#2A2340" },
+    "brand-subtlest": { "$type": "color", "$value": "#2A2340" },
+    "brand-subtler": { "$type": "color", "$value": "#3D2E5C" },
+    "brand": { "$type": "color", "$value": "#9B5CFF" },
+    "brand-bolder": { "$type": "color", "$value": "#C9A6FF" }
+  },
+  "border": {
+    "default": { "$type": "color", "$value": "#342B47" },
+    "brand": { "$type": "color", "$value": "#9B5CFF" },
+    "focused": { "$type": "color", "$value": "#C9A6FF" },
+    "disabled": { "$type": "color", "$value": "#4A4160" },
+    "status": {
+      "error": { "$type": "color", "$value": "#FF6B6B" },
+      "success": { "$type": "color", "$value": "#4ADE80" },
+      "warning": { "$type": "color", "$value": "#FBBF24" }
+    }
+  },
+  "text": {
+    "default": { "$type": "color", "$value": "#F5F3FA" },
+    "subtle": { "$type": "color", "$value": "#B9B0CC" },
+    "inverse": { "$type": "color", "$value": "#17131F" },
+    "disabled": { "$type": "color", "$value": "#6F6585" },
+    "brand": { "$type": "color", "$value": "#C9A6FF" },
+    "link": { "$type": "color", "$value": "#C9A6FF" },
+    "link-hover": { "$type": "color", "$value": "#DCC4FF" },
+    "link-pressed": { "$type": "color", "$value": "#B088F0" }
+  }
+}

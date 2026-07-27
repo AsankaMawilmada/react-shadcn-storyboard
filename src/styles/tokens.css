@@ -1,0 +1,196 @@
+/* GENERATED FILE — do not edit by hand.
+ * Produced by scripts/transform-tokens.mjs from .figma/themes/. Run `npm run transform-tokens` to regenerate.
+ */
+
+:root {
+  /* colors — default theme */
+  --background: #FFFFFF;
+  --foreground: #101828;
+  --card: #FFFFFF;
+  --card-foreground: #101828;
+  --popover: #FFFFFF;
+  --popover-foreground: #101828;
+  --primary: #7F24FF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F2F4F7;
+  --secondary-foreground: #101828;
+  --muted: #F2F4F7;
+  --muted-foreground: #475467;
+  --accent: #F0E5FF;
+  --accent-foreground: #5700D1;
+  --destructive: #9C0013;
+  --destructive-foreground: #FFFFFF;
+  --success: #00884F;
+  --success-foreground: #FFFFFF;
+  --warning: #D46600;
+  --warning-foreground: #FFFFFF;
+  --ring: #7F24FF;
+  --border: #EAECF0;
+  --input: #EAECF0;
+
+  /* radius scale */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* spacing scale */
+  --spacing-none: 0rem;
+  --spacing-xxs: 0.125rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.375rem;
+  --spacing-md: 0.5rem;
+  --spacing-lg: 0.75rem;
+  --spacing-xl: 1rem;
+  --spacing-2xl: 1.25rem;
+  --spacing-3xl: 1.5rem;
+  --spacing-4xl: 2rem;
+  --spacing-6xl: 3rem;
+  --spacing-7xl: 4rem;
+  --spacing-8xl: 5rem;
+  --spacing-10xl: 8rem;
+
+  /* typography */
+  --font-sans: "NaN Holo", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-heading: "NaN Holo", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* layout — mobile-first base (see @media overrides below) */
+  --layout-margin: 16px;
+  --layout-gutter: 16px;
+  --layout-content-max-width: 704px;
+  --layout-paragraph-max-width: 720px;
+  --layout-width-xxs: 320px;
+  --layout-width-xs: 384px;
+  --layout-width-sm: 480px;
+  --layout-width-md: 560px;
+  --layout-width-lg: 640px;
+  --layout-width-xl: 768px;
+  --layout-width-2xl: 1024px;
+  --layout-width-3xl: 1280px;
+  --layout-width-4xl: 1440px;
+  --layout-width-5xl: 1600px;
+  --layout-width-6xl: 1920px;
+  --layout-container-padding-desktop: 32px;
+  --layout-container-padding-mobile: 16px;
+  --layout-container-max-width-desktop: 1280px;
+}
+
+@media (min-width: 786px) {
+  :root {
+  --layout-margin: 32px;
+  --layout-gutter: 32px;
+  --layout-content-max-width: 704px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+  --layout-margin: 32px;
+  --layout-gutter: 32px;
+  --layout-content-max-width: 1280px;
+  }
+}
+
+:root[data-theme="midnight"] {
+  /* colors — midnight theme (radius/spacing/typography/layout inherited) */
+  --background: #17131F;
+  --foreground: #F5F3FA;
+  --card: #17131F;
+  --card-foreground: #F5F3FA;
+  --popover: #17131F;
+  --popover-foreground: #F5F3FA;
+  --primary: #9B5CFF;
+  --primary-foreground: #17131F;
+  --secondary: #211B2E;
+  --secondary-foreground: #F5F3FA;
+  --muted: #211B2E;
+  --muted-foreground: #B9B0CC;
+  --accent: #3D2E5C;
+  --accent-foreground: #C9A6FF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #17131F;
+  --success: #4ADE80;
+  --success-foreground: #17131F;
+  --warning: #FBBF24;
+  --warning-foreground: #17131F;
+  --ring: #C9A6FF;
+  --border: #342B47;
+  --input: #342B47;
+}
+
+/* Hand-maintained dark mode — no Figma dark-mode export exists, so these
+   values are not token-derived. Applies to the default theme only. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+  --background: #0B0B0F;
+  --foreground: #F5F3FA;
+  --card: #141018;
+  --card-foreground: #F5F3FA;
+  --popover: #141018;
+  --popover-foreground: #F5F3FA;
+  --primary: #9B5CFF;
+  --primary-foreground: #17131F;
+  --secondary: #211B2E;
+  --secondary-foreground: #F5F3FA;
+  --muted: #211B2E;
+  --muted-foreground: #B9B0CC;
+  --accent: #3D2E5C;
+  --accent-foreground: #DCC4FF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #17131F;
+  --success: #4ADE80;
+  --success-foreground: #17131F;
+  --warning: #FBBF24;
+  --warning-foreground: #17131F;
+  --border: #2A2340;
+  --input: #2A2340;
+  --ring: #C9A6FF;
+  }
+}
+
+.dark {
+  --background: #0B0B0F;
+  --foreground: #F5F3FA;
+  --card: #141018;
+  --card-foreground: #F5F3FA;
+  --popover: #141018;
+  --popover-foreground: #F5F3FA;
+  --primary: #9B5CFF;
+  --primary-foreground: #17131F;
+  --secondary: #211B2E;
+  --secondary-foreground: #F5F3FA;
+  --muted: #211B2E;
+  --muted-foreground: #B9B0CC;
+  --accent: #3D2E5C;
+  --accent-foreground: #DCC4FF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #17131F;
+  --success: #4ADE80;
+  --success-foreground: #17131F;
+  --warning: #FBBF24;
+  --warning-foreground: #17131F;
+  --border: #2A2340;
+  --input: #2A2340;
+  --ring: #C9A6FF;
+}
