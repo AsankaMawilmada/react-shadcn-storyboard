@@ -12,6 +12,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    // `npm run build:lib` (tsc, see tsconfig.build.json) owns `dist/` — that's
+    // the publishable package output. The demo app build gets its own
+    // directory so the two never clobber each other via emptyOutDir.
+    outDir: 'dist-app',
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],

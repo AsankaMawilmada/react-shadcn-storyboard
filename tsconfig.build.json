@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.build.tsbuildinfo",
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "allowImportingTsExtensions": false,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/index.ts",
+    "src/components/**/*.ts",
+    "src/components/**/*.tsx",
+    "src/tokens/**/*.ts",
+    "src/lib/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.stories.tsx",
+    "**/*.test.tsx",
+    "**/*.snapshot.test.tsx",
+    "**/__snapshots__/**"
+  ]
+}
