@@ -155,8 +155,16 @@ stages:
                   inputs:
                     workingFile: '$(Build.SourcesDirectory)/.npmrc'
 
-                - script: npm publish
+                - script: npm publish --ignore-scripts
                   displayName: 'npm publish'
+                  # --ignore-scripts: skip prepublishOnly. dist/ was already
+                  # built and verified in BuildAndTest and restored above
+                  # unchanged — this stage never runs `npm ci`, so
+                  # devDependencies (tsc-alias, typescript, ...) that
+                  # prepublishOnly's build:lib needs aren't even installed.
+                  # Re-running the build here would just fail, and publishing
+                  # the exact artifact that was already validated is the
+                  # point (build once, promote, don't rebuild at publish time).
                   workingDirectory: $(Build.SourcesDirectory)
 
                 - script: |
