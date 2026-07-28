@@ -1,0 +1,163 @@
+# CI + publish pipeline for @inoaspect/react-components.
+#
+# - Every push/PR against main: lint, unit tests + coverage, library build.
+#   This is pure validation — nothing is versioned or published.
+# - Only a push to main additionally bumps the version (Conventional
+#   Commits-driven, see scripts/next-version.mjs) and publishes to the
+#   Azure Artifacts feed, gated behind the `npm-publish` environment's
+#   manual approval check (configured in the Azure DevOps UI, not here —
+#   see README.md's "CI/CD" section for the one-time setup).
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  isMain: $[and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'PullRequest'))]
+
+stages:
+  - stage: BuildAndTest
+    displayName: 'Lint, test, build'
+    pool:
+      vmImage: 'ubuntu-latest'
+    jobs:
+      - job: Verify
+        displayName: 'Verify & build'
+        steps:
+          - checkout: self
+            # Full history + tags: scripts/next-version.mjs diffs commits
+            # since the last v* release tag, which a shallow clone can't see.
+            fetchDepth: 0
+
+          - task: NodeTool@0
+            displayName: 'Use Node.js'
+            inputs:
+              versionSpec: '22.x'
+
+          - task: Cache@2
+            displayName: 'Cache npm packages'
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+              path: $(npm_config_cache)
+
+          - script: npm ci
+            displayName: 'npm ci'
+
+          - script: npm run lint
+            displayName: 'Lint'
+
+          - script: npm run format:check
+            displayName: 'Check formatting'
+
+          - script: npm run build
+            displayName: 'Type-check + build demo app'
+
+          - script: npm run test:coverage
+            displayName: 'Unit tests + coverage'
+
+          - task: PublishTestResults@2
+            displayName: 'Publish test results'
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: 'test-results/junit.xml'
+
+          - task: PublishCodeCoverageResults@2
+            displayName: 'Publish coverage results'
+            condition: succeededOrFailed()
+            inputs:
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+
+          - script: npm audit --omit=dev --audit-level=high
+            displayName: 'Audit production dependencies'
+            # Informational: don't fail CI over an upstream advisory that
+            # hasn't got a fix yet. Investigate failures manually instead.
+            continueOnError: true
+
+          - script: npm run build:lib
+            displayName: 'Build library (dist/)'
+
+          - script: npm run version:bump
+            displayName: 'Compute next version (main only)'
+            condition: eq(variables.isMain, 'true')
+
+          - publish: '$(System.DefaultWorkingDirectory)/dist'
+            artifact: dist
+            displayName: 'Publish dist artifact'
+            condition: eq(variables.isMain, 'true')
+
+          - publish: '$(System.DefaultWorkingDirectory)/package.json'
+            artifact: package-json
+            displayName: 'Publish versioned package.json artifact'
+            condition: eq(variables.isMain, 'true')
+
+  - stage: Publish
+    displayName: 'Publish to Azure Artifacts'
+    dependsOn: BuildAndTest
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: PublishPackage
+        displayName: 'npm publish (gated)'
+        pool:
+          vmImage: 'ubuntu-latest'
+        # Approval + concurrency control live on this Environment in the
+        # Azure DevOps UI (Pipelines > Environments > npm-publish > Approvals
+        # and checks): add an "Approvals" check so a human signs off before
+        # any of the steps below run, and an "Exclusive Lock" check so two
+        # merges to main can never race each other's publish/tag.
+        environment: 'npm-publish'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+                  # Deployment jobs don't auto-checkout; needed for `git tag`
+                  # + `git push` below, with credentials for the push.
+                  persistCredentials: true
+
+                - task: NodeTool@0
+                  displayName: 'Use Node.js'
+                  inputs:
+                    versionSpec: '22.x'
+
+                - download: current
+                  artifact: dist
+                  displayName: 'Download dist artifact'
+
+                - download: current
+                  artifact: package-json
+                  displayName: 'Download versioned package.json artifact'
+
+                - script: |
+                    set -eu
+                    rm -rf "$(Build.SourcesDirectory)/dist"
+                    cp -r "$(Pipeline.Workspace)/dist" "$(Build.SourcesDirectory)/dist"
+                    cp "$(Pipeline.Workspace)/package-json/package.json" "$(Build.SourcesDirectory)/package.json"
+                  displayName: 'Restore built dist/ + bumped package.json'
+                  workingDirectory: $(Build.SourcesDirectory)
+
+                - task: npmAuthenticate@0
+                  displayName: 'Authenticate to Azure Artifacts feed'
+                  inputs:
+                    workingFile: '$(Build.SourcesDirectory)/.npmrc'
+
+                - script: npm publish
+                  displayName: 'npm publish'
+                  workingDirectory: $(Build.SourcesDirectory)
+
+                - script: |
+                    set -eu
+                    VERSION=$(node -p "require('./package.json').version")
+                    git config user.email "azure-pipelines@inoaspect.local"
+                    git config user.name "Azure Pipelines"
+                    git tag "v$VERSION"
+                    git push origin "v$VERSION"
+                  displayName: 'Tag release'
+                  workingDirectory: $(Build.SourcesDirectory)

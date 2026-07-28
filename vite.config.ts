@@ -27,6 +27,12 @@ export default defineConfig({
     // "failed to find the current suite" error — serial execution is
     // reliable and the suite is small enough that it's still fast.
     fileParallelism: false,
+    // junit: consumed by Azure Pipelines' PublishTestResults@2 task so
+    // individual pass/fail results show up in the build's "Tests" tab
+    // (separate from the "Code Coverage" tab, which reads the cobertura
+    // report below).
+    reporters: ['default', 'junit'],
+    outputFile: { junit: './test-results/junit.xml' },
     coverage: {
       provider: 'v8',
       reportsDirectory: 'coverage',

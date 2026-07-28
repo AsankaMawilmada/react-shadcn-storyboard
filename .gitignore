@@ -12,6 +12,7 @@ dist
 dist-app
 dist-ssr
 coverage
+test-results
 *.tgz
 *.local
 

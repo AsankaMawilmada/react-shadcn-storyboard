@@ -59,12 +59,13 @@ npm run test          # unit + snapshot tests
   which runs `eslint --fix` on staged `*.ts`/`*.tsx` files only (config lives
   in `package.json`'s `"lint-staged"` key). Fast — scoped to what you're
   actually committing.
-- **commit-msg** — runs [commitlint](https://commitlint.js.org/) against
-  [Conventional Commits](https://www.conventionalcommits.org/) (`commitlint.config.js`).
-  Commit messages must look like `feat: add Combobox multi-select` or
-  `fix(button): correct icon-only sizing` — this is what would drive
-  automated changelog/version generation (e.g. Changesets) if that gets
-  added later.
+
+Commit messages are free-form — there's no commit-msg hook enforcing a
+format. `scripts/next-version.mjs` (see [CI/CD](#cicd)) still looks for
+[Conventional Commits](https://www.conventionalcommits.org/)-style prefixes
+(`feat:`, `!:`, `BREAKING CHANGE`) to decide between a minor/major/patch
+bump, but nothing requires them — an unprefixed message just falls back to
+a patch bump.
 
 There's deliberately no pre-push hook — the full test suite takes ~3
 minutes (see [Testing](#testing)), which is too slow to run on every push.
@@ -136,20 +137,16 @@ the cost of runtime: the full suite (86 files, 234 tests) takes ~3 minutes.
 
 `npm run test:coverage` (provider: `@vitest/coverage-v8`) covers
 `src/components/**` + `src/lib/**` — stories, tests, and generated
-`src/tokens`/`src/styles` are excluded from the denominator, and
-`coverage.all: true` means components nothing imports still show up at 0%
-rather than silently vanishing from the report. Emits three reporters into
-`coverage/` (gitignored): `text` (terminal summary), `html`
-(`coverage/index.html`, browsable locally), and `cobertura`
-(`coverage/cobertura-coverage.xml`) — the format Azure Pipelines'
-`PublishCodeCoverageResults@2` task expects, e.g.:
-
-```yaml
-- script: npm run test:coverage
-- task: PublishCodeCoverageResults@2
-  inputs:
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
-```
+`src/tokens`/`src/styles` are excluded from the denominator. Vitest reports
+0% (rather than omitting the file) for anything matched by `include` that no
+test ever imports — that's the unconditional default now, no config toggle
+needed. Emits three reporters into `coverage/` (gitignored): `text`
+(terminal summary), `html` (`coverage/index.html`, browsable locally), and
+`cobertura` (`coverage/cobertura-coverage.xml`) — the format Azure
+Pipelines' `PublishCodeCoverageResults@2` task expects. Test results
+themselves also go to `test-results/junit.xml` (gitignored), for
+`PublishTestResults@2`. Both are wired up in [`azure-pipelines.yml`](azure-pipelines.yml)
+— see [CI/CD](#cicd) below.
 
 ## Components
 
@@ -203,6 +200,51 @@ bundled into `dist/`, always resolved from the consumer's own
 `node_modules`. `package.json`'s `"files": ["dist"]` means stories, tests,
 `.figma/`, and `scripts/` can never end up in a published tarball regardless
 of what the build does; `npm pack --dry-run` is the way to double-check.
+
+## CI/CD
+
+[`azure-pipelines.yml`](azure-pipelines.yml) is a two-stage pipeline:
+
+1. **`BuildAndTest`** (every push and PR against `main`) — `npm ci`, lint,
+   `format:check`, `npm run build` (type-check + demo app), unit tests +
+   coverage, an `npm audit --omit=dev` pass (informational — doesn't fail
+   the build), and `npm run build:lib`. Test results and coverage are
+   published to the build's Tests/Code Coverage tabs. This is pure
+   validation on every PR; nothing is versioned or published.
+2. **`Publish`** (push to `main` only, after `BuildAndTest` succeeds) — a
+   `deployment` job against the `npm-publish` environment, so it only
+   proceeds once approved. Downloads the `dist/` and version-bumped
+   `package.json` built in stage 1, authenticates to the Azure Artifacts
+   feed via `npmAuthenticate@0`, runs `npm publish`, then tags the release
+   (`vX.Y.Z`) and pushes the tag back to the repo.
+
+Versioning is commit-driven, not manual: `scripts/next-version.mjs` looks at
+every commit since the last `v*` tag and bumps `major` on a `!:`/`BREAKING
+CHANGE` commit, `minor` on any `feat:`, otherwise `patch`. Commit messages
+aren't required to follow this format (see [Git hooks](#git-hooks)) — an
+unprefixed message just falls back to a patch bump, so every merge to
+`main` still ships something. It only runs on `main` builds, right before
+the `dist`/`package.json` artifacts are published for stage 2 to publish
+from. Run it locally with `npm run version:bump` to preview what the next
+release would be.
+
+**One-time Azure DevOps setup** (not in the YAML — these live on the
+project itself):
+
+- Create an **Environment** named `npm-publish` (Pipelines > Environments).
+  Add an **Approvals** check (who can sign off before `npm publish` runs)
+  and an **Exclusive Lock** check (so two merges to `main` can never race
+  each other's publish + tag).
+- Grant the **Project Collection Build Service** identity **Contributor**
+  access on the `inoaspecct-digital-feed` feed (Azure Artifacts > feed
+  settings > Permissions) — without this, `npmAuthenticate@0` can
+  authenticate but `npm publish` still gets a 403.
+- Enable **"Allow scripts to access the OAuth token"** on the pipeline
+  (Edit pipeline > ... > Triggers > this pipeline's Settings tab), needed
+  for the `git push` of the release tag in the `Publish` stage.
+- The repo's branch policy for `main` should require the `BuildAndTest`
+  stage to pass before merging, so nothing unbuildable ever reaches the
+  `Publish` stage.
 
 ## Consuming this package
 
