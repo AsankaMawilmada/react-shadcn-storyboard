@@ -19,6 +19,13 @@ pr:
 
 variables:
   isMain: $[and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'PullRequest'))]
+  # Cache@2's `path` input only does macro (`$(...)`) expansion for actual
+  # pipeline variables, not arbitrary env vars — this must be declared here
+  # to resolve at all. Fixed path also becomes the cache boundary: npm
+  # itself honors the npm_config_cache env var (Azure auto-injects every
+  # pipeline variable as one), so `npm ci` actually writes its cache here
+  # too, keeping what's saved and what's restored in sync.
+  npm_config_cache: $(Pipeline.Workspace)/.npm
 
 stages:
   - stage: BuildAndTest
