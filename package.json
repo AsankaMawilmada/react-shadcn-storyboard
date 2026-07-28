@@ -36,16 +36,26 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:lib": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && node scripts/fix-lib-extensions.mjs && node scripts/copy-lib-styles.mjs",
+    "build:lib": "node scripts/build-lib.mjs",
     "prepublishOnly": "npm run build:lib",
     "pack:local": "npm run build:lib && npm pack",
     "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "transform-tokens": "node scripts/transform-tokens.mjs",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,md}": "prettier --write"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -62,6 +72,8 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.5.5",
     "@storybook/addon-docs": "^10.5.5",
@@ -76,10 +88,14 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.8.0",
+    "husky": "^9.1.7",
     "jsdom": "^30.0.0",
+    "lint-staged": "^17.2.0",
+    "prettier": "^3.9.6",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "storybook": "^10.5.5",

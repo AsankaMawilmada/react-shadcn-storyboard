@@ -6,7 +6,10 @@ export const Breadcrumb = (props: React.HTMLAttributes<HTMLElement>) => (
   <nav aria-label="breadcrumb" {...props} />
 )
 
-export const BreadcrumbList = ({ className, ...props }: React.OlHTMLAttributes<HTMLOListElement>) => (
+export const BreadcrumbList = ({
+  className,
+  ...props
+}: React.OlHTMLAttributes<HTMLOListElement>) => (
   <ol
     className={cn(
       'flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5',
@@ -16,18 +19,30 @@ export const BreadcrumbList = ({ className, ...props }: React.OlHTMLAttributes<H
   />
 )
 
-export const BreadcrumbItem = ({ className, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => (
-  <li className={cn('inline-flex items-center gap-1.5', className)} {...props} />
+export const BreadcrumbItem = ({
+  className,
+  ...props
+}: React.LiHTMLAttributes<HTMLLIElement>) => (
+  <li
+    className={cn('inline-flex items-center gap-1.5', className)}
+    {...props}
+  />
 )
 
 export const BreadcrumbLink = ({
   className,
   ...props
 }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-  <a className={cn('transition-colors hover:text-foreground', className)} {...props} />
+  <a
+    className={cn('transition-colors hover:text-foreground', className)}
+    {...props}
+  />
 )
 
-export const BreadcrumbPage = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
+export const BreadcrumbPage = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => (
   <span
     role="link"
     aria-disabled="true"
@@ -42,12 +57,20 @@ export const BreadcrumbSeparator = ({
   children,
   ...props
 }: React.LiHTMLAttributes<HTMLLIElement>) => (
-  <li role="presentation" aria-hidden="true" className={cn('[&>svg]:size-3.5', className)} {...props}>
+  <li
+    role="presentation"
+    aria-hidden="true"
+    className={cn('[&>svg]:size-3.5', className)}
+    {...props}
+  >
     {children ?? <ChevronRight />}
   </li>
 )
 
-export const BreadcrumbEllipsis = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
+export const BreadcrumbEllipsis = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => (
   <span
     role="presentation"
     aria-hidden="true"

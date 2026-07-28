@@ -9,7 +9,9 @@ const { Default, Disabled } = composeStories(stories)
 describe('Textarea', () => {
   it('renders with its placeholder', () => {
     render(<Default />)
-    expect(screen.getByPlaceholderText('Type your message...')).toBeInTheDocument()
+    expect(
+      screen.getByPlaceholderText('Type your message...'),
+    ).toBeInTheDocument()
   })
 
   it('accepts typed multi-line text', async () => {

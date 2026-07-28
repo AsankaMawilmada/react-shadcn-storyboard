@@ -17,7 +17,9 @@ describe('Sheet', () => {
     render(<Default />)
     await user.click(screen.getByRole('button', { name: 'Edit profile' }))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByText('Make changes to your profile here.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Make changes to your profile here.'),
+    ).toBeInTheDocument()
   })
 
   it('closes when the close (X) button is clicked', async () => {
@@ -41,6 +43,8 @@ describe('Sheet', () => {
     render(<Left />)
     await user.click(screen.getByRole('button', { name: 'Open left' }))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByText('A sheet sliding in from the left edge.')).toBeInTheDocument()
+    expect(
+      screen.getByText('A sheet sliding in from the left edge.'),
+    ).toBeInTheDocument()
   })
 })

@@ -2,7 +2,10 @@ import * as React from 'react'
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-export const Pagination = ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+export const Pagination = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLElement>) => (
   <nav
     role="navigation"
     aria-label="pagination"
@@ -11,11 +14,20 @@ export const Pagination = ({ className, ...props }: React.HTMLAttributes<HTMLEle
   />
 )
 
-export const PaginationContent = ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-  <ul className={cn('flex flex-row items-center gap-1', className)} {...props} />
+export const PaginationContent = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLUListElement>) => (
+  <ul
+    className={cn('flex flex-row items-center gap-1', className)}
+    {...props}
+  />
 )
 
-export const PaginationItem = ({ className, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => (
+export const PaginationItem = ({
+  className,
+  ...props
+}: React.LiHTMLAttributes<HTMLLIElement>) => (
   <li className={cn(className)} {...props} />
 )
 
@@ -74,8 +86,15 @@ export const PaginationNext = ({
   </PaginationLink>
 )
 
-export const PaginationEllipsis = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
-  <span aria-hidden="true" className={cn('flex size-9 items-center justify-center', className)} {...props}>
+export const PaginationEllipsis = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => (
+  <span
+    aria-hidden="true"
+    className={cn('flex size-9 items-center justify-center', className)}
+    {...props}
+  >
     <MoreHorizontal className="size-4" />
     <span className="sr-only">More pages</span>
   </span>

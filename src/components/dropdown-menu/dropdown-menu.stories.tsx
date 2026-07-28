@@ -25,7 +25,9 @@ type Story = StoryObj<typeof DropdownMenu>
 export const Default: Story = {
   render: () => (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline">Open menu</Button>} />
+      <DropdownMenuTrigger
+        render={<Button variant="outline">Open menu</Button>}
+      />
       <DropdownMenuContent className="w-56">
         <DropdownMenuGroup>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -44,7 +46,9 @@ export const Default: Story = {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem defaultChecked>Show status bar</DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem defaultChecked>
+          Show status bar
+        </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem>Show activity log</DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>

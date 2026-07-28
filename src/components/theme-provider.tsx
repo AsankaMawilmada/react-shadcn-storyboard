@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react'
 
 export type Theme = 'default' | 'midnight'
 
@@ -14,7 +21,10 @@ type ThemeProviderProps = {
   defaultTheme?: Theme
 }
 
-export const ThemeProvider = ({ children, defaultTheme = 'default' }: ThemeProviderProps) => {
+export const ThemeProvider = ({
+  children,
+  defaultTheme = 'default',
+}: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(defaultTheme)
 
   useEffect(() => {

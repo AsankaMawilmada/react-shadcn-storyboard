@@ -19,9 +19,19 @@ export default meta
 type Story = StoryObj<typeof Table>
 
 const invoices = [
-  { invoice: 'INV001', status: 'Paid', method: 'Credit Card', amount: '$250.00' },
+  {
+    invoice: 'INV001',
+    status: 'Paid',
+    method: 'Credit Card',
+    amount: '$250.00',
+  },
   { invoice: 'INV002', status: 'Pending', method: 'PayPal', amount: '$150.00' },
-  { invoice: 'INV003', status: 'Unpaid', method: 'Bank Transfer', amount: '$350.00' },
+  {
+    invoice: 'INV003',
+    status: 'Unpaid',
+    method: 'Bank Transfer',
+    amount: '$350.00',
+  },
 ]
 
 export const Default: Story = {

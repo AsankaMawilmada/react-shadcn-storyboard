@@ -17,7 +17,9 @@ describe('Drawer', () => {
     render(<Default />)
     await user.click(screen.getByRole('button', { name: 'Edit profile' }))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByText('Make changes to your profile here.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Make changes to your profile here.'),
+    ).toBeInTheDocument()
   })
 
   it('closes when Cancel is clicked', async () => {

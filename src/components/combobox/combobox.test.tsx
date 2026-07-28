@@ -29,7 +29,9 @@ describe('Combobox', () => {
     await screen.findByRole('listbox')
     await user.type(input, 'Vue')
     expect(screen.getByRole('option', { name: 'Vue' })).toBeInTheDocument()
-    expect(screen.queryByRole('option', { name: 'React' })).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('option', { name: 'React' }),
+    ).not.toBeInTheDocument()
   })
 
   it('shows the empty state when there are no matches', async () => {

@@ -27,18 +27,19 @@ export const ContextMenuContent = React.forwardRef<
 ))
 ContextMenuContent.displayName = 'ContextMenuContent'
 
-export const ContextMenuItem = React.forwardRef<HTMLDivElement, ContextMenuPrimitive.Item.Props>(
-  ({ className, ...props }, ref) => (
-    <ContextMenuPrimitive.Item
-      ref={ref}
-      className={cn(
-        'relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0',
-        className,
-      )}
-      {...props}
-    />
-  ),
-)
+export const ContextMenuItem = React.forwardRef<
+  HTMLDivElement,
+  ContextMenuPrimitive.Item.Props
+>(({ className, ...props }, ref) => (
+  <ContextMenuPrimitive.Item
+    ref={ref}
+    className={cn(
+      'relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0',
+      className,
+    )}
+    {...props}
+  />
+))
 ContextMenuItem.displayName = 'ContextMenuItem'
 
 export const ContextMenuLabel = React.forwardRef<

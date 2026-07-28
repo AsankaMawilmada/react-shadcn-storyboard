@@ -1,6 +1,12 @@
 import { Button } from '@/components/button'
 import { Badge } from '@/components/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/card'
 import { Input } from '@/components/input'
 import { Label } from '@/components/label'
 import { Switch } from '@/components/switch'
@@ -14,7 +20,9 @@ const ThemeToggle = () => {
       <Switch
         id="theme-switch"
         checked={theme === 'midnight'}
-        onCheckedChange={(checked: boolean) => setTheme(checked ? 'midnight' : 'default')}
+        onCheckedChange={(checked: boolean) =>
+          setTheme(checked ? 'midnight' : 'default')
+        }
       />
     </div>
   )
@@ -36,7 +44,9 @@ const App = () => (
       <Card>
         <CardHeader>
           <CardTitle>Sign in</CardTitle>
-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
+          <CardDescription>
+            Enter your email below to sign in to your account.
+          </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid gap-2">

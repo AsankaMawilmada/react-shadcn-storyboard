@@ -27,7 +27,9 @@ export const Default: Story = {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>Make changes to your profile here.</DialogDescription>
+          <DialogDescription>
+            Make changes to your profile here.
+          </DialogDescription>
         </DialogHeader>
         <DialogFooter>
           <DialogClose render={<Button variant="outline">Cancel</Button>} />

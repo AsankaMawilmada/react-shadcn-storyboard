@@ -37,12 +37,16 @@ export const P: Story = {
 export const Blockquote: Story = {
   args: {
     variant: 'blockquote',
-    children: '"After all," he said, "everyone enjoys a good joke, so it\'s only fair that they pay for the privilege."',
+    children:
+      '"After all," he said, "everyone enjoys a good joke, so it\'s only fair that they pay for the privilege."',
   },
 }
 
 export const Lead: Story = {
-  args: { variant: 'lead', children: 'A modal dialog that interrupts the user with important content.' },
+  args: {
+    variant: 'lead',
+    children: 'A modal dialog that interrupts the user with important content.',
+  },
 }
 
 export const Large: Story = {

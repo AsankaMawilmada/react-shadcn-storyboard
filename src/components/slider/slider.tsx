@@ -8,7 +8,10 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
   ({ className, ...props }, ref) => (
     <SliderPrimitive.Root
       ref={ref}
-      className={cn('relative flex w-full touch-none items-center select-none', className)}
+      className={cn(
+        'relative flex w-full touch-none items-center select-none',
+        className,
+      )}
       {...props}
     >
       <SliderPrimitive.Control className="flex w-full items-center">

@@ -4,7 +4,8 @@ import userEvent from '@testing-library/user-event'
 import { composeStories } from '@storybook/react'
 import * as stories from './button.stories'
 
-const { Default, Disabled, IconLeft, IconRight, IconOnly } = composeStories(stories)
+const { Default, Disabled, IconLeft, IconRight, IconOnly } =
+  composeStories(stories)
 
 describe('Button', () => {
   it('renders', () => {
@@ -32,17 +33,23 @@ describe('Button', () => {
 
   it('renders an icon before the label', () => {
     render(<IconLeft />)
-    expect(screen.getByRole('button', { name: /login with email/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /login with email/i }),
+    ).toBeInTheDocument()
   })
 
   it('renders an icon after the label', () => {
     render(<IconRight />)
-    expect(screen.getByRole('button', { name: /continue/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /continue/i }),
+    ).toBeInTheDocument()
   })
 
   it('renders icon-only buttons at every size', () => {
     render(<IconOnly />)
-    expect(screen.getAllByRole('button', { name: 'Send email' })).toHaveLength(2)
+    expect(screen.getAllByRole('button', { name: 'Send email' })).toHaveLength(
+      2,
+    )
     expect(screen.getByRole('button', { name: 'Delete' })).toBeInTheDocument()
   })
 })

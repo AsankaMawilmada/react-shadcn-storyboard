@@ -8,10 +8,18 @@ const { Default } = composeStories(stories)
 describe('Table', () => {
   it('renders the column headers', () => {
     render(<Default />)
-    expect(screen.getByRole('columnheader', { name: 'Invoice' })).toBeInTheDocument()
-    expect(screen.getByRole('columnheader', { name: 'Status' })).toBeInTheDocument()
-    expect(screen.getByRole('columnheader', { name: 'Method' })).toBeInTheDocument()
-    expect(screen.getByRole('columnheader', { name: 'Amount' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('columnheader', { name: 'Invoice' }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('columnheader', { name: 'Status' }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('columnheader', { name: 'Method' }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('columnheader', { name: 'Amount' }),
+    ).toBeInTheDocument()
   })
 
   it('renders one row per invoice plus the header row', () => {

@@ -9,8 +9,12 @@ const { Default } = composeStories(stories)
 describe('Card', () => {
   it('renders the title and description', () => {
     render(<Default />)
-    expect(screen.getByRole('heading', { name: 'Create project' })).toBeInTheDocument()
-    expect(screen.getByText('Deploy your new project in one click.')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Create project' }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Deploy your new project in one click.'),
+    ).toBeInTheDocument()
   })
 
   it('renders the content', () => {

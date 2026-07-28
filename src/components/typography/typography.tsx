@@ -26,7 +26,9 @@ const typographyVariants = cva('', {
   },
 })
 
-export type TypographyVariant = NonNullable<VariantProps<typeof typographyVariants>['variant']>
+export type TypographyVariant = NonNullable<
+  VariantProps<typeof typographyVariants>['variant']
+>
 
 const defaultElement: Record<TypographyVariant, React.ElementType> = {
   h1: 'h1',
@@ -55,5 +57,10 @@ export const Typography = <T extends React.ElementType = 'p'>({
   ...props
 }: TypographyProps<T>) => {
   const Component = as ?? defaultElement[variant]
-  return <Component className={cn(typographyVariants({ variant }), className)} {...props} />
+  return (
+    <Component
+      className={cn(typographyVariants({ variant }), className)}
+      {...props}
+    />
+  )
 }

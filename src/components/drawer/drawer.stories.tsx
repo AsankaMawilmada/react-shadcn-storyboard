@@ -31,7 +31,9 @@ export const Default: Story = {
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>Edit profile</DrawerTitle>
-          <DrawerDescription>Make changes to your profile here.</DrawerDescription>
+          <DrawerDescription>
+            Make changes to your profile here.
+          </DrawerDescription>
         </DrawerHeader>
         <div className="grid gap-4 px-4">
           <div className="grid gap-2">

@@ -29,7 +29,9 @@ export const Default: Story = {
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>Make changes to your profile here.</SheetDescription>
+          <SheetDescription>
+            Make changes to your profile here.
+          </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
@@ -57,7 +59,9 @@ export const Left: Story = {
       <SheetContent side="left">
         <SheetHeader>
           <SheetTitle>Navigation</SheetTitle>
-          <SheetDescription>A sheet sliding in from the left edge.</SheetDescription>
+          <SheetDescription>
+            A sheet sliding in from the left edge.
+          </SheetDescription>
         </SheetHeader>
       </SheetContent>
     </Sheet>

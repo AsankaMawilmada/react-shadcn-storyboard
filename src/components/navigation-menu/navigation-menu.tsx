@@ -3,28 +3,35 @@ import { NavigationMenu as NavigationMenuPrimitive } from '@base-ui/react/naviga
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-export const NavigationMenu = React.forwardRef<HTMLElement, NavigationMenuPrimitive.Root.Props>(
-  ({ className, children, ...props }, ref) => (
-    <NavigationMenuPrimitive.Root
-      ref={ref}
-      className={cn('relative flex max-w-max flex-1 items-center justify-center', className)}
-      {...props}
-    >
-      {children}
-      <NavigationMenuPrimitive.Portal>
-        <NavigationMenuPrimitive.Positioner sideOffset={8} className="z-50 box-border">
-          <NavigationMenuPrimitive.Popup
-            className={cn(
-              'h-[var(--popup-height)] w-[var(--popup-width)] origin-[var(--transform-origin)] overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none transition-[width,height] duration-200 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
-            )}
-          >
-            <NavigationMenuPrimitive.Viewport />
-          </NavigationMenuPrimitive.Popup>
-        </NavigationMenuPrimitive.Positioner>
-      </NavigationMenuPrimitive.Portal>
-    </NavigationMenuPrimitive.Root>
-  ),
-)
+export const NavigationMenu = React.forwardRef<
+  HTMLElement,
+  NavigationMenuPrimitive.Root.Props
+>(({ className, children, ...props }, ref) => (
+  <NavigationMenuPrimitive.Root
+    ref={ref}
+    className={cn(
+      'relative flex max-w-max flex-1 items-center justify-center',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+    <NavigationMenuPrimitive.Portal>
+      <NavigationMenuPrimitive.Positioner
+        sideOffset={8}
+        className="z-50 box-border"
+      >
+        <NavigationMenuPrimitive.Popup
+          className={cn(
+            'h-[var(--popup-height)] w-[var(--popup-width)] origin-[var(--transform-origin)] overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none transition-[width,height] duration-200 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
+          )}
+        >
+          <NavigationMenuPrimitive.Viewport />
+        </NavigationMenuPrimitive.Popup>
+      </NavigationMenuPrimitive.Positioner>
+    </NavigationMenuPrimitive.Portal>
+  </NavigationMenuPrimitive.Root>
+))
 NavigationMenu.displayName = 'NavigationMenu'
 
 export const NavigationMenuList = React.forwardRef<
@@ -33,7 +40,10 @@ export const NavigationMenuList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.List
     ref={ref}
-    className={cn('flex flex-1 list-none items-center justify-center gap-1', className)}
+    className={cn(
+      'flex flex-1 list-none items-center justify-center gap-1',
+      className,
+    )}
     {...props}
   />
 ))
@@ -63,7 +73,11 @@ export const NavigationMenuContent = React.forwardRef<
   HTMLDivElement,
   NavigationMenuPrimitive.Content.Props
 >(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.Content ref={ref} className={cn('p-4', className)} {...props} />
+  <NavigationMenuPrimitive.Content
+    ref={ref}
+    className={cn('p-4', className)}
+    {...props}
+  />
 ))
 NavigationMenuContent.displayName = 'NavigationMenuContent'
 

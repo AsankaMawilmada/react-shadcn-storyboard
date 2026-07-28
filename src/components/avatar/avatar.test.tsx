@@ -13,12 +13,16 @@ describe('Avatar', () => {
   it('renders the fallback text since jsdom never loads the image', () => {
     render(<Default />)
     expect(screen.getByText('SC')).toBeInTheDocument()
-    expect(screen.queryByRole('img', { name: '@shadcn' })).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('img', { name: '@shadcn' }),
+    ).not.toBeInTheDocument()
   })
 
   it('renders the fallback for a broken image source', () => {
     render(<WithFallback />)
     expect(screen.getByText('JD')).toBeInTheDocument()
-    expect(screen.queryByRole('img', { name: 'Jane Doe' })).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('img', { name: 'Jane Doe' }),
+    ).not.toBeInTheDocument()
   })
 })

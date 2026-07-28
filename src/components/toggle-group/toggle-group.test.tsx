@@ -13,14 +13,12 @@ describe('ToggleGroup', () => {
       'aria-pressed',
       'true',
     )
-    expect(screen.getByRole('button', { name: 'Toggle italic' })).toHaveAttribute(
-      'aria-pressed',
-      'false',
-    )
-    expect(screen.getByRole('button', { name: 'Toggle underline' })).toHaveAttribute(
-      'aria-pressed',
-      'false',
-    )
+    expect(
+      screen.getByRole('button', { name: 'Toggle italic' }),
+    ).toHaveAttribute('aria-pressed', 'false')
+    expect(
+      screen.getByRole('button', { name: 'Toggle underline' }),
+    ).toHaveAttribute('aria-pressed', 'false')
   })
 
   it('allows multiple items to be pressed independently', async () => {

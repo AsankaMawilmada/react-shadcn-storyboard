@@ -25,6 +25,10 @@ describe('ScrollArea', () => {
 
   it('applies the size classes passed via className to the root', () => {
     const { container } = render(<Default />)
-    expect(container.firstElementChild).toHaveClass('h-72', 'w-48', 'overflow-hidden')
+    expect(container.firstElementChild).toHaveClass(
+      'h-72',
+      'w-48',
+      'overflow-hidden',
+    )
   })
 })

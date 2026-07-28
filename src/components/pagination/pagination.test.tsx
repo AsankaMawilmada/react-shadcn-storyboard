@@ -8,13 +8,19 @@ const { Default } = composeStories(stories)
 describe('Pagination', () => {
   it('renders a navigation landmark labeled pagination', () => {
     render(<Default />)
-    expect(screen.getByRole('navigation', { name: 'pagination' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('navigation', { name: 'pagination' }),
+    ).toBeInTheDocument()
   })
 
   it('renders Previous and Next links', () => {
     render(<Default />)
-    expect(screen.getByRole('link', { name: 'Go to previous page' })).toHaveTextContent('Previous')
-    expect(screen.getByRole('link', { name: 'Go to next page' })).toHaveTextContent('Next')
+    expect(
+      screen.getByRole('link', { name: 'Go to previous page' }),
+    ).toHaveTextContent('Previous')
+    expect(
+      screen.getByRole('link', { name: 'Go to next page' }),
+    ).toHaveTextContent('Next')
   })
 
   it('marks the active page link with aria-current', () => {

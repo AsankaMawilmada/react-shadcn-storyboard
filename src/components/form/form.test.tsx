@@ -10,7 +10,9 @@ describe('Form', () => {
   it('renders the label, description, and control', () => {
     render(<Default />)
     expect(screen.getByText('Email')).toBeInTheDocument()
-    expect(screen.getByText("We'll never share your email.")).toBeInTheDocument()
+    expect(
+      screen.getByText("We'll never share your email."),
+    ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument()
   })
 
@@ -28,7 +30,9 @@ describe('Form', () => {
     const input = screen.getByLabelText('Email')
     await user.type(input, 'jane@example.com')
     await user.click(screen.getByRole('button', { name: 'Submit' }))
-    expect(logSpy).toHaveBeenCalledWith(expect.objectContaining({ email: 'jane@example.com' }))
+    expect(logSpy).toHaveBeenCalledWith(
+      expect.objectContaining({ email: 'jane@example.com' }),
+    )
     logSpy.mockRestore()
   })
 })

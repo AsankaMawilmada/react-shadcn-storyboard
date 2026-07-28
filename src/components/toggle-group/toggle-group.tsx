@@ -12,8 +12,7 @@ const ToggleGroupContext = React.createContext<ToggleGroupContextValue>({
 })
 
 export interface ToggleGroupProps
-  extends ToggleGroupPrimitive.Props,
-    VariantProps<typeof toggleVariants> {}
+  extends ToggleGroupPrimitive.Props, VariantProps<typeof toggleVariants> {}
 
 export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
   ({ className, variant, size, children, ...props }, ref) => (

@@ -17,7 +17,9 @@ describe('Dialog', () => {
     render(<Default />)
     await user.click(screen.getByRole('button', { name: 'Edit profile' }))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByText('Make changes to your profile here.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Make changes to your profile here.'),
+    ).toBeInTheDocument()
   })
 
   it('closes when the close button is clicked', async () => {

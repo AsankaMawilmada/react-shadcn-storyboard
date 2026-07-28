@@ -22,7 +22,10 @@ export const Default: Story = {
 export const WithFallback: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="https://broken-image-url.example/avatar.png" alt="Jane Doe" />
+      <AvatarImage
+        src="https://broken-image-url.example/avatar.png"
+        alt="Jane Doe"
+      />
       <AvatarFallback>JD</AvatarFallback>
     </Avatar>
   ),

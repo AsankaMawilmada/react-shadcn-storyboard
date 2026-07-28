@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-app
+storybook-static
+
+# Raw Figma export — reformatting would just diverge from what a future
+# re-export looks like, for no benefit (nothing hand-edits these anyway)
+.figma
+
+# Generated — regenerate via `npm run transform-tokens`, don't hand-format
+src/styles
+src/tokens
+
+# Generated test fixtures — reformatting would just create pointless diffs
+**/__snapshots__
+
+package-lock.json

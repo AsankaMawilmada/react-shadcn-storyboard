@@ -3,7 +3,8 @@ import { render, screen } from '@testing-library/react'
 import { composeStories } from '@storybook/react'
 import * as stories from './badge.stories'
 
-const { Default, Secondary, Destructive, Success, Warning, Outline } = composeStories(stories)
+const { Default, Secondary, Destructive, Success, Warning, Outline } =
+  composeStories(stories)
 
 describe('Badge', () => {
   it('renders the default badge as a span with its text', () => {

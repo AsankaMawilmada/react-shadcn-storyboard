@@ -3,12 +3,20 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default tseslint.config(
   { ignores: ['dist', 'dist-app', 'storybook-static'] },
   {
     files: ['**/*.{ts,tsx}'],
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    // eslintConfigPrettier must be last so it can disable any stylistic
+    // rules the other configs turn on — formatting is Prettier's job, not
+    // ESLint's, so the two should never disagree.
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      eslintConfigPrettier,
+    ],
     languageOptions: {
       ecmaVersion: 2023,
       globals: globals.browser,
@@ -23,7 +31,10 @@ export default tseslint.config(
       // is too aggressive for this codebase.
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
     },
   },
 )

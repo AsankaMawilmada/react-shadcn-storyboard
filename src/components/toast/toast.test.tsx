@@ -18,7 +18,9 @@ describe('Toast', () => {
     await user.click(screen.getByRole('button', { name: 'Add to calendar' }))
     // Toasts are added asynchronously via the toast manager, so wait for it.
     expect(await screen.findByText('Scheduled')).toBeInTheDocument()
-    expect(screen.getByText('Your meeting has been scheduled.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Your meeting has been scheduled.'),
+    ).toBeInTheDocument()
   })
 
   it('closes the toast when its close button is clicked', async () => {

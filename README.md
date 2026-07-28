@@ -7,7 +7,7 @@ from a Figma design-token export, documented in Storybook, and covered by a
 Vitest test suite that reuses the Storybook stories as fixtures.
 
 This repo does double duty: it's both the full development environment
-(components, stories, tests, a demo app) *and* the source for the published
+(components, stories, tests, a demo app) _and_ the source for the published
 package. Only `dist/` — components, `ThemeProvider`, and the theme — ever
 gets published; stories, tests, and the demo app never leave this repo. See
 [Consuming this package](#consuming-this-package) below.
@@ -22,6 +22,7 @@ gets published; stories, tests, and the demo app never leave this repo. See
 - **Vitest + Testing Library** — unit and snapshot tests via Storybook's portable stories (`composeStories`)
 - **ESLint** (flat config) — typescript-eslint + react-hooks + react-refresh
 - **`tsc` + `tsc-alias`** — the publishable library build (see below; deliberately not Vite/Rolldown, see [Library build](#library-build))
+- **Husky + lint-staged + commitlint** — git hooks (see [Git hooks](#git-hooks))
 
 ## Getting started (developing this repo)
 
@@ -34,27 +35,46 @@ npm run test          # unit + snapshot tests
 
 ## Scripts
 
-| Script                  | What it does                                              |
-| ------------------------ | ---------------------------------------------------------- |
-| `npm run dev`             | Vite dev server for `src/App.tsx`                          |
-| `npm run build`            | Typecheck (`tsc -b`) + production build of the demo app    |
-| `npm run build:lib`        | Build the **publishable package** into `dist/` (see below) |
-| `npm run pack:local`       | `build:lib` + `npm pack` → a local `.tgz` for local testing |
-| `npm run preview`          | Preview the demo app production build                       |
-| `npm run storybook`        | Storybook dev server                                        |
-| `npm run build-storybook`  | Static Storybook build → `storybook-static/`               |
-| `npm run lint`              | ESLint over the whole repo                                   |
-| `npm run test`              | Run the full test suite once (`vitest run`)                |
-| `npm run test:watch`       | Vitest in watch mode                                         |
+| Script                     | What it does                                                            |
+| -------------------------- | ----------------------------------------------------------------------- |
+| `npm run dev`              | Vite dev server for `src/App.tsx`                                       |
+| `npm run build`            | Typecheck (`tsc -b`) + production build of the demo app                 |
+| `npm run build:lib`        | Build the **publishable package** into `dist/` (see below)              |
+| `npm run pack:local`       | `build:lib` + `npm pack` → a local `.tgz` for local testing             |
+| `npm run preview`          | Preview the demo app production build                                   |
+| `npm run storybook`        | Storybook dev server                                                    |
+| `npm run build-storybook`  | Static Storybook build → `storybook-static/`                            |
+| `npm run lint`             | ESLint over the whole repo                                              |
+| `npm run test`             | Run the full test suite once (`vitest run`)                             |
+| `npm run test:watch`       | Vitest in watch mode                                                    |
 | `npm run transform-tokens` | Regenerate `src/styles/*.css` + `src/tokens/*.ts` from `.figma/themes/` |
+
+## Git hooks
+
+[Husky](https://typicode.github.io/husky/) manages the hooks (`.husky/`);
+`npm install` wires them up automatically via the `prepare` script.
+
+- **pre-commit** — runs [lint-staged](https://github.com/lint-staged/lint-staged),
+  which runs `eslint --fix` on staged `*.ts`/`*.tsx` files only (config lives
+  in `package.json`'s `"lint-staged"` key). Fast — scoped to what you're
+  actually committing.
+- **commit-msg** — runs [commitlint](https://commitlint.js.org/) against
+  [Conventional Commits](https://www.conventionalcommits.org/) (`commitlint.config.js`).
+  Commit messages must look like `feat: add Combobox multi-select` or
+  `fix(button): correct icon-only sizing` — this is what would drive
+  automated changelog/version generation (e.g. Changesets) if that gets
+  added later.
+
+There's deliberately no pre-push hook — the full test suite takes ~3
+minutes (see [Testing](#testing)), which is too slow to run on every push.
+That's left to CI.
 
 ## Project structure
 
 ```
 .figma/themes/<name>/*.tokens.json   Raw W3C design tokens exported from Figma (source of truth)
 scripts/transform-tokens.mjs         Style Dictionary pipeline: .figma/ -> src/styles/ + src/tokens/
-scripts/fix-lib-extensions.mjs       Postbuild: rewrites dist/ relative imports to be Node-ESM-strict
-scripts/copy-lib-styles.mjs          Postbuild: copies src/styles/*.css -> dist/styles/
+scripts/build-lib.mjs                The whole `npm run build:lib` pipeline (tsc, alias-rewrite, extension-fix, style copy)
 src/styles/                          Generated CSS (tokens.css, theme.css) — do not hand-edit
 src/tokens/                          Generated TS token exports — do not hand-edit
 src/index.ts                         Root barrel — the package's "." export, re-exports everything
@@ -130,31 +150,32 @@ Date Picker, Resizable, Sidebar.
 
 ## Library build
 
-`npm run build:lib` produces the actual publishable `dist/` — deliberately
-**not** built with Vite (this repo's own bundler, which runs on Rolldown as
-of Vite 8). Rolldown's tree-shaking silently drops re-exported bindings from
-pure `export * from './x'` barrel files (even with `treeshake: false` and
-even for entry chunks) — an entire component's worth of exports, or a whole
-module, can vanish with no warning. `tsc` is a pure 1:1 transpiler with no
-bundling and no dead-code elimination, which is what actually preserving a
-folder-per-component module structure needs. The pipeline:
+`npm run build:lib` runs `scripts/build-lib.mjs`, which produces the actual
+publishable `dist/` — deliberately **not** built with Vite (this repo's own
+bundler, which runs on Rolldown as of Vite 8). Rolldown's tree-shaking
+silently drops re-exported bindings from pure `export * from './x'` barrel
+files (even with `treeshake: false` and even for entry chunks) — an entire
+component's worth of exports, or a whole module, can vanish with no warning.
+`tsc` is a pure 1:1 transpiler with no bundling and no dead-code
+elimination, which is what actually preserving a folder-per-component
+module structure needs. The single script runs, in order:
 
-1. `tsc -p tsconfig.build.json` — transpiles `src/index.ts`,
+1. **`tsc -p tsconfig.build.json`** (spawned) — transpiles `src/index.ts`,
    `src/components/**`, `src/tokens/**`, and `src/lib/**` (stories/tests
    excluded) to `dist/`, mirroring the `src/` structure 1:1, with `.d.ts`
    alongside every `.js`.
-2. `tsc-alias` — rewrites `@/*` alias imports to relative paths.
-3. `scripts/fix-lib-extensions.mjs` — `tsc` emits bundler-style extensionless
-   relative specifiers (`from './components/button'`); Node's own ESM
-   resolver requires them fully specified. Rewrites every relative
-   import/export in `dist/**/*.{js,d.ts}` to an explicit `.js` (or
-   `<dir>/index.js`), so the package resolves correctly under strict Node
-   ESM too, not just inside a bundler. Verified with a real smoke test:
-   packing, installing into a scratch project, and importing from the root
-   barrel, a subpath, `/tokens`, and `/theme-provider` under plain `node`.
-4. `scripts/copy-lib-styles.mjs` — copies `src/styles/*.css` to `dist/styles/`
-   (nothing imports them as JS modules, so the bundler-style steps above
-   never touch them).
+2. **`replaceTscAliasPaths`** (`tsc-alias`'s programmatic API) — rewrites
+   `@/*` alias imports to relative paths.
+3. **`fixLibExtensions`** — `tsc` emits bundler-style extensionless relative
+   specifiers (`from './components/button'`); Node's own ESM resolver
+   requires them fully specified. Rewrites every relative import/export in
+   `dist/**/*.{js,d.ts}` to an explicit `.js` (or `<dir>/index.js`), so the
+   package resolves correctly under strict Node ESM too, not just inside a
+   bundler. Verified with a real smoke test: packing, installing into a
+   scratch project, and importing from the root barrel, a subpath,
+   `/tokens`, and `/theme-provider` under plain `node`.
+4. **`copyStyles`** — copies `src/styles/*.css` to `dist/styles/` (nothing
+   imports them as JS modules, so the steps above never touch them).
 
 `react`, `react-dom`, `@base-ui/react`, `class-variance-authority`, `clsx`,
 `cmdk`, `lucide-react`, `tailwind-merge`, and `vaul` are all external — never
@@ -196,7 +217,12 @@ components and generates none of the utility CSS they need.
 ### Use it
 
 ```tsx
-import { Button, Dialog, DialogContent, DialogTrigger } from '@inoaspect/react-components'
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from '@inoaspect/react-components'
 import { ThemeProvider } from '@inoaspect/react-components/theme-provider'
 // or, per-component deep imports (same components, smaller per-file graph):
 // import { Button } from '@inoaspect/react-components/button'

@@ -26,13 +26,24 @@ export const AlertDialogContent = React.forwardRef<
 ))
 AlertDialogContent.displayName = 'AlertDialogContent'
 
-export const AlertDialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col gap-1.5 text-center sm:text-left', className)} {...props} />
-)
-
-export const AlertDialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+export const AlertDialogHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', className)}
+    className={cn('flex flex-col gap-1.5 text-center sm:text-left', className)}
+    {...props}
+  />
+)
+export const AlertDialogFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end',
+      className,
+    )}
     {...props}
   />
 )
@@ -62,9 +73,17 @@ export const AlertDialogDescription = React.forwardRef<
 AlertDialogDescription.displayName = 'AlertDialogDescription'
 
 export const AlertDialogAction = ({ className, ...props }: ButtonProps) => (
-  <AlertDialogPrimitive.Close render={<Button className={className} {...props} />} />
+  <AlertDialogPrimitive.Close
+    render={<Button className={className} {...props} />}
+  />
 )
 
-export const AlertDialogCancel = ({ className, variant = 'outline', ...props }: ButtonProps) => (
-  <AlertDialogPrimitive.Close render={<Button variant={variant} className={className} {...props} />} />
+export const AlertDialogCancel = ({
+  className,
+  variant = 'outline',
+  ...props
+}: ButtonProps) => (
+  <AlertDialogPrimitive.Close
+    render={<Button variant={variant} className={className} {...props} />}
+  />
 )

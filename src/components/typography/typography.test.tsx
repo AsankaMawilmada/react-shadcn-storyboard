@@ -3,44 +3,44 @@ import { render, screen } from '@testing-library/react'
 import { composeStories } from '@storybook/react'
 import * as stories from './typography.stories'
 
-const {
-  H1,
-  H2,
-  H3,
-  H4,
-  P,
-  Blockquote,
-  Lead,
-  Large,
-  Small,
-  Muted,
-  Link,
-} = composeStories(stories)
+const { H1, H2, H3, H4, P, Blockquote, Lead, Large, Small, Muted, Link } =
+  composeStories(stories)
 
 describe('Typography', () => {
   it('renders the h1 variant as an <h1>', () => {
     render(<H1 />)
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Taxing Laughter: The Joke Tax Chronicles' }),
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'Taxing Laughter: The Joke Tax Chronicles',
+      }),
     ).toBeInTheDocument()
   })
 
   it('renders the h2 variant as an <h2>', () => {
     render(<H2 />)
     expect(
-      screen.getByRole('heading', { level: 2, name: 'The People of the Kingdom' }),
+      screen.getByRole('heading', {
+        level: 2,
+        name: 'The People of the Kingdom',
+      }),
     ).toBeInTheDocument()
   })
 
   it('renders the h3 variant as an <h3>', () => {
     render(<H3 />)
-    expect(screen.getByRole('heading', { level: 3, name: 'The Joke Tax' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'The Joke Tax' }),
+    ).toBeInTheDocument()
   })
 
   it('renders the h4 variant as an <h4>', () => {
     render(<H4 />)
     expect(
-      screen.getByRole('heading', { level: 4, name: 'People stopped telling jokes' }),
+      screen.getByRole('heading', {
+        level: 4,
+        name: 'People stopped telling jokes',
+      }),
     ).toBeInTheDocument()
   })
 

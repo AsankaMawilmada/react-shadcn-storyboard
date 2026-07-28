@@ -43,7 +43,11 @@ const flattenColorValue = (tree) => {
   const walk = (node) => {
     if (!node || typeof node !== 'object') return
     if ('$value' in node) {
-      if (node.$type === 'color' && node.$value && typeof node.$value === 'object') {
+      if (
+        node.$type === 'color' &&
+        node.$value &&
+        typeof node.$value === 'object'
+      ) {
         node.$value = node.$value.hex ?? String(node.$value)
       }
       return
@@ -71,7 +75,9 @@ const pathGet = (tree, segments) => {
     }
   }
   if (!('$value' in node)) {
-    throw new Error(`Path ${segments.join('.')} does not resolve to a leaf token`)
+    throw new Error(
+      `Path ${segments.join('.')} does not resolve to a leaf token`,
+    )
   }
   return node.$value
 }
@@ -83,7 +89,9 @@ const toTsLiteral = (value, indent = 0) => {
   if (typeof value === 'object' && value !== null) {
     const entries = Object.entries(value)
       .map(([key, val]) => {
-        const safeKey = /^[A-Za-z_$][\w$]*$/.test(key) ? key : JSON.stringify(key)
+        const safeKey = /^[A-Za-z_$][\w$]*$/.test(key)
+          ? key
+          : JSON.stringify(key)
         return `${padIn}${safeKey}: ${toTsLiteral(val, indent + 1)},`
       })
       .join('\n')
@@ -111,8 +119,10 @@ StyleDictionary.registerTransform({
     token.$type === 'number' &&
     (token.filePath.endsWith('radius.tokens.json') ||
       token.filePath.endsWith('spacing.tokens.json') ||
-      (token.filePath.endsWith('text.tokens.json') && token.path[0] === 'size')),
-  transform: (token) => (token.path.at(-1) === 'radius-full' ? '9999px' : pxToRem(token.$value)),
+      (token.filePath.endsWith('text.tokens.json') &&
+        token.path[0] === 'size')),
+  transform: (token) =>
+    token.path.at(-1) === 'radius-full' ? '9999px' : pxToRem(token.$value),
 })
 
 // Figma's float32 export introduces artifacts like 1.100000023841858 for a
@@ -121,7 +131,8 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'figma/round-number',
   type: 'value',
-  filter: (token) => token.$type === 'number' && typeof token.$value === 'number',
+  filter: (token) =>
+    token.$type === 'number' && typeof token.$value === 'number',
   transform: (token) => Math.round(token.$value * 1000) / 1000,
 })
 
@@ -130,8 +141,8 @@ StyleDictionary.registerTransform({
   type: 'value',
   filter: (token) =>
     token.$type === 'number' &&
-    ['desktop.tokens.json', 'tablet.tokens.json', 'mobile.tokens.json'].some((f) =>
-      token.filePath.endsWith(f),
+    ['desktop.tokens.json', 'tablet.tokens.json', 'mobile.tokens.json'].some(
+      (f) => token.filePath.endsWith(f),
     ),
   transform: (token) => `${token.$value}px`,
 })
@@ -186,7 +197,9 @@ const buildThemeColors = async (theme, { pinBorderInputToPrimitive }) => {
     // Deliberately bypass the semantic `border.*` group for these two vars —
     // pinned straight to a primitive swatch to match the original
     // hand-authored look, per the design brief.
-    const primitives = flattenColorValue(readJSON(figmaPath('default', 'style.tokens.json')))
+    const primitives = flattenColorValue(
+      readJSON(figmaPath('default', 'style.tokens.json')),
+    )
     const pinned = pathGet(primitives, ['_colors', '_grayscale', '_200'])
     vars.border = pinned
     vars.input = pinned
@@ -231,7 +244,10 @@ const buildTypography = async (theme) => {
   const t = dictionary.tokens
   const strip = (group, prefix) =>
     Object.fromEntries(
-      Object.entries(t[group]).map(([key, token]) => [key.replace(`${prefix}-`, ''), token.$value]),
+      Object.entries(t[group]).map(([key, token]) => [
+        key.replace(`${prefix}-`, ''),
+        token.$value,
+      ]),
     )
   return {
     family: strip('family', 'family'),
@@ -264,7 +280,10 @@ const buildLayoutDevice = async (device) => {
     paragraphMaxWidth: t['paragraph-max-width'].$value,
     breakpoint: t.breakpoints.breakpoint.$value,
     widths: Object.fromEntries(
-      Object.entries(t.widths).map(([key, token]) => [key.replace('width-', ''), token.$value]),
+      Object.entries(t.widths).map(([key, token]) => [
+        key.replace('width-', ''),
+        token.$value,
+      ]),
     ),
     containers: Object.fromEntries(
       Object.entries(t.containers).map(([key, token]) => [key, token.$value]),
@@ -285,7 +304,12 @@ StyleDictionary.registerFormat({
   name: 'figma/component-state-ts',
   format: ({ dictionary }) => {
     const rebuild = (node) => {
-      if (node && typeof node === 'object' && 'path' in node && '$value' in node) {
+      if (
+        node &&
+        typeof node === 'object' &&
+        'path' in node &&
+        '$value' in node
+      ) {
         return node.value ?? node.$value
       }
       const out = {}
@@ -366,33 +390,50 @@ const DARK_MODE_COLORS = {
 }
 
 const main = async () => {
-  const defaultColors = await buildThemeColors('default', { pinBorderInputToPrimitive: true })
-  const midnightColors = await buildThemeColors('midnight', { pinBorderInputToPrimitive: false })
+  const defaultColors = await buildThemeColors('default', {
+    pinBorderInputToPrimitive: true,
+  })
+  const midnightColors = await buildThemeColors('midnight', {
+    pinBorderInputToPrimitive: false,
+  })
 
   const radius = await buildScale('default', 'radius.tokens.json', 'radius')
   const spacing = await buildScale('default', 'spacing.tokens.json', 'spacing')
   const typography = await buildTypography('default')
 
-  const [mobile, tablet, desktop] = await Promise.all(DEVICES.map(buildLayoutDevice))
+  const [mobile, tablet, desktop] = await Promise.all(
+    DEVICES.map(buildLayoutDevice),
+  )
 
   await buildComponentState()
 
   // ---- src/styles/tokens.css ----
-  const fontFamily = (name) => `"${name}", ui-sans-serif, system-ui, -apple-system, sans-serif`
+  const fontFamily = (name) =>
+    `"${name}", ui-sans-serif, system-ui, -apple-system, sans-serif`
 
   const typographyVars = {
     'font-sans': fontFamily(typography.family.base),
     'font-heading': fontFamily(typography.family.heading),
-    ...Object.fromEntries(Object.entries(typography.size).map(([k, v]) => [`text-${k}`, v])),
     ...Object.fromEntries(
-      Object.entries(typography.weight).map(([k, v]) => [`font-weight-${k}`, v]),
+      Object.entries(typography.size).map(([k, v]) => [`text-${k}`, v]),
     ),
     ...Object.fromEntries(
-      Object.entries(typography.lineHeight).map(([k, v]) => [`leading-${k}`, v]),
+      Object.entries(typography.weight).map(([k, v]) => [
+        `font-weight-${k}`,
+        v,
+      ]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(typography.lineHeight).map(([k, v]) => [
+        `leading-${k}`,
+        v,
+      ]),
     ),
   }
 
-  const radiusVars = Object.fromEntries(Object.entries(radius).map(([k, v]) => [`radius-${k}`, v]))
+  const radiusVars = Object.fromEntries(
+    Object.entries(radius).map(([k, v]) => [`radius-${k}`, v]),
+  )
   const spacingVars = Object.fromEntries(
     Object.entries(spacing).map(([k, v]) => [`spacing-${k}`, v]),
   )
@@ -476,22 +517,24 @@ ${cssVarBlock(DARK_MODE_COLORS)}
   // Tailwind's utility-generating theme.
   const themeCss = `${banner}@theme inline {
 ${Object.keys(defaultColors)
-    .map((key) => `  --color-${key}: var(--${key});`)
-    .join('\n')}
+  .map((key) => `  --color-${key}: var(--${key});`)
+  .join('\n')}
 
 ${Object.keys(radiusVars)
-    .map((key) => `  --${key}: var(--${key});`)
-    .join('\n')}
+  .map((key) => `  --${key}: var(--${key});`)
+  .join('\n')}
 
 ${Object.keys(typographyVars)
-    .map((key) => `  --${key}: var(--${key});`)
-    .join('\n')}
+  .map((key) => `  --${key}: var(--${key});`)
+  .join('\n')}
 }
 `
   writeFileSync(path.join(CSS_DIR, 'theme.css'), themeCss)
 
   // ---- src/tokens/*.ts ----
-  const primitives = flattenColorValue(readJSON(figmaPath('default', 'style.tokens.json')))
+  const primitives = flattenColorValue(
+    readJSON(figmaPath('default', 'style.tokens.json')),
+  )
   const rebuildPrimitives = (node) => {
     if (node && typeof node === 'object' && '$value' in node) return node.$value
     const out = {}
@@ -535,7 +578,9 @@ ${Object.keys(typographyVars)
   console.log('Token transform complete:')
   console.log('  src/styles/tokens.css')
   console.log('  src/styles/theme.css')
-  console.log('  src/tokens/{colors,radius,spacing,typography,layout,component-state,index}.ts')
+  console.log(
+    '  src/tokens/{colors,radius,spacing,typography,layout,component-state,index}.ts',
+  )
 }
 
 main().catch((error) => {

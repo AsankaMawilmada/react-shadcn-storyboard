@@ -15,7 +15,9 @@ export const Default: Story = {
   render: () => (
     <Alert>
       <AlertTitle>Heads up</AlertTitle>
-      <AlertDescription>You can add components to your app using the CLI.</AlertDescription>
+      <AlertDescription>
+        You can add components to your app using the CLI.
+      </AlertDescription>
     </Alert>
   ),
 }
@@ -25,7 +27,9 @@ export const Destructive: Story = {
     <Alert variant="destructive">
       <CircleAlert />
       <AlertTitle>Error</AlertTitle>
-      <AlertDescription>Your session has expired. Please sign in again.</AlertDescription>
+      <AlertDescription>
+        Your session has expired. Please sign in again.
+      </AlertDescription>
     </Alert>
   ),
 }

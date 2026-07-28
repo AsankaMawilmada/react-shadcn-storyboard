@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from './combobox'
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from './combobox'
 
 const meta: Meta<typeof Combobox> = {
   title: 'Components/Combobox',
@@ -20,7 +27,11 @@ export const Default: Story = {
       <ComboboxContent>
         <ComboboxEmpty>No results found.</ComboboxEmpty>
         <ComboboxList>
-          {(item: string) => <ComboboxItem key={item} value={item}>{item}</ComboboxItem>}
+          {(item: string) => (
+            <ComboboxItem key={item} value={item}>
+              {item}
+            </ComboboxItem>
+          )}
         </ComboboxList>
       </ComboboxContent>
     </Combobox>

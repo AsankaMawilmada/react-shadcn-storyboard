@@ -6,7 +6,10 @@ export const Drawer = ({
   shouldScaleBackground = true,
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
-  <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} />
+  <DrawerPrimitive.Root
+    shouldScaleBackground={shouldScaleBackground}
+    {...props}
+  />
 )
 Drawer.displayName = 'Drawer'
 
@@ -34,12 +37,24 @@ export const DrawerContent = React.forwardRef<
 ))
 DrawerContent.displayName = 'DrawerContent'
 
-export const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('grid gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
+export const DrawerHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn('grid gap-1.5 p-4 text-center sm:text-left', className)}
+    {...props}
+  />
 )
 
-export const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('mt-auto flex flex-col gap-2 p-4', className)} {...props} />
+export const DrawerFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn('mt-auto flex flex-col gap-2 p-4', className)}
+    {...props}
+  />
 )
 
 export const DrawerTitle = React.forwardRef<

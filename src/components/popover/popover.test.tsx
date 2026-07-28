@@ -17,7 +17,9 @@ describe('Popover', () => {
     render(<Default />)
     await user.click(screen.getByRole('button', { name: 'Open popover' }))
     expect(screen.getByText('Dimensions')).toBeInTheDocument()
-    expect(screen.getByText('Set the dimensions for the layer.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Set the dimensions for the layer.'),
+    ).toBeInTheDocument()
   })
 
   it('closes when Escape is pressed', async () => {

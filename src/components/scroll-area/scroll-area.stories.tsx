@@ -16,7 +16,10 @@ export const Default: Story = {
       <div className="p-4">
         <h4 className="mb-4 text-sm leading-none font-medium">Tags</h4>
         {Array.from({ length: 20 }, (_, i) => (
-          <div key={i} className="border-b border-border py-2 text-sm last:border-0">
+          <div
+            key={i}
+            className="border-b border-border py-2 text-sm last:border-0"
+          >
             Tag {i + 1}
           </div>
         ))}

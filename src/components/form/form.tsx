@@ -7,18 +7,19 @@ export const Form = FormPrimitive
 export const FormField = FieldPrimitive.Root
 export const FormControl = FieldPrimitive.Control
 
-export const FormLabel = React.forwardRef<HTMLLabelElement, FieldPrimitive.Label.Props>(
-  ({ className, ...props }, ref) => (
-    <FieldPrimitive.Label
-      ref={ref}
-      className={cn(
-        'text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-        className,
-      )}
-      {...props}
-    />
-  ),
-)
+export const FormLabel = React.forwardRef<
+  HTMLLabelElement,
+  FieldPrimitive.Label.Props
+>(({ className, ...props }, ref) => (
+  <FieldPrimitive.Label
+    ref={ref}
+    className={cn(
+      'text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+      className,
+    )}
+    {...props}
+  />
+))
 FormLabel.displayName = 'FormLabel'
 
 export const FormDescription = React.forwardRef<
@@ -33,13 +34,14 @@ export const FormDescription = React.forwardRef<
 ))
 FormDescription.displayName = 'FormDescription'
 
-export const FormMessage = React.forwardRef<HTMLDivElement, FieldPrimitive.Error.Props>(
-  ({ className, ...props }, ref) => (
-    <FieldPrimitive.Error
-      ref={ref}
-      className={cn('text-sm text-destructive', className)}
-      {...props}
-    />
-  ),
-)
+export const FormMessage = React.forwardRef<
+  HTMLDivElement,
+  FieldPrimitive.Error.Props
+>(({ className, ...props }, ref) => (
+  <FieldPrimitive.Error
+    ref={ref}
+    className={cn('text-sm text-destructive', className)}
+    {...props}
+  />
+))
 FormMessage.displayName = 'FormMessage'

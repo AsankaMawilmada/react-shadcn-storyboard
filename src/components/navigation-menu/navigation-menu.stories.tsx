@@ -29,13 +29,17 @@ export const Default: Story = {
               <li>
                 <NavigationMenuLink href="#">
                   <div className="font-medium">Introduction</div>
-                  <div className="text-muted-foreground">Learn the basics of the library.</div>
+                  <div className="text-muted-foreground">
+                    Learn the basics of the library.
+                  </div>
                 </NavigationMenuLink>
               </li>
               <li>
                 <NavigationMenuLink href="#">
                   <div className="font-medium">Installation</div>
-                  <div className="text-muted-foreground">How to install and configure it.</div>
+                  <div className="text-muted-foreground">
+                    How to install and configure it.
+                  </div>
                 </NavigationMenuLink>
               </li>
             </ul>
@@ -48,13 +52,17 @@ export const Default: Story = {
               <li>
                 <NavigationMenuLink href="#">
                   <div className="font-medium">Button</div>
-                  <div className="text-muted-foreground">Displays a button or a link.</div>
+                  <div className="text-muted-foreground">
+                    Displays a button or a link.
+                  </div>
                 </NavigationMenuLink>
               </li>
               <li>
                 <NavigationMenuLink href="#">
                   <div className="font-medium">Select</div>
-                  <div className="text-muted-foreground">Pick a value from a list.</div>
+                  <div className="text-muted-foreground">
+                    Pick a value from a list.
+                  </div>
                 </NavigationMenuLink>
               </li>
             </ul>
