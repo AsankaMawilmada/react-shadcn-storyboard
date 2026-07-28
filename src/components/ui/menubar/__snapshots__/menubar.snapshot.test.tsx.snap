@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Menubar snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    aria-orientation="horizontal"
+    class="flex h-9 items-center gap-1 rounded-md border border-border bg-background p-1 shadow-sm"
+    data-modal=""
+    data-orientation="horizontal"
+    id="base-ui-_r_0_"
+    role="menubar"
+  >
+    <button
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="flex items-center rounded-sm px-3 py-1 text-sm font-medium outline-none select-none data-[popup-open]:bg-accent data-[popup-open]:text-accent-foreground"
+      id="base-ui-_r_5_"
+      role="menuitem"
+      tabindex="0"
+      type="button"
+    >
+      File
+    </button>
+    <button
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="flex items-center rounded-sm px-3 py-1 text-sm font-medium outline-none select-none data-[popup-open]:bg-accent data-[popup-open]:text-accent-foreground"
+      id="base-ui-_r_a_"
+      role="menuitem"
+      tabindex="-1"
+      type="button"
+    >
+      Edit
+    </button>
+  </div>
+</div>
+`;

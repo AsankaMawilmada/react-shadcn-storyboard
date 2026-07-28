@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Skeleton snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="flex items-center gap-4"
+  >
+    <div
+      class="animate-pulse bg-muted size-12 rounded-full"
+    />
+    <div
+      class="grid gap-2"
+    >
+      <div
+        class="animate-pulse rounded-md bg-muted h-4 w-48"
+      />
+      <div
+        class="animate-pulse rounded-md bg-muted h-4 w-32"
+      />
+    </div>
+  </div>
+</div>
+`;

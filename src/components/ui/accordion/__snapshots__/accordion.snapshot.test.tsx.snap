@@ -1,0 +1,167 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="w-full max-w-md"
+    data-orientation="vertical"
+    dir="ltr"
+  >
+    <div
+      class="border-b border-border"
+      data-index="0"
+      data-open=""
+      data-orientation="vertical"
+    >
+      <h3
+        class="flex"
+        data-index="0"
+        data-open=""
+        data-orientation="vertical"
+      >
+        <button
+          aria-controls="base-ui-_r_1_"
+          aria-disabled="false"
+          aria-expanded="true"
+          class="flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[panel-open]:[&>svg]:rotate-180"
+          data-orientation="vertical"
+          data-panel-open=""
+          data-value="item-1"
+          id="base-ui-_r_2_"
+          tabindex="0"
+          type="button"
+        >
+          Is it accessible?
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-chevron-down size-4 shrink-0 text-muted-foreground transition-transform duration-200"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="base-ui-_r_2_"
+        class="h-[var(--accordion-panel-height)] overflow-hidden text-sm transition-[height] duration-200 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0"
+        data-index="0"
+        data-open=""
+        data-orientation="vertical"
+        id="base-ui-_r_1_"
+        role="region"
+        style="--accordion-panel-height: auto; --accordion-panel-width: auto; animation-name: none;"
+      >
+        <div
+          class="pb-4"
+        >
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </div>
+      </div>
+    </div>
+    <div
+      class="border-b border-border"
+      data-closed=""
+      data-hidden=""
+      data-index="1"
+      data-orientation="vertical"
+    >
+      <h3
+        class="flex"
+        data-closed=""
+        data-hidden=""
+        data-index="1"
+        data-orientation="vertical"
+      >
+        <button
+          aria-disabled="false"
+          aria-expanded="false"
+          class="flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[panel-open]:[&>svg]:rotate-180"
+          data-hidden=""
+          data-index="1"
+          data-orientation="vertical"
+          data-value="item-1"
+          id="base-ui-_r_5_"
+          tabindex="0"
+          type="button"
+        >
+          Is it styled?
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-chevron-down size-4 shrink-0 text-muted-foreground transition-transform duration-200"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+      </h3>
+    </div>
+    <div
+      class="border-b border-border"
+      data-closed=""
+      data-hidden=""
+      data-index="2"
+      data-orientation="vertical"
+    >
+      <h3
+        class="flex"
+        data-closed=""
+        data-hidden=""
+        data-index="2"
+        data-orientation="vertical"
+      >
+        <button
+          aria-disabled="false"
+          aria-expanded="false"
+          class="flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[panel-open]:[&>svg]:rotate-180"
+          data-hidden=""
+          data-index="2"
+          data-orientation="vertical"
+          data-value="item-1"
+          id="base-ui-_r_8_"
+          tabindex="0"
+          type="button"
+        >
+          Is it animated?
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-chevron-down size-4 shrink-0 text-muted-foreground transition-transform duration-200"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+      </h3>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,157 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Alert snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:size-4 border-border bg-background text-foreground"
+    role="alert"
+  >
+    <h5
+      class="mb-1 leading-none font-medium tracking-tight"
+    >
+      Heads up
+    </h5>
+    <p
+      class="text-sm [&_p]:leading-relaxed"
+    >
+      You can add components to your app using the CLI.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Alert snapshots > matches snapshot: Destructive 1`] = `
+<div>
+  <div
+    class="relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:size-4 border-destructive/30 bg-destructive/10 text-destructive"
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-circle-alert"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+      />
+      <line
+        x1="12"
+        x2="12"
+        y1="8"
+        y2="12"
+      />
+      <line
+        x1="12"
+        x2="12.01"
+        y1="16"
+        y2="16"
+      />
+    </svg>
+    <h5
+      class="mb-1 leading-none font-medium tracking-tight"
+    >
+      Error
+    </h5>
+    <p
+      class="text-sm [&_p]:leading-relaxed"
+    >
+      Your session has expired. Please sign in again.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Alert snapshots > matches snapshot: Success 1`] = `
+<div>
+  <div
+    class="relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:size-4 border-success/30 bg-success/10 text-success"
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-circle-check"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+      />
+      <path
+        d="m9 12 2 2 4-4"
+      />
+    </svg>
+    <h5
+      class="mb-1 leading-none font-medium tracking-tight"
+    >
+      Success
+    </h5>
+    <p
+      class="text-sm [&_p]:leading-relaxed"
+    >
+      Your changes have been saved.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Alert snapshots > matches snapshot: Warning 1`] = `
+<div>
+  <div
+    class="relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:size-4 border-warning/30 bg-warning/10 text-warning"
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-triangle-alert"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"
+      />
+      <path
+        d="M12 9v4"
+      />
+      <path
+        d="M12 17h.01"
+      />
+    </svg>
+    <h5
+      class="mb-1 leading-none font-medium tracking-tight"
+    >
+      Warning
+    </h5>
+    <p
+      class="text-sm [&_p]:leading-relaxed"
+    >
+      This action cannot be undone.
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Combobox snapshots > matches snapshot: Default 1`] = `
+<div>
+  <input
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    autocapitalize="none"
+    autocomplete="off"
+    autocorrect="off"
+    class="flex h-9 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-64"
+    id="base-ui-_r_0_"
+    placeholder="Search framework..."
+    role="combobox"
+    spellcheck="false"
+    type="text"
+    value=""
+  />
+  <input
+    aria-hidden="true"
+    id="base-ui-_r_0_-hidden-input"
+    style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+    tabindex="-1"
+    value=""
+  />
+</div>
+`;

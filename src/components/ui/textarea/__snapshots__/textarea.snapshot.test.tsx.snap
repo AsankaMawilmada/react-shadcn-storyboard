@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Textarea snapshots > matches snapshot: Default 1`] = `
+<div>
+  <textarea
+    class="flex min-h-20 w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    placeholder="Type your message..."
+  />
+</div>
+`;
+
+exports[`Textarea snapshots > matches snapshot: Disabled 1`] = `
+<div>
+  <textarea
+    class="flex min-h-20 w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    disabled=""
+    placeholder="Type your message..."
+  >
+    Disabled value
+  </textarea>
+</div>
+`;

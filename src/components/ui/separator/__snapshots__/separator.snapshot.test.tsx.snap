@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Separator snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div>
+    <div
+      class="space-y-1"
+    >
+      <h4
+        class="text-sm leading-none font-medium"
+      >
+        Base UI
+      </h4>
+      <p
+        class="text-sm text-muted-foreground"
+      >
+        An open-source component library.
+      </p>
+    </div>
+    <div
+      aria-orientation="horizontal"
+      class="shrink-0 bg-border h-px w-full my-4"
+      data-orientation="horizontal"
+      role="separator"
+    />
+    <div
+      class="flex h-5 items-center gap-4 text-sm"
+    >
+      <span>
+        Docs
+      </span>
+      <div
+        aria-orientation="vertical"
+        class="shrink-0 bg-border h-full w-px"
+        data-orientation="vertical"
+        role="separator"
+      />
+      <span>
+        Source
+      </span>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tabs snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="w-80"
+    data-activation-direction="none"
+    data-orientation="horizontal"
+  >
+    <div
+      class="inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground w-full"
+      data-activation-direction="none"
+      data-orientation="horizontal"
+      role="tablist"
+    >
+      <button
+        aria-controls="base-ui-_r_2_"
+        aria-disabled="false"
+        aria-selected="true"
+        class="inline-flex items-center justify-center rounded-md px-3 py-1 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex-1"
+        data-activation-direction="none"
+        data-active=""
+        data-composite-item-active=""
+        data-orientation="horizontal"
+        id="base-ui-_r_0_"
+        role="tab"
+        tabindex="0"
+        type="button"
+      >
+        Account
+      </button>
+      <button
+        aria-disabled="false"
+        aria-selected="false"
+        class="inline-flex items-center justify-center rounded-md px-3 py-1 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-background data-[active]:text-foreground data-[active]:shadow-sm flex-1"
+        data-activation-direction="none"
+        data-orientation="horizontal"
+        id="base-ui-_r_1_"
+        role="tab"
+        tabindex="-1"
+        type="button"
+      >
+        Password
+      </button>
+    </div>
+    <div
+      aria-labelledby="base-ui-_r_0_"
+      class="mt-2 focus-visible:outline-none"
+      data-activation-direction="none"
+      data-index="0"
+      data-orientation="horizontal"
+      id="base-ui-_r_2_"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Make changes to your account here.
+    </div>
+  </div>
+</div>
+`;

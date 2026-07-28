@@ -1,0 +1,221 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RadioGroup snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="grid gap-2"
+    role="radiogroup"
+  >
+    <div
+      class="flex items-center gap-2"
+    >
+      <span
+        aria-checked="false"
+        aria-labelledby="r1-label"
+        class="flex size-4 shrink-0 items-center justify-center rounded-full border border-input shadow-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[checked]:border-primary"
+        data-unchecked=""
+        id="base-ui-_r_1_"
+        role="radio"
+        tabindex="-1"
+      />
+      <input
+        aria-hidden="true"
+        id="r1"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="default"
+      />
+      <label
+        class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="r1"
+        id="r1-label"
+      >
+        Default
+      </label>
+    </div>
+    <div
+      class="flex items-center gap-2"
+    >
+      <span
+        aria-checked="true"
+        aria-labelledby="r2-label"
+        class="flex size-4 shrink-0 items-center justify-center rounded-full border border-input shadow-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[checked]:border-primary"
+        data-checked=""
+        data-composite-item-active=""
+        id="base-ui-_r_4_"
+        role="radio"
+        tabindex="0"
+      >
+        <span
+          class="flex items-center justify-center"
+          data-checked=""
+        >
+          <span
+            class="size-2 rounded-full bg-primary"
+          />
+        </span>
+      </span>
+      <input
+        aria-hidden="true"
+        checked=""
+        id="r2"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="comfortable"
+      />
+      <label
+        class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="r2"
+        id="r2-label"
+      >
+        Comfortable
+      </label>
+    </div>
+    <div
+      class="flex items-center gap-2"
+    >
+      <span
+        aria-checked="false"
+        aria-labelledby="r3-label"
+        class="flex size-4 shrink-0 items-center justify-center rounded-full border border-input shadow-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[checked]:border-primary"
+        data-unchecked=""
+        id="base-ui-_r_7_"
+        role="radio"
+        tabindex="-1"
+      />
+      <input
+        aria-hidden="true"
+        id="r3"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="compact"
+      />
+      <label
+        class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="r3"
+        id="r3-label"
+      >
+        Compact
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RadioGroup snapshots > matches snapshot: Disabled 1`] = `
+<div>
+  <div
+    class="grid gap-2"
+    role="radiogroup"
+  >
+    <div
+      class="flex items-center gap-2"
+    >
+      <span
+        aria-checked="false"
+        aria-disabled="true"
+        aria-labelledby="rd1-label"
+        class="flex size-4 shrink-0 items-center justify-center rounded-full border border-input shadow-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[checked]:border-primary"
+        data-disabled=""
+        data-unchecked=""
+        id="base-ui-_r_b_"
+        role="radio"
+        tabindex="-1"
+      />
+      <input
+        aria-hidden="true"
+        disabled=""
+        id="rd1"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="default"
+      />
+      <label
+        class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="rd1"
+        id="rd1-label"
+      >
+        Default
+      </label>
+    </div>
+    <div
+      class="flex items-center gap-2"
+    >
+      <span
+        aria-checked="true"
+        aria-disabled="true"
+        aria-labelledby="rd2-label"
+        class="flex size-4 shrink-0 items-center justify-center rounded-full border border-input shadow-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[checked]:border-primary"
+        data-checked=""
+        data-composite-item-active=""
+        data-disabled=""
+        id="base-ui-_r_e_"
+        role="radio"
+        tabindex="0"
+      >
+        <span
+          class="flex items-center justify-center"
+          data-checked=""
+          data-disabled=""
+        >
+          <span
+            class="size-2 rounded-full bg-primary"
+          />
+        </span>
+      </span>
+      <input
+        aria-hidden="true"
+        checked=""
+        disabled=""
+        id="rd2"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="comfortable"
+      />
+      <label
+        class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="rd2"
+        id="rd2-label"
+      >
+        Comfortable
+      </label>
+    </div>
+    <div
+      class="flex items-center gap-2"
+    >
+      <span
+        aria-checked="false"
+        aria-disabled="true"
+        aria-labelledby="rd3-label"
+        class="flex size-4 shrink-0 items-center justify-center rounded-full border border-input shadow-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[checked]:border-primary"
+        data-disabled=""
+        data-unchecked=""
+        id="base-ui-_r_h_"
+        role="radio"
+        tabindex="-1"
+      />
+      <input
+        aria-hidden="true"
+        disabled=""
+        id="rd3"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="compact"
+      />
+      <label
+        class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="rd3"
+        id="rd3-label"
+      >
+        Compact
+      </label>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Badge snapshots > matches snapshot: Default 1`] = `
+<div>
+  <span
+    class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors focus-visible:outline-none border-transparent bg-primary text-primary-foreground"
+  >
+    Badge
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots > matches snapshot: Destructive 1`] = `
+<div>
+  <span
+    class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors focus-visible:outline-none border-transparent bg-destructive text-destructive-foreground"
+  >
+    Badge
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots > matches snapshot: Outline 1`] = `
+<div>
+  <span
+    class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors focus-visible:outline-none border-border text-foreground"
+  >
+    Badge
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots > matches snapshot: Secondary 1`] = `
+<div>
+  <span
+    class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors focus-visible:outline-none border-transparent bg-secondary text-secondary-foreground"
+  >
+    Badge
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots > matches snapshot: Success 1`] = `
+<div>
+  <span
+    class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors focus-visible:outline-none border-transparent bg-success text-success-foreground"
+  >
+    Badge
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots > matches snapshot: Warning 1`] = `
+<div>
+  <span
+    class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors focus-visible:outline-none border-transparent bg-warning text-warning-foreground"
+  >
+    Badge
+  </span>
+</div>
+`;

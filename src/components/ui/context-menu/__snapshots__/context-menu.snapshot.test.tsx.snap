@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContextMenu snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="flex h-32 w-64 items-center justify-center rounded-md border border-dashed border-border text-sm text-muted-foreground"
+  >
+    Right click here
+  </div>
+</div>
+`;

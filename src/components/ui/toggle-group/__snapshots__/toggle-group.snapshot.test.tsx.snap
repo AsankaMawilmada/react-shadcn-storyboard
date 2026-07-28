@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ToggleGroup snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="flex items-center gap-1"
+    data-multiple=""
+    data-orientation="horizontal"
+    role="group"
+  >
+    <button
+      aria-disabled="false"
+      aria-label="Toggle bold"
+      aria-pressed="true"
+      class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors outline-none hover:bg-muted hover:text-muted-foreground disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[pressed]:bg-accent data-[pressed]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent h-9 px-3"
+      data-pressed=""
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-bold"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"
+        />
+      </svg>
+    </button>
+    <button
+      aria-disabled="false"
+      aria-label="Toggle italic"
+      aria-pressed="false"
+      class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors outline-none hover:bg-muted hover:text-muted-foreground disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[pressed]:bg-accent data-[pressed]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent h-9 px-3"
+      tabindex="-1"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-italic"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="19"
+          x2="10"
+          y1="4"
+          y2="4"
+        />
+        <line
+          x1="14"
+          x2="5"
+          y1="20"
+          y2="20"
+        />
+        <line
+          x1="15"
+          x2="9"
+          y1="4"
+          y2="20"
+        />
+      </svg>
+    </button>
+    <button
+      aria-disabled="false"
+      aria-label="Toggle underline"
+      aria-pressed="false"
+      class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors outline-none hover:bg-muted hover:text-muted-foreground disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[pressed]:bg-accent data-[pressed]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent h-9 px-3"
+      tabindex="-1"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-underline"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 4v6a6 6 0 0 0 12 0V4"
+        />
+        <line
+          x1="4"
+          x2="20"
+          y1="20"
+          y2="20"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

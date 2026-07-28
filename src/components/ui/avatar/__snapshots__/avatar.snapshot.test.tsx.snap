@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Avatar snapshots > matches snapshot: Default 1`] = `
+<div>
+  <span
+    class="relative flex size-10 shrink-0 overflow-hidden rounded-full bg-muted"
+  >
+    <span
+      class="flex size-full items-center justify-center text-sm font-medium text-muted-foreground"
+    >
+      SC
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Avatar snapshots > matches snapshot: WithFallback 1`] = `
+<div>
+  <span
+    class="relative flex size-10 shrink-0 overflow-hidden rounded-full bg-muted"
+  >
+    <span
+      class="flex size-full items-center justify-center text-sm font-medium text-muted-foreground"
+    >
+      JD
+    </span>
+  </span>
+</div>
+`;

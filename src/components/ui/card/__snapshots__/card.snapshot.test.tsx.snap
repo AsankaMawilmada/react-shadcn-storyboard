@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Card snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="rounded-xl border border-border bg-card text-card-foreground shadow-sm w-80"
+  >
+    <div
+      class="flex flex-col gap-1.5 p-6"
+    >
+      <h3
+        class="text-lg leading-none font-semibold tracking-tight"
+      >
+        Create project
+      </h3>
+      <p
+        class="text-sm text-muted-foreground"
+      >
+        Deploy your new project in one click.
+      </p>
+    </div>
+    <div
+      class="p-6 pt-0"
+    >
+      <p
+        class="text-sm"
+      >
+        Project details go here.
+      </p>
+    </div>
+    <div
+      class="flex items-center p-6 pt-0 justify-end gap-2"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-border bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4"
+      >
+        Cancel
+      </button>
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4"
+      >
+        Deploy
+      </button>
+    </div>
+  </div>
+</div>
+`;

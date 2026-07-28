@@ -1,0 +1,154 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ScrollArea snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="relative overflow-hidden h-72 w-48 rounded-md border border-border"
+    role="presentation"
+    style="position: relative; --scroll-area-corner-height: 0px; --scroll-area-corner-width: 0px;"
+  >
+    <div
+      class="size-full rounded-[inherit] base-ui-disable-scrollbar"
+      data-id="base-ui-_r_0_-viewport"
+      role="presentation"
+      style="overflow: scroll;"
+      tabindex="-1"
+    >
+      <div
+        role="presentation"
+        style="min-width: fit-content;"
+      >
+        <div
+          class="p-4"
+        >
+          <h4
+            class="mb-4 text-sm leading-none font-medium"
+          >
+            Tags
+          </h4>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            1
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            2
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            3
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            4
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            5
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            6
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            7
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            8
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            9
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            10
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            11
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            12
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            13
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            14
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            15
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            16
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            17
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            18
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            19
+          </div>
+          <div
+            class="border-b border-border py-2 text-sm last:border-0"
+          >
+            Tag 
+            20
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

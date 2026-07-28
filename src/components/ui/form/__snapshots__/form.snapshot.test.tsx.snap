@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Form snapshots > matches snapshot: Default 1`] = `
+<div>
+  <form
+    class="grid w-full max-w-sm gap-4"
+    novalidate=""
+  >
+    <div
+      class="grid gap-2"
+    >
+      <label
+        class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="base-ui-_r_0_"
+        id="base-ui-_r_1_"
+      >
+        Email
+      </label>
+      <input
+        aria-describedby="base-ui-_r_3_"
+        aria-labelledby="base-ui-_r_1_"
+        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        id="base-ui-_r_0_"
+        name="email"
+        placeholder="you@example.com"
+        required=""
+        type="email"
+      />
+      <p
+        class="text-sm text-muted-foreground"
+        id="base-ui-_r_3_"
+      >
+        We'll never share your email.
+      </p>
+    </div>
+    <button
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

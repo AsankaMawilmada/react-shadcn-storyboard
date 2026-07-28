@@ -1,0 +1,261 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button snapshots > matches snapshot: Default 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: Destructive 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-9 px-4"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: Disabled 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4"
+    disabled=""
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: Ghost 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: IconLeft 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-mail"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+      />
+      <rect
+        height="16"
+        rx="2"
+        width="20"
+        x="2"
+        y="4"
+      />
+    </svg>
+    Login with Email
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: IconOnly 1`] = `
+<div>
+  <div
+    class="flex items-center gap-3"
+  >
+    <button
+      aria-label="Send email"
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-border bg-background hover:bg-accent hover:text-accent-foreground size-8 rounded-sm"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-mail"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+        />
+        <rect
+          height="16"
+          rx="2"
+          width="20"
+          x="2"
+          y="4"
+        />
+      </svg>
+    </button>
+    <button
+      aria-label="Send email"
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-border bg-background hover:bg-accent hover:text-accent-foreground size-9"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-mail"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+        />
+        <rect
+          height="16"
+          rx="2"
+          width="20"
+          x="2"
+          y="4"
+        />
+      </svg>
+    </button>
+    <button
+      aria-label="Delete"
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 size-10 rounded-xl"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-trash2 lucide-trash-2"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 11v6"
+        />
+        <path
+          d="M14 11v6"
+        />
+        <path
+          d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+        />
+        <path
+          d="M3 6h18"
+        />
+        <path
+          d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: IconRight 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-border bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4"
+  >
+    Continue
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-arrow-right"
+      fill="none"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5 12h14"
+      />
+      <path
+        d="m12 5 7 7-7 7"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: Link 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-link underline-offset-4 hover:text-link-hover hover:underline active:text-link-pressed h-9 px-4"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: Outline 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-border bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: Secondary 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button snapshots > matches snapshot: Sizes 1`] = `
+<div>
+  <div
+    class="flex items-center gap-3"
+  >
+    <button
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-sm px-3 text-xs"
+    >
+      Small
+    </button>
+    <button
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4"
+    >
+      Medium
+    </button>
+    <button
+      class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-xl px-6"
+    >
+      Large
+    </button>
+  </div>
+</div>
+`;

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import {
   ContextMenu,
   ContextMenuContent,
+  ContextMenuGroup,
   ContextMenuItem,
   ContextMenuLabel,
   ContextMenuSeparator,
@@ -25,11 +26,13 @@ export const Default: Story = {
         Right click here
       </ContextMenuTrigger>
       <ContextMenuContent className="w-52">
-        <ContextMenuLabel>Actions</ContextMenuLabel>
-        <ContextMenuSeparator />
-        <ContextMenuItem>Back</ContextMenuItem>
-        <ContextMenuItem>Forward</ContextMenuItem>
-        <ContextMenuItem>Reload</ContextMenuItem>
+        <ContextMenuGroup>
+          <ContextMenuLabel>Actions</ContextMenuLabel>
+          <ContextMenuSeparator />
+          <ContextMenuItem>Back</ContextMenuItem>
+          <ContextMenuItem>Forward</ContextMenuItem>
+          <ContextMenuItem>Reload</ContextMenuItem>
+        </ContextMenuGroup>
         <ContextMenuSeparator />
         <ContextMenuItem>Save page as...</ContextMenuItem>
       </ContextMenuContent>

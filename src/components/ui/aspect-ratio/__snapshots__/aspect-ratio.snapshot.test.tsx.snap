@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AspectRatio snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="w-96"
+  >
+    <div
+      class="relative w-full overflow-hidden rounded-md bg-muted"
+      style="aspect-ratio: 1.7777777777777777 / 1;"
+    >
+      <img
+        alt="Landscape"
+        class="absolute inset-0 size-full object-cover"
+        src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Label snapshots > matches snapshot: Default 1`] = `
+<div>
+  <div
+    class="grid gap-2"
+  >
+    <label
+      class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for="email"
+    >
+      Email
+    </label>
+    <input
+      class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      id="email"
+      placeholder="you@example.com"
+      type="email"
+    />
+  </div>
+</div>
+`;

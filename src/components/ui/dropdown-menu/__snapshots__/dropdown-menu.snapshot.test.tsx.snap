@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DropdownMenu snapshots > matches snapshot: Default 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-border bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4"
+    id="base-ui-_r_3_"
+    tabindex="0"
+    type="button"
+  >
+    Open menu
+  </button>
+</div>
+`;

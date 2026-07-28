@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HoverCard snapshots > matches snapshot: Default 1`] = `
+<div>
+  <button
+    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-link underline-offset-4 hover:text-link-hover hover:underline active:text-link-pressed h-9 px-4"
+    id="base-ui-_r_1_"
+  >
+    @shadcn
+  </button>
+</div>
+`;
