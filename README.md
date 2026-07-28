@@ -47,6 +47,7 @@ npm run test          # unit + snapshot tests
 | `npm run lint`             | ESLint over the whole repo                                              |
 | `npm run test`             | Run the full test suite once (`vitest run`)                             |
 | `npm run test:watch`       | Vitest in watch mode                                                    |
+| `npm run test:coverage`    | Full test suite + coverage report → `coverage/` (see below)             |
 | `npm run transform-tokens` | Regenerate `src/styles/*.css` + `src/tokens/*.ts` from `.figma/themes/` |
 
 ## Git hooks
@@ -130,6 +131,25 @@ Note: `vite.config.ts` sets `fileParallelism: false` — running 40+ jsdom
 environments concurrently exhausts Windows' worker-thread limits and fails
 every file with an unrelated error. Serial execution is fully reliable, at
 the cost of runtime: the full suite (86 files, 234 tests) takes ~3 minutes.
+
+### Coverage
+
+`npm run test:coverage` (provider: `@vitest/coverage-v8`) covers
+`src/components/**` + `src/lib/**` — stories, tests, and generated
+`src/tokens`/`src/styles` are excluded from the denominator, and
+`coverage.all: true` means components nothing imports still show up at 0%
+rather than silently vanishing from the report. Emits three reporters into
+`coverage/` (gitignored): `text` (terminal summary), `html`
+(`coverage/index.html`, browsable locally), and `cobertura`
+(`coverage/cobertura-coverage.xml`) — the format Azure Pipelines'
+`PublishCodeCoverageResults@2` task expects, e.g.:
+
+```yaml
+- script: npm run test:coverage
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+```
 
 ## Components
 

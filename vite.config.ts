@@ -27,5 +27,26 @@ export default defineConfig({
     // "failed to find the current suite" error — serial execution is
     // reliable and the suite is small enough that it's still fast.
     fileParallelism: false,
+    coverage: {
+      provider: 'v8',
+      reportsDirectory: 'coverage',
+      // text: terminal summary. html: browsable local report
+      // (coverage/index.html). cobertura: the format Azure Pipelines'
+      // PublishCodeCoverageResults@2 task natively understands — without
+      // it, coverage never surfaces in the Azure DevOps build UI.
+      reporter: ['text', 'html', 'cobertura'],
+      // Vitest reports 0% for every file matched by `include` that no test
+      // ever imports (not just files that happen to get exercised) by
+      // default — there's no toggle for that anymore, older configs used
+      // an `all: true` option that was removed once this became the only
+      // behavior.
+      include: ['src/components/**/*.{ts,tsx}', 'src/lib/**/*.ts'],
+      exclude: [
+        '**/*.stories.tsx',
+        '**/*.test.tsx',
+        '**/*.snapshot.test.tsx',
+        '**/__snapshots__/**',
+      ],
+    },
   },
 })

@@ -2,6 +2,7 @@ node_modules
 dist
 dist-app
 storybook-static
+coverage
 
 # Raw Figma export — reformatting would just diverge from what a future
 # re-export looks like, for no benefit (nothing hand-edits these anyway)

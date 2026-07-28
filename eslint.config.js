@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default tseslint.config(
-  { ignores: ['dist', 'dist-app', 'storybook-static'] },
+  { ignores: ['dist', 'dist-app', 'storybook-static', 'coverage'] },
   {
     files: ['**/*.{ts,tsx}'],
     // eslintConfigPrettier must be last so it can disable any stylistic
