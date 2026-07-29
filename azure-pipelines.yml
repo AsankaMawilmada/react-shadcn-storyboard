@@ -82,6 +82,19 @@ stages:
             inputs:
               summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
 
+          - script: npx playwright install --with-deps chromium
+            displayName: 'Install Playwright (Chromium)'
+
+          - script: npm run test:storybook
+            displayName: 'Storybook tests (Vitest addon, real Chromium)'
+
+          - task: PublishTestResults@2
+            displayName: 'Publish Storybook test results'
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: 'test-results/junit-storybook.xml'
+
           - script: npm audit --omit=dev --audit-level=high
             displayName: 'Audit production dependencies'
             # Informational: don't fail CI over an upstream advisory that

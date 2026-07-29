@@ -133,6 +133,27 @@ environments concurrently exhausts Windows' worker-thread limits and fails
 every file with an unrelated error. Serial execution is fully reliable, at
 the cost of runtime: the full suite (86 files, 234 tests) takes ~3 minutes.
 
+### Storybook Vitest addon
+
+`vite.config.ts` splits `test` into two Vitest **projects**:
+
+- **`unit`** — the jsdom suite described above. `npm run test`,
+  `npm run test:watch`, and `npm run test:coverage` all target this
+  project explicitly (`--project=unit`).
+- **`storybook`** — [`@storybook/addon-vitest`](https://storybook.js.org/docs/writing-tests/integrations/vitest-addon)
+  turns every story into a real assertion, rendered in an actual Chromium
+  instance via Playwright (`@vitest/browser-playwright`), not jsdom. Run it
+  with `npm run test:storybook`. It also powers the "Vitest" panel inside
+  Storybook itself (`npm run storybook`) and the Vitest IDE extension,
+  showing every story as a pass/fail test live as you edit.
+
+The two are kept separate deliberately: `storybook` needs Playwright's
+browser binaries (`npx playwright install`, done once per machine — the
+`@storybook/addon-vitest` installer runs this automatically), which CI
+isn't currently set up to provision (see [CI/CD](#cicd)) — bundling it into
+the default `test`/`test:coverage` scripts would silently break the
+existing pipeline.
+
 ### Coverage
 
 `npm run test:coverage` (provider: `@vitest/coverage-v8`) covers
