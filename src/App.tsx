@@ -10,7 +10,7 @@ import {
 import { Input } from '@/components/input'
 import { Label } from '@/components/label'
 import { Switch } from '@/components/switch'
-import { ThemeProvider, useTheme } from '@/components/theme-provider'
+import { ThemeProvider, useTheme } from '@/components/themeProvider'
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme()
