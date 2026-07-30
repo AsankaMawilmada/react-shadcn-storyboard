@@ -4,7 +4,7 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from './inputOtp'
 const meta: Meta<typeof InputOTP> = {
   title: 'Components/InputOTP',
   component: InputOTP,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 
 export default meta

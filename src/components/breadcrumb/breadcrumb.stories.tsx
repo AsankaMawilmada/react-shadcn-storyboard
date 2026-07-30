@@ -11,7 +11,7 @@ import {
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Components/Breadcrumb',
   component: Breadcrumb,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

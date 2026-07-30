@@ -16,7 +16,7 @@ import { Label } from '../label'
 const meta: Meta<typeof Sheet> = {
   title: 'Components/Sheet',
   component: Sheet,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

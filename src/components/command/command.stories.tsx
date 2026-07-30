@@ -12,7 +12,7 @@ import {
 const meta: Meta<typeof Command> = {
   title: 'Components/Command',
   component: Command,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

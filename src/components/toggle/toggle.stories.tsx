@@ -5,7 +5,7 @@ import { Toggle } from './toggle'
 const meta: Meta<typeof Toggle> = {
   title: 'Components/Toggle',
   component: Toggle,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
   args: {
     children: <Bold />,
     'aria-label': 'Toggle bold',

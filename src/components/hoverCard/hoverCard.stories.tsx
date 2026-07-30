@@ -7,7 +7,7 @@ import { Button } from '../button'
 const meta: Meta<typeof HoverCard> = {
   title: 'Components/HoverCard',
   component: HoverCard,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

@@ -10,7 +10,7 @@ import { Button } from '../button'
 const meta: Meta<typeof Collapsible> = {
   title: 'Components/Collapsible',
   component: Collapsible,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

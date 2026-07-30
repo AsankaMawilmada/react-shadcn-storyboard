@@ -4,7 +4,7 @@ import { Progress } from './progress'
 const meta: Meta<typeof Progress> = {
   title: 'Components/Progress',
   component: Progress,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
   args: {
     value: 60,
     className: 'w-64',

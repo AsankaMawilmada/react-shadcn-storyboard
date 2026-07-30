@@ -5,7 +5,7 @@ import { InputField } from './inputField'
 const meta: Meta<typeof InputField> = {
   title: 'Components/InputField',
   component: InputField,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
   args: {
     placeholder: 'Enter text...',
   },

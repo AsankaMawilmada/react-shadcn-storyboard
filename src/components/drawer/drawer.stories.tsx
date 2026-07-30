@@ -16,7 +16,7 @@ import { Label } from '../label'
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
   component: Drawer,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

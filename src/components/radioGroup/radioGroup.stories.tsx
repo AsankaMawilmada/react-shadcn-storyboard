@@ -5,7 +5,7 @@ import { Label } from '../label'
 const meta: Meta<typeof RadioGroup> = {
   title: 'Components/RadioGroup',
   component: RadioGroup,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

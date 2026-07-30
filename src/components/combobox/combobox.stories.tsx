@@ -11,7 +11,7 @@ import {
 const meta: Meta<typeof Combobox> = {
   title: 'Components/Combobox',
   component: Combobox,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 
 export default meta

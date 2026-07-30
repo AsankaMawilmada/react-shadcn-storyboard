@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs'
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
   component: Tabs,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

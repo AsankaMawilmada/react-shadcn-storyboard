@@ -4,7 +4,7 @@ import { Badge } from './badge'
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
   args: {
     children: 'Badge',
   },

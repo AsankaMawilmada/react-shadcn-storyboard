@@ -12,7 +12,7 @@ import {
 const meta: Meta<typeof ContextMenu> = {
   title: 'Components/ContextMenu',
   component: ContextMenu,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 
 export default meta

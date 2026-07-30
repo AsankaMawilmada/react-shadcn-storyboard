@@ -4,7 +4,7 @@ import { Typography } from './typography'
 const meta: Meta<typeof Typography> = {
   title: 'Components/Typography',
   component: Typography,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

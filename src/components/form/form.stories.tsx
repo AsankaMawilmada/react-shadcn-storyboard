@@ -13,7 +13,7 @@ import { Input } from '../input'
 const meta: Meta<typeof Form> = {
   title: 'Components/Form',
   component: Form,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

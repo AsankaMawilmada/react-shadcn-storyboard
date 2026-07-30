@@ -5,7 +5,7 @@ import { ToggleGroup, ToggleGroupItem } from './toggleGroup'
 const meta: Meta<typeof ToggleGroup> = {
   title: 'Components/ToggleGroup',
   component: ToggleGroup,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

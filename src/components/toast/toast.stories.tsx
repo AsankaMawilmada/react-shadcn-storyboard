@@ -5,7 +5,7 @@ import { Button } from '../button'
 const meta: Meta<typeof ToastProvider> = {
   title: 'Components/Toast',
   component: ToastProvider,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 export default meta
 

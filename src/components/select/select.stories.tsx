@@ -12,7 +12,7 @@ import {
 const meta: Meta<typeof Select> = {
   title: 'Components/Select',
   component: Select,
-  tags: ['autodocs', '!dev'],
+  tags: ['autodocs'],
 }
 
 export default meta
