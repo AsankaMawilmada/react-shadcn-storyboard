@@ -1,0 +1,573 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Icons snapshots > matches snapshot: AllIcons 1`] = `
+<div>
+  <div
+    class="grid grid-cols-4 gap-6 sm:grid-cols-6 md:grid-cols-8"
+  >
+    <div
+      class="flex flex-col items-center gap-2 text-center"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        ArrowRightIcon
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2 text-center"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m5 13 4.5 4.5L19 7"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        CheckIcon
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2 text-center"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m6 9 6 6 6-6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        ChevronDownIcon
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2 text-center"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m6 6 12 12m0-12L6 18"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        Icon
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2 text-center"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="7"
+          stroke="currentColor"
+        />
+        <path
+          d="m21 21-4.35-4.35"
+          stroke="currentColor"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        SearchIcon
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Icons snapshots > matches snapshot: Backgrounds 1`] = `
+<div>
+  <div
+    class="flex items-center gap-6"
+  >
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <span
+        style="display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: rgb(37, 99, 235); padding: 8px;"
+      >
+        <svg
+          fill="none"
+          height="20"
+          stroke-width="2"
+          style="color: white;"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12h14m0 0-6-6m6 6-6 6"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #2563eb
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <span
+        style="display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: rgb(220, 38, 38); padding: 8px;"
+      >
+        <svg
+          fill="none"
+          height="20"
+          stroke-width="2"
+          style="color: white;"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12h14m0 0-6-6m6 6-6 6"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #dc2626
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <span
+        style="display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: rgb(22, 163, 74); padding: 8px;"
+      >
+        <svg
+          fill="none"
+          height="20"
+          stroke-width="2"
+          style="color: white;"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12h14m0 0-6-6m6 6-6 6"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #16a34a
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <span
+        style="display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: rgb(217, 119, 6); padding: 8px;"
+      >
+        <svg
+          fill="none"
+          height="20"
+          stroke-width="2"
+          style="color: white;"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12h14m0 0-6-6m6 6-6 6"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #d97706
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Icons snapshots > matches snapshot: Colors 1`] = `
+<div>
+  <div
+    class="flex items-center gap-6"
+  >
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="28"
+        stroke-width="2"
+        style="color: currentcolor;"
+        viewBox="0 0 24 24"
+        width="28"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        currentColor
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="28"
+        stroke-width="2"
+        style="color: rgb(37, 99, 235);"
+        viewBox="0 0 24 24"
+        width="28"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #2563eb
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="28"
+        stroke-width="2"
+        style="color: rgb(220, 38, 38);"
+        viewBox="0 0 24 24"
+        width="28"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #dc2626
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="28"
+        stroke-width="2"
+        style="color: rgb(22, 163, 74);"
+        viewBox="0 0 24 24"
+        width="28"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #16a34a
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="28"
+        stroke-width="2"
+        style="color: rgb(217, 119, 6);"
+        viewBox="0 0 24 24"
+        width="28"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        #d97706
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Icons snapshots > matches snapshot: Default 1`] = `
+<div>
+  <svg
+    fill="none"
+    height="24"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5 12h14m0 0-6-6m6 6-6 6"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icons snapshots > matches snapshot: Sizes 1`] = `
+<div>
+  <div
+    class="flex items-end gap-6"
+  >
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="16"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        16
+        px
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="20"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        20
+        px
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        24
+        px
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="32"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        32
+        px
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="48"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="48"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        48
+        px
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2"
+    >
+      <svg
+        fill="none"
+        height="64"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="64"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12h14m0 0-6-6m6 6-6 6"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        64
+        px
+      </span>
+    </div>
+  </div>
+</div>
+`;

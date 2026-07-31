@@ -49,7 +49,11 @@ export default defineConfig({
       // default — there's no toggle for that anymore, older configs used
       // an `all: true` option that was removed once this became the only
       // behavior.
-      include: ['src/components/**/*.{ts,tsx}', 'src/lib/**/*.ts'],
+      include: [
+        'src/components/**/*.{ts,tsx}',
+        'src/icons/**/*.{ts,tsx}',
+        'src/lib/**/*.ts',
+      ],
       exclude: [
         '**/*.stories.tsx',
         '**/*.test.tsx',
