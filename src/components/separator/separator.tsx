@@ -1,13 +1,12 @@
-import * as React from 'react'
 import { Separator as SeparatorPrimitive } from '@base-ui/react/separator'
 import { cn } from '@/lib/utils'
 
-export const Separator = React.forwardRef<
-  HTMLDivElement,
-  SeparatorPrimitive.Props
->(({ className, orientation = 'horizontal', ...props }, ref) => (
+export const Separator = ({
+  className,
+  orientation = 'horizontal',
+  ...props
+}: SeparatorPrimitive.Props) => (
   <SeparatorPrimitive
-    ref={ref}
     orientation={orientation}
     className={cn(
       'shrink-0 bg-border',
@@ -16,5 +15,4 @@ export const Separator = React.forwardRef<
     )}
     {...props}
   />
-))
-Separator.displayName = 'Separator'
+)

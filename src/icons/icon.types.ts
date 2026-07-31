@@ -1,6 +1,6 @@
 import type * as React from 'react'
 
-export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, 'ref'> {
+export interface IconProps extends React.ComponentProps<'svg'> {
   size?: number | string
   color?: string
   strokeWidth?: number | string

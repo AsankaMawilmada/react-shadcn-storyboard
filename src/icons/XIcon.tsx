@@ -1,17 +1,13 @@
-import { forwardRef } from 'react'
 import type { IconProps } from './icon.types'
-export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
-  {
-    size = 24,
-    color,
-    strokeWidth = 2,
-    style,
-    background,
-    backgroundPadding,
-    ...props
-  },
-  ref,
-) {
+export function XIcon({
+  size = 24,
+  color,
+  strokeWidth = 2,
+  style,
+  background,
+  backgroundPadding,
+  ...props
+}: IconProps) {
   const icon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +24,6 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
             }
           : style
       }
-      ref={ref}
       {...props}
     >
       <path
@@ -56,4 +51,4 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
       {icon}
     </span>
   )
-})
+}

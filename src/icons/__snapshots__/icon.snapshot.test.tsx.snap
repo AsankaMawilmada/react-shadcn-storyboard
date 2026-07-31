@@ -88,30 +88,6 @@ exports[`Icons snapshots > matches snapshot: AllIcons 1`] = `
         width="24"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="m6 6 12 12m0-12L6 18"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-      <span
-        class="text-xs text-muted-foreground"
-      >
-        Icon
-      </span>
-    </div>
-    <div
-      class="flex flex-col items-center gap-2 text-center"
-    >
-      <svg
-        fill="none"
-        height="24"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
         <circle
           cx="11"
           cy="11"
@@ -128,6 +104,30 @@ exports[`Icons snapshots > matches snapshot: AllIcons 1`] = `
         class="text-xs text-muted-foreground"
       >
         SearchIcon
+      </span>
+    </div>
+    <div
+      class="flex flex-col items-center gap-2 text-center"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m6 6 12 12m0-12L6 18"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span
+        class="text-xs text-muted-foreground"
+      >
+        XIcon
       </span>
     </div>
   </div>

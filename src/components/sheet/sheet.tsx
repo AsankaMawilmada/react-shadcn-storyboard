@@ -30,30 +30,31 @@ const sheetVariants = cva(
 export interface SheetContentProps
   extends DialogPrimitive.Popup.Props, VariantProps<typeof sheetVariants> {}
 
-export const SheetContent = React.forwardRef<HTMLDivElement, SheetContentProps>(
-  ({ className, side, children, ...props }, ref) => (
-    <DialogPrimitive.Portal>
-      <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/50 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
-      <DialogPrimitive.Popup
-        ref={ref}
-        className={cn(sheetVariants({ side }), className)}
-        {...props}
-      >
-        {children}
-        <DialogPrimitive.Close className="absolute top-4 right-4 rounded-sm opacity-70 outline-none transition-opacity hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring">
-          <X className="size-4" />
-          <span className="sr-only">Close</span>
-        </DialogPrimitive.Close>
-      </DialogPrimitive.Popup>
-    </DialogPrimitive.Portal>
-  ),
+export const SheetContent = ({
+  className,
+  side,
+  children,
+  ...props
+}: SheetContentProps) => (
+  <DialogPrimitive.Portal>
+    <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/50 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
+    <DialogPrimitive.Popup
+      className={cn(sheetVariants({ side }), className)}
+      {...props}
+    >
+      {children}
+      <DialogPrimitive.Close className="absolute top-4 right-4 rounded-sm opacity-70 outline-none transition-opacity hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring">
+        <X className="size-4" />
+        <span className="sr-only">Close</span>
+      </DialogPrimitive.Close>
+    </DialogPrimitive.Popup>
+  </DialogPrimitive.Portal>
 )
-SheetContent.displayName = 'SheetContent'
 
 export const SheetHeader = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+}: React.ComponentProps<'div'>) => (
   <div
     className={cn('flex flex-col gap-1.5 text-center sm:text-left', className)}
     {...props}
@@ -63,7 +64,7 @@ export const SheetHeader = ({
 export const SheetFooter = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+}: React.ComponentProps<'div'>) => (
   <div
     className={cn(
       'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end',
@@ -73,26 +74,22 @@ export const SheetFooter = ({
   />
 )
 
-export const SheetTitle = React.forwardRef<
-  HTMLHeadingElement,
-  DialogPrimitive.Title.Props
->(({ className, ...props }, ref) => (
+export const SheetTitle = ({
+  className,
+  ...props
+}: DialogPrimitive.Title.Props) => (
   <DialogPrimitive.Title
-    ref={ref}
     className={cn('text-lg leading-none font-semibold', className)}
     {...props}
   />
-))
-SheetTitle.displayName = 'SheetTitle'
+)
 
-export const SheetDescription = React.forwardRef<
-  HTMLParagraphElement,
-  DialogPrimitive.Description.Props
->(({ className, ...props }, ref) => (
+export const SheetDescription = ({
+  className,
+  ...props
+}: DialogPrimitive.Description.Props) => (
   <DialogPrimitive.Description
-    ref={ref}
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-))
-SheetDescription.displayName = 'SheetDescription'
+)

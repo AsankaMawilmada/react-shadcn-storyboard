@@ -9,10 +9,7 @@ export type InputFieldType =
 export type LabelPosition = 'above' | 'beside'
 export type IconPosition = 'left' | 'right'
 
-export type InputFieldProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'type'
-> & {
+export type InputFieldProps = Omit<React.ComponentProps<'input'>, 'type'> & {
   type?: InputFieldType
   label?: React.ReactNode
   labelPosition?: LabelPosition
@@ -41,116 +38,108 @@ const wrapperFocusErrorClassName =
   'focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50'
 
 // `type="split"` has no native <input> of its own (it renders InputOTP
-// instead), so ref forwarding only targets HTMLInputElement — see the
-// component doc comment below for the tradeoff this implies.
-export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
-  (
-    {
-      type = 'text',
-      label,
-      labelPosition = 'above',
-      icon,
-      iconPosition = 'left',
-      leading,
-      trailing,
-      splitLength = 6,
-      containerClassName,
-      className,
-      id,
-      disabled,
-      inputMode,
-      autoComplete,
-      ...props
-    },
-    ref,
-  ) => {
-    const generatedId = React.useId()
-    const inputId = id ?? generatedId
+// instead), so a `ref` prop only ever attaches to an HTMLInputElement — it's
+// silently unused when `type="split"`, since `...props` isn't spread there.
+export const InputField = ({
+  type = 'text',
+  label,
+  labelPosition = 'above',
+  icon,
+  iconPosition = 'left',
+  leading,
+  trailing,
+  splitLength = 6,
+  containerClassName,
+  className,
+  id,
+  disabled,
+  inputMode,
+  autoComplete,
+  ...props
+}: InputFieldProps) => {
+  const generatedId = React.useId()
+  const inputId = id ?? generatedId
 
-    let field: React.ReactNode
+  let field: React.ReactNode
 
-    if (type === 'split') {
-      // icon/leading/trailing don't apply to the segmented-box layout, so
-      // they're intentionally not rendered here.
-      field = (
-        <InputOTP length={splitLength} disabled={disabled}>
-          <InputOTPGroup>
-            {Array.from({ length: splitLength }, (_, index) => (
-              <InputOTPSlot key={index} />
-            ))}
-          </InputOTPGroup>
-        </InputOTP>
-      )
-    } else {
-      const nativeType = type === 'postcode' ? 'text' : type
-      const resolvedInputMode =
-        type === 'postcode' ? (inputMode ?? 'text') : inputMode
-      const resolvedAutoComplete =
-        type === 'postcode' ? (autoComplete ?? 'postal-code') : autoComplete
+  if (type === 'split') {
+    // icon/leading/trailing don't apply to the segmented-box layout, so
+    // they're intentionally not rendered here.
+    field = (
+      <InputOTP length={splitLength} disabled={disabled}>
+        <InputOTPGroup>
+          {Array.from({ length: splitLength }, (_, index) => (
+            <InputOTPSlot key={index} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
+    )
+  } else {
+    const nativeType = type === 'postcode' ? 'text' : type
+    const resolvedInputMode =
+      type === 'postcode' ? (inputMode ?? 'text') : inputMode
+    const resolvedAutoComplete =
+      type === 'postcode' ? (autoComplete ?? 'postal-code') : autoComplete
 
-      field =
-        icon || leading || trailing ? (
-          <div
-            className={cn(
-              'flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50',
-              wrapperFocusErrorClassName,
-              className,
-            )}
-          >
-            {leading}
-            {icon && iconPosition === 'left' && (
-              <span className={iconClassName}>{icon}</span>
-            )}
-            <input
-              ref={ref}
-              id={inputId}
-              type={nativeType}
-              disabled={disabled}
-              inputMode={resolvedInputMode}
-              autoComplete={resolvedAutoComplete}
-              className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
-              {...props}
-            />
-            {icon && iconPosition === 'right' && (
-              <span className={iconClassName}>{icon}</span>
-            )}
-            {trailing}
-          </div>
-        ) : (
-          <Input
-            ref={ref}
+    field =
+      icon || leading || trailing ? (
+        <div
+          className={cn(
+            'flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50',
+            wrapperFocusErrorClassName,
+            className,
+          )}
+        >
+          {leading}
+          {icon && iconPosition === 'left' && (
+            <span className={iconClassName}>{icon}</span>
+          )}
+          <input
             id={inputId}
             type={nativeType}
             disabled={disabled}
             inputMode={resolvedInputMode}
             autoComplete={resolvedAutoComplete}
-            className={cn('h-12', focusErrorClassName, className)}
+            className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
             {...props}
           />
-        )
-    }
-
-    return (
-      <div
-        className={cn(
-          'flex flex-col gap-1.5',
-          labelPosition === 'beside' && 'sm:flex-row sm:items-center sm:gap-3',
-          containerClassName,
-        )}
-      >
-        {label && (
-          <Label
-            htmlFor={type === 'split' ? undefined : inputId}
-            className={cn(labelPosition === 'beside' && 'sm:w-32 sm:shrink-0')}
-          >
-            {label}
-          </Label>
-        )}
-        <div className={cn(labelPosition === 'beside' && 'sm:flex-1')}>
-          {field}
+          {icon && iconPosition === 'right' && (
+            <span className={iconClassName}>{icon}</span>
+          )}
+          {trailing}
         </div>
+      ) : (
+        <Input
+          id={inputId}
+          type={nativeType}
+          disabled={disabled}
+          inputMode={resolvedInputMode}
+          autoComplete={resolvedAutoComplete}
+          className={cn('h-12', focusErrorClassName, className)}
+          {...props}
+        />
+      )
+  }
+
+  return (
+    <div
+      className={cn(
+        'flex flex-col gap-1.5',
+        labelPosition === 'beside' && 'sm:flex-row sm:items-center sm:gap-3',
+        containerClassName,
+      )}
+    >
+      {label && (
+        <Label
+          htmlFor={type === 'split' ? undefined : inputId}
+          className={cn(labelPosition === 'beside' && 'sm:w-32 sm:shrink-0')}
+        >
+          {label}
+        </Label>
+      )}
+      <div className={cn(labelPosition === 'beside' && 'sm:flex-1')}>
+        {field}
       </div>
-    )
-  },
-)
-InputField.displayName = 'InputField'
+    </div>
+  )
+}

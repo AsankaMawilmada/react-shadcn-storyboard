@@ -299,7 +299,6 @@ async function generateOne(fileName) {
       plugins: [svgo, jsx],
       icon: false,
       expandProps: 'end',
-      ref: true,
       typescript: true,
       jsxRuntime: 'automatic',
       svgProps: {
@@ -321,42 +320,36 @@ async function generateOne(fileName) {
         ],
       },
       template: (variables, { tpl }) => tpl`
-import { forwardRef } from 'react'
 import type { IconProps } from './icon.types'
 
-export const ${variables.componentName} = forwardRef<SVGSVGElement, IconProps>(
-  function ${variables.componentName}(
-    {
-      size = 24,
-      color,
-      strokeWidth = ${defaultStrokeWidth},
-      style,
-      background,
-      backgroundPadding,
-      ...props
-    },
-    ref,
-  ) {
-    const icon = ${variables.jsx}
-    if (!background) return icon
-    const padding =
-      backgroundPadding ?? (typeof size === 'number' ? Math.round(size * 0.4) : 8)
-    return (
-      <span
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: '9999px',
-          background,
-          padding,
-        }}
-      >
-        {icon}
-      </span>
-    )
-  },
-)
+export function ${variables.componentName}({
+  size = 24,
+  color,
+  strokeWidth = ${defaultStrokeWidth},
+  style,
+  background,
+  backgroundPadding,
+  ...props
+}: IconProps) {
+  const icon = ${variables.jsx}
+  if (!background) return icon
+  const padding =
+    backgroundPadding ?? (typeof size === 'number' ? Math.round(size * 0.4) : 8)
+  return (
+    <span
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '9999px',
+        background,
+        padding,
+      }}
+    >
+      {icon}
+    </span>
+  )
+}
 `,
     },
     { componentName, filePath },

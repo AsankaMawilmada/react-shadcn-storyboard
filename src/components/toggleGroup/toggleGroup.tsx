@@ -14,33 +14,36 @@ const ToggleGroupContext = React.createContext<ToggleGroupContextValue>({
 export interface ToggleGroupProps
   extends ToggleGroupPrimitive.Props, VariantProps<typeof toggleVariants> {}
 
-export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
-  ({ className, variant, size, children, ...props }, ref) => (
-    <ToggleGroupPrimitive
-      ref={ref}
-      className={cn('flex items-center gap-1', className)}
-      {...props}
-    >
-      <ToggleGroupContext.Provider value={{ variant, size }}>
-        {children}
-      </ToggleGroupContext.Provider>
-    </ToggleGroupPrimitive>
-  ),
+export const ToggleGroup = ({
+  className,
+  variant,
+  size,
+  children,
+  ...props
+}: ToggleGroupProps) => (
+  <ToggleGroupPrimitive
+    className={cn('flex items-center gap-1', className)}
+    {...props}
+  >
+    <ToggleGroupContext.Provider value={{ variant, size }}>
+      {children}
+    </ToggleGroupContext.Provider>
+  </ToggleGroupPrimitive>
 )
-ToggleGroup.displayName = 'ToggleGroup'
 
-export const ToggleGroupItem = React.forwardRef<HTMLButtonElement, ToggleProps>(
-  ({ className, variant, size, ...props }, ref) => {
-    const context = React.useContext(ToggleGroupContext)
-    return (
-      <Toggle
-        ref={ref}
-        variant={variant ?? context.variant}
-        size={size ?? context.size}
-        className={className}
-        {...props}
-      />
-    )
-  },
-)
-ToggleGroupItem.displayName = 'ToggleGroupItem'
+export const ToggleGroupItem = ({
+  className,
+  variant,
+  size,
+  ...props
+}: ToggleProps) => {
+  const context = React.useContext(ToggleGroupContext)
+  return (
+    <Toggle
+      variant={variant ?? context.variant}
+      size={size ?? context.size}
+      className={className}
+      {...props}
+    />
+  )
+}
