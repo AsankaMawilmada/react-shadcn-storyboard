@@ -31,6 +31,15 @@ export type InputFieldProps = Omit<
 const iconClassName =
   'flex size-4 shrink-0 items-center justify-center text-muted-foreground'
 
+// Error (aria-invalid) wins over focus even when both apply — the compound
+// `aria-invalid:focus-visible:` / `has-aria-invalid:focus-within:` variants
+// carry higher CSS specificity than either single-condition rule, so this
+// holds regardless of the order Tailwind emits the underlying declarations.
+const focusErrorClassName =
+  'focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50'
+const wrapperFocusErrorClassName =
+  'focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50'
+
 // `type="split"` has no native <input> of its own (it renders InputOTP
 // instead), so ref forwarding only targets HTMLInputElement — see the
 // component doc comment below for the tradeoff this implies.
@@ -83,7 +92,8 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
         icon || leading || trailing ? (
           <div
             className={cn(
-              'flex h-9 w-full items-center gap-2 rounded-md border border-input bg-background px-3 shadow-sm transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50',
+              'flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50',
+              wrapperFocusErrorClassName,
               className,
             )}
           >
@@ -114,7 +124,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
             disabled={disabled}
             inputMode={resolvedInputMode}
             autoComplete={resolvedAutoComplete}
-            className={className}
+            className={cn('h-12', focusErrorClassName, className)}
             {...props}
           />
         )

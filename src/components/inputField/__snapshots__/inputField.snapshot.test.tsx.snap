@@ -15,7 +15,7 @@ exports[`InputField snapshots > matches snapshot: DateType 1`] = `
       class=""
     >
       <input
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         id="_r_8_"
         placeholder="Enter text..."
         type="date"
@@ -40,7 +40,7 @@ exports[`InputField snapshots > matches snapshot: Disabled 1`] = `
       class=""
     >
       <input
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         disabled=""
         id="_r_e_"
         placeholder="Enter text..."
@@ -67,7 +67,7 @@ exports[`InputField snapshots > matches snapshot: EmailType 1`] = `
       class=""
     >
       <input
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         id="_r_7_"
         placeholder="you@example.com"
         type="email"
@@ -86,7 +86,7 @@ exports[`InputField snapshots > matches snapshot: FieldOnly 1`] = `
       class=""
     >
       <input
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         id="_r_0_"
         placeholder="Enter text..."
         type="text"
@@ -111,7 +111,7 @@ exports[`InputField snapshots > matches snapshot: NumberType 1`] = `
       class=""
     >
       <input
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         id="_r_9_"
         placeholder="Enter text..."
         type="number"
@@ -137,7 +137,7 @@ exports[`InputField snapshots > matches snapshot: PostcodeType 1`] = `
     >
       <input
         autocomplete="postal-code"
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         id="_r_a_"
         inputmode="text"
         placeholder="Enter text..."
@@ -288,7 +288,7 @@ exports[`InputField snapshots > matches snapshot: WithLabelAbove 1`] = `
       class=""
     >
       <input
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         id="_r_1_"
         placeholder="Enter text..."
         type="text"
@@ -313,7 +313,7 @@ exports[`InputField snapshots > matches snapshot: WithLabelBeside 1`] = `
       class="sm:flex-1"
     >
       <input
-        class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 h-12 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         id="_r_2_"
         placeholder="Enter text..."
         type="text"
@@ -338,7 +338,7 @@ exports[`InputField snapshots > matches snapshot: WithLeadingContent 1`] = `
       class=""
     >
       <div
-        class="flex h-9 w-full items-center gap-2 rounded-md border border-input bg-background px-3 shadow-sm transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50"
+        class="flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50"
       >
         <span
           class="text-sm"
@@ -372,7 +372,7 @@ exports[`InputField snapshots > matches snapshot: WithLeftIcon 1`] = `
       class=""
     >
       <div
-        class="flex h-9 w-full items-center gap-2 rounded-md border border-input bg-background px-3 shadow-sm transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50"
+        class="flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50"
       >
         <span
           class="flex size-4 shrink-0 items-center justify-center text-muted-foreground"
@@ -427,7 +427,7 @@ exports[`InputField snapshots > matches snapshot: WithRightIcon 1`] = `
       class=""
     >
       <div
-        class="flex h-9 w-full items-center gap-2 rounded-md border border-input bg-background px-3 shadow-sm transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50"
+        class="flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50"
       >
         <input
           class="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
@@ -484,7 +484,7 @@ exports[`InputField snapshots > matches snapshot: WithTrailingContent 1`] = `
       class=""
     >
       <div
-        class="flex h-9 w-full items-center gap-2 rounded-md border border-input bg-background px-3 shadow-sm transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50"
+        class="flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50"
       >
         <input
           class="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
