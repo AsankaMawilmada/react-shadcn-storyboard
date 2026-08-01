@@ -1,16 +1,16 @@
-import { Button } from '@/components/button'
-import { Badge } from '@/components/badge'
+import { Button } from '@/components/Button'
+import { Badge } from '@/components/Badge'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/card'
-import { Input } from '@/components/input'
-import { Label } from '@/components/label'
-import { Switch } from '@/components/switch'
-import { ThemeProvider, useTheme } from '@/components/themeProvider'
+} from '@/components/Card'
+import { Input } from '@/components/Input'
+import { Label } from '@/components/Label'
+import { Switch } from '@/components/Switch'
+import { ThemeProvider, useTheme } from '@/components/ThemeProvider'
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme()
