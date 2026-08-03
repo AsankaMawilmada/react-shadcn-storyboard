@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Dialog as DialogPrimitive } from '@base-ui/react/dialog'
-import { X } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const Dialog = DialogPrimitive.Root
-export const DialogTrigger = DialogPrimitive.Trigger
-export const DialogClose = DialogPrimitive.Close
+export const Dialog = DialogPrimitive.Root;
+export const DialogTrigger = DialogPrimitive.Trigger;
+export const DialogClose = DialogPrimitive.Close;
 
 export const DialogContent = ({
   className,
@@ -28,7 +28,7 @@ export const DialogContent = ({
       </DialogPrimitive.Close>
     </DialogPrimitive.Popup>
   </DialogPrimitive.Portal>
-)
+);
 
 export const DialogHeader = ({
   className,
@@ -38,7 +38,7 @@ export const DialogHeader = ({
     className={cn('flex flex-col gap-1.5 text-center sm:text-left', className)}
     {...props}
   />
-)
+);
 
 export const DialogFooter = ({
   className,
@@ -51,7 +51,7 @@ export const DialogFooter = ({
     )}
     {...props}
   />
-)
+);
 
 export const DialogTitle = ({
   className,
@@ -61,7 +61,7 @@ export const DialogTitle = ({
     className={cn('text-lg leading-none font-semibold', className)}
     {...props}
   />
-)
+);
 
 export const DialogDescription = ({
   className,
@@ -71,4 +71,4 @@ export const DialogDescription = ({
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);

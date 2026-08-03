@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ToastProvider, Toaster, useToastManager } from './Toast'
-import { Button } from '../Button'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ToastProvider, Toaster, useToastManager } from './Toast';
+import { Button } from '../Button';
 
 const meta: Meta<typeof ToastProvider> = {
   title: 'Components/Toast',
   component: ToastProvider,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof ToastProvider>
+type Story = StoryObj<typeof ToastProvider>;
 
 const ToastDemoTrigger = () => {
-  const toastManager = useToastManager()
+  const toastManager = useToastManager();
 
   return (
     <Button
@@ -25,8 +25,8 @@ const ToastDemoTrigger = () => {
     >
       Add to calendar
     </Button>
-  )
-}
+  );
+};
 
 export const Default: Story = {
   render: () => (
@@ -35,4 +35,4 @@ export const Default: Story = {
       <ToastDemoTrigger />
     </ToastProvider>
   ),
-}
+};

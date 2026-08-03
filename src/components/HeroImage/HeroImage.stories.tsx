@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { HeroImage } from './HeroImage'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { HeroImage } from './HeroImage';
 
 const IMAGE_SRC =
-  'https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=1200&dpr=2&q=80'
+  'https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=1200&dpr=2&q=80';
 
 const meta: Meta<typeof HeroImage> = {
   title: 'Components/HeroImage',
@@ -17,10 +17,10 @@ const meta: Meta<typeof HeroImage> = {
       <HeroImage {...args} />
     </div>
   ),
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof HeroImage>
+type Story = StoryObj<typeof HeroImage>;
 
 export const Default: Story = {
   args: {
@@ -33,9 +33,9 @@ export const Default: Story = {
       </>
     ),
   },
-}
+};
 
-export const WithoutContent: Story = {}
+export const WithoutContent: Story = {};
 
 export const WithoutOverlay: Story = {
   args: {
@@ -46,11 +46,11 @@ export const WithoutOverlay: Story = {
       </h1>
     ),
   },
-}
+};
 
 export const SquareRatio: Story = {
   args: {
     ratio: 1,
     children: <h1 className="text-xl font-semibold">Explore the highlands</h1>,
   },
-}
+};

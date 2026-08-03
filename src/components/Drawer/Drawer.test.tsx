@@ -1,32 +1,32 @@
-import { describe, expect, it } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { composeStories } from '@storybook/react'
-import * as stories from './Drawer.stories'
+import { describe, expect, it } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { composeStories } from '@storybook/react';
+import * as stories from './Drawer.stories';
 
-const { Default } = composeStories(stories)
+const { Default } = composeStories(stories);
 
 describe('Drawer', () => {
   it('is closed until the trigger is clicked', () => {
-    render(<Default />)
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  })
+    render(<Default />);
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
 
   it('opens on trigger click and shows its content', async () => {
-    const user = userEvent.setup()
-    render(<Default />)
-    await user.click(screen.getByRole('button', { name: 'Edit profile' }))
-    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    const user = userEvent.setup();
+    render(<Default />);
+    await user.click(screen.getByRole('button', { name: 'Edit profile' }));
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(
       screen.getByText('Make changes to your profile here.'),
-    ).toBeInTheDocument()
-  })
+    ).toBeInTheDocument();
+  });
 
   it('closes when Cancel is clicked', async () => {
-    const user = userEvent.setup()
-    render(<Default />)
-    await user.click(screen.getByRole('button', { name: 'Edit profile' }))
-    await user.click(screen.getByRole('button', { name: 'Cancel' }))
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  })
-})
+    const user = userEvent.setup();
+    render(<Default />);
+    await user.click(screen.getByRole('button', { name: 'Edit profile' }));
+    await user.click(screen.getByRole('button', { name: 'Cancel' }));
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+});

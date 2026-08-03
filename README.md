@@ -305,8 +305,8 @@ import {
   Dialog,
   DialogContent,
   DialogTrigger,
-} from '@inoaspect/react-components'
-import { ThemeProvider } from '@inoaspect/react-components/theme-provider'
+} from '@inoaspect/react-components';
+import { ThemeProvider } from '@inoaspect/react-components/theme-provider';
 // or, per-component deep imports (same components, smaller per-file graph):
 // import { Button } from '@inoaspect/react-components/button'
 
@@ -317,7 +317,7 @@ const App = () => (
       <DialogContent>...</DialogContent>
     </Dialog>
   </ThemeProvider>
-)
+);
 ```
 
 Peer dependencies you need installed: `react`, `react-dom` (^19), `tailwindcss` (^4).

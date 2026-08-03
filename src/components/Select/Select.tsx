@@ -1,10 +1,10 @@
-import { Select as SelectPrimitive } from '@base-ui/react/select'
-import { Check, ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Select as SelectPrimitive } from '@base-ui/react/select';
+import { Check, ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const Select = SelectPrimitive.Root
+export const Select = SelectPrimitive.Root;
 
-export const SelectValue = SelectPrimitive.Value
+export const SelectValue = SelectPrimitive.Value;
 
 export const SelectTrigger = ({
   className,
@@ -23,7 +23,7 @@ export const SelectTrigger = ({
       <ChevronDown className="size-4" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
-)
+);
 
 export const SelectContent = ({
   className,
@@ -43,7 +43,7 @@ export const SelectContent = ({
       </SelectPrimitive.Popup>
     </SelectPrimitive.Positioner>
   </SelectPrimitive.Portal>
-)
+);
 
 export const SelectItem = ({
   className,
@@ -62,9 +62,9 @@ export const SelectItem = ({
       <Check className="size-4" />
     </SelectPrimitive.ItemIndicator>
   </SelectPrimitive.Item>
-)
+);
 
-export const SelectGroup = SelectPrimitive.Group
+export const SelectGroup = SelectPrimitive.Group;
 
 export const SelectLabel = ({
   className,
@@ -77,4 +77,4 @@ export const SelectLabel = ({
     )}
     {...props}
   />
-)
+);

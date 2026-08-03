@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Card,
   CardContent,
@@ -6,17 +6,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from './Card'
-import { Button } from '../Button'
+} from './Card';
+import { Button } from '../Button';
 
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
   component: Card,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Card>
+type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
   render: () => (
@@ -34,4 +34,4 @@ export const Default: Story = {
       </CardFooter>
     </Card>
   ),
-}
+};

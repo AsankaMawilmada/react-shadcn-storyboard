@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Bold } from 'lucide-react'
-import { Toggle } from './Toggle'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Bold } from 'lucide-react';
+import { Toggle } from './Toggle';
 
 const meta: Meta<typeof Toggle> = {
   title: 'Components/Toggle',
@@ -20,18 +20,18 @@ const meta: Meta<typeof Toggle> = {
       options: ['sm', 'md', 'lg'],
     },
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Toggle>
+type Story = StoryObj<typeof Toggle>;
 
 export const Default: Story = {
   args: { variant: 'default' },
-}
+};
 
 export const Outline: Story = {
   args: { variant: 'outline' },
-}
+};
 
 export const Sizes: Story = {
   render: () => (
@@ -47,8 +47,8 @@ export const Sizes: Story = {
       </Toggle>
     </div>
   ),
-}
+};
 
 export const Disabled: Story = {
   args: { disabled: true },
-}
+};

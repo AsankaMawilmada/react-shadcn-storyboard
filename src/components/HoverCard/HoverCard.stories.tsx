@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { CalendarDays } from 'lucide-react'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from './HoverCard'
-import { Avatar, AvatarFallback, AvatarImage } from '../Avatar'
-import { Button } from '../Button'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CalendarDays } from 'lucide-react';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from './HoverCard';
+import { Avatar, AvatarFallback, AvatarImage } from '../Avatar';
+import { Button } from '../Button';
 
 const meta: Meta<typeof HoverCard> = {
   title: 'Components/HoverCard',
   component: HoverCard,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof HoverCard>
+type Story = StoryObj<typeof HoverCard>;
 
 export const Default: Story = {
   render: () => (
@@ -37,4 +37,4 @@ export const Default: Story = {
       </HoverCardContent>
     </HoverCard>
   ),
-}
+};

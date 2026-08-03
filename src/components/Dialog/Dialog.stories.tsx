@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Dialog,
   DialogClose,
@@ -8,17 +8,17 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from './Dialog'
-import { Button } from '../Button'
+} from './Dialog';
+import { Button } from '../Button';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',
   component: Dialog,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Dialog>
+type Story = StoryObj<typeof Dialog>;
 
 export const Default: Story = {
   render: () => (
@@ -38,4 +38,4 @@ export const Default: Story = {
       </DialogContent>
     </Dialog>
   ),
-}
+};

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Table,
   TableBody,
@@ -7,16 +7,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from './Table'
+} from './Table';
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
   component: Table,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Table>
+type Story = StoryObj<typeof Table>;
 
 const invoices = [
   {
@@ -32,7 +32,7 @@ const invoices = [
     method: 'Bank Transfer',
     amount: '$350.00',
   },
-]
+];
 
 export const Default: Story = {
   render: () => (
@@ -58,4 +58,4 @@ export const Default: Story = {
       </TableBody>
     </Table>
   ),
-}
+};

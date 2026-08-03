@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { Menu as MenuPrimitive } from '@base-ui/react/menu'
-import { Check, Circle } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { Menu as MenuPrimitive } from '@base-ui/react/menu';
+import { Check, Circle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const DropdownMenu = MenuPrimitive.Root
-export const DropdownMenuTrigger = MenuPrimitive.Trigger
-export const DropdownMenuGroup = MenuPrimitive.Group
-export const DropdownMenuRadioGroup = MenuPrimitive.RadioGroup
+export const DropdownMenu = MenuPrimitive.Root;
+export const DropdownMenuTrigger = MenuPrimitive.Trigger;
+export const DropdownMenuGroup = MenuPrimitive.Group;
+export const DropdownMenuRadioGroup = MenuPrimitive.RadioGroup;
 
 export const DropdownMenuContent = ({
   className,
@@ -26,7 +26,7 @@ export const DropdownMenuContent = ({
       </MenuPrimitive.Popup>
     </MenuPrimitive.Positioner>
   </MenuPrimitive.Portal>
-)
+);
 
 export const DropdownMenuItem = ({
   className,
@@ -39,7 +39,7 @@ export const DropdownMenuItem = ({
     )}
     {...props}
   />
-)
+);
 
 export const DropdownMenuCheckboxItem = ({
   className,
@@ -60,7 +60,7 @@ export const DropdownMenuCheckboxItem = ({
     </span>
     {children}
   </MenuPrimitive.CheckboxItem>
-)
+);
 
 export const DropdownMenuRadioItem = ({
   className,
@@ -81,7 +81,7 @@ export const DropdownMenuRadioItem = ({
     </span>
     {children}
   </MenuPrimitive.RadioItem>
-)
+);
 
 export const DropdownMenuLabel = ({
   className,
@@ -91,14 +91,14 @@ export const DropdownMenuLabel = ({
     className={cn('px-2 py-1.5 text-sm font-semibold', className)}
     {...props}
   />
-)
+);
 
 export const DropdownMenuSeparator = ({
   className,
   ...props
 }: React.ComponentProps<'div'>) => (
   <div className={cn('-mx-1 my-1 h-px bg-border', className)} {...props} />
-)
+);
 
 export const DropdownMenuShortcut = ({
   className,
@@ -111,4 +111,4 @@ export const DropdownMenuShortcut = ({
     )}
     {...props}
   />
-)
+);

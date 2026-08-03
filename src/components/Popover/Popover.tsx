@@ -1,8 +1,8 @@
-import { Popover as PopoverPrimitive } from '@base-ui/react/popover'
-import { cn } from '@/lib/utils'
+import { Popover as PopoverPrimitive } from '@base-ui/react/popover';
+import { cn } from '@/lib/utils';
 
-export const Popover = PopoverPrimitive.Root
-export const PopoverTrigger = PopoverPrimitive.Trigger
+export const Popover = PopoverPrimitive.Root;
+export const PopoverTrigger = PopoverPrimitive.Trigger;
 
 export const PopoverContent = ({
   className,
@@ -22,4 +22,4 @@ export const PopoverContent = ({
       </PopoverPrimitive.Popup>
     </PopoverPrimitive.Positioner>
   </PopoverPrimitive.Portal>
-)
+);

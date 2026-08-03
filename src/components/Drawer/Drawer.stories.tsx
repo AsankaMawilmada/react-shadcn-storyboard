@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Drawer,
   DrawerClose,
@@ -8,19 +8,19 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from './Drawer'
-import { Button } from '../Button'
-import { Input } from '../Input'
-import { Label } from '../Label'
+} from './Drawer';
+import { Button } from '../Button';
+import { Input } from '../Input';
+import { Label } from '../Label';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
   component: Drawer,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Drawer>
+type Story = StoryObj<typeof Drawer>;
 
 export const Default: Story = {
   render: () => (
@@ -54,4 +54,4 @@ export const Default: Story = {
       </DrawerContent>
     </Drawer>
   ),
-}
+};

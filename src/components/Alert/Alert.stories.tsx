@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { CircleAlert, CircleCheck, TriangleAlert } from 'lucide-react'
-import { Alert, AlertDescription, AlertTitle } from './Alert'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CircleAlert, CircleCheck, TriangleAlert } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from './Alert';
 
 const meta: Meta<typeof Alert> = {
   title: 'Components/Alert',
   component: Alert,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Alert>
+type Story = StoryObj<typeof Alert>;
 
 export const Default: Story = {
   render: () => (
@@ -20,7 +20,7 @@ export const Default: Story = {
       </AlertDescription>
     </Alert>
   ),
-}
+};
 
 export const Destructive: Story = {
   render: () => (
@@ -32,7 +32,7 @@ export const Destructive: Story = {
       </AlertDescription>
     </Alert>
   ),
-}
+};
 
 export const Success: Story = {
   render: () => (
@@ -42,7 +42,7 @@ export const Success: Story = {
       <AlertDescription>Your changes have been saved.</AlertDescription>
     </Alert>
   ),
-}
+};
 
 export const Warning: Story = {
   render: () => (
@@ -52,4 +52,4 @@ export const Warning: Story = {
       <AlertDescription>This action cannot be undone.</AlertDescription>
     </Alert>
   ),
-}
+};

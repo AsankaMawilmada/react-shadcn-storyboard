@@ -1,19 +1,19 @@
-import { Button } from '@/components/Button'
-import { Badge } from '@/components/Badge'
+import { Button } from '@/components/Button';
+import { Badge } from '@/components/Badge';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/Card'
-import { Input } from '@/components/Input'
-import { Label } from '@/components/Label'
-import { Switch } from '@/components/Switch'
-import { ThemeProvider, useTheme } from '@/components/ThemeProvider'
+} from '@/components/Card';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+import { Switch } from '@/components/Switch';
+import { ThemeProvider, useTheme } from '@/components/ThemeProvider';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
   return (
     <div className="flex items-center gap-2">
       <Label htmlFor="theme-switch">Midnight theme</Label>
@@ -25,8 +25,8 @@ const ThemeToggle = () => {
         }
       />
     </div>
-  )
-}
+  );
+};
 
 const App = () => (
   <ThemeProvider>
@@ -71,6 +71,6 @@ const App = () => (
       </div>
     </main>
   </ThemeProvider>
-)
+);
 
-export default App
+export default App;

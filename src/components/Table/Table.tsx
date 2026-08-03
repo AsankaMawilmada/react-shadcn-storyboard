@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
 export const Table = ({
   className,
@@ -11,7 +11,7 @@ export const Table = ({
       {...props}
     />
   </div>
-)
+);
 
 export const TableHeader = ({
   className,
@@ -21,14 +21,14 @@ export const TableHeader = ({
     className={cn('[&_tr]:border-b [&_tr]:border-border', className)}
     {...props}
   />
-)
+);
 
 export const TableBody = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLTableSectionElement>) => (
   <tbody className={cn('[&_tr:last-child]:border-0', className)} {...props} />
-)
+);
 
 export const TableFooter = ({
   className,
@@ -38,7 +38,7 @@ export const TableFooter = ({
     className={cn('border-t border-border bg-muted/50 font-medium', className)}
     {...props}
   />
-)
+);
 
 export const TableRow = ({
   className,
@@ -51,7 +51,7 @@ export const TableRow = ({
     )}
     {...props}
   />
-)
+);
 
 export const TableHead = ({
   className,
@@ -64,7 +64,7 @@ export const TableHead = ({
     )}
     {...props}
   />
-)
+);
 
 export const TableCell = ({
   className,
@@ -74,7 +74,7 @@ export const TableCell = ({
     className={cn('p-2 align-middle [&:has([role=checkbox])]:pr-0', className)}
     {...props}
   />
-)
+);
 
 export const TableCaption = ({
   className,
@@ -84,4 +84,4 @@ export const TableCaption = ({
     className={cn('mt-4 text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);

@@ -1,8 +1,8 @@
-import { Collapsible as CollapsiblePrimitive } from '@base-ui/react/collapsible'
-import { cn } from '@/lib/utils'
+import { Collapsible as CollapsiblePrimitive } from '@base-ui/react/collapsible';
+import { cn } from '@/lib/utils';
 
-export const Collapsible = CollapsiblePrimitive.Root
-export const CollapsibleTrigger = CollapsiblePrimitive.Trigger
+export const Collapsible = CollapsiblePrimitive.Root;
+export const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
 
 export const CollapsibleContent = ({
   className,
@@ -15,4 +15,4 @@ export const CollapsibleContent = ({
     )}
     {...props}
   />
-)
+);

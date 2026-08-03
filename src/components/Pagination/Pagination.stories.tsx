@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Pagination,
   PaginationContent,
@@ -7,16 +7,16 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from './Pagination'
+} from './Pagination';
 
 const meta: Meta<typeof Pagination> = {
   title: 'Components/Pagination',
   component: Pagination,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Pagination>
+type Story = StoryObj<typeof Pagination>;
 
 export const Default: Story = {
   render: () => (
@@ -45,4 +45,4 @@ export const Default: Story = {
       </PaginationContent>
     </Pagination>
   ),
-}
+};

@@ -1,9 +1,9 @@
-import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip'
-import { cn } from '@/lib/utils'
+import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip';
+import { cn } from '@/lib/utils';
 
-export const TooltipProvider = TooltipPrimitive.Provider
-export const Tooltip = TooltipPrimitive.Root
-export const TooltipTrigger = TooltipPrimitive.Trigger
+export const TooltipProvider = TooltipPrimitive.Provider;
+export const Tooltip = TooltipPrimitive.Root;
+export const TooltipTrigger = TooltipPrimitive.Trigger;
 
 export const TooltipContent = ({
   className,
@@ -23,4 +23,4 @@ export const TooltipContent = ({
       </TooltipPrimitive.Popup>
     </TooltipPrimitive.Positioner>
   </TooltipPrimitive.Portal>
-)
+);

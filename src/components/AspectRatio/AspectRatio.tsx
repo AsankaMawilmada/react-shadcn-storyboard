@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
 export interface AspectRatioProps extends React.ComponentProps<'div'> {
-  ratio?: number
+  ratio?: number;
 }
 
 export const AspectRatio = ({
@@ -16,4 +16,4 @@ export const AspectRatio = ({
     style={{ aspectRatio: ratio, ...style }}
     {...props}
   />
-)
+);

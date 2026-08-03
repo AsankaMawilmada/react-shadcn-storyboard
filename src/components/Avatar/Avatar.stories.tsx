@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Avatar, AvatarFallback, AvatarImage } from './Avatar'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Avatar, AvatarFallback, AvatarImage } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Avatar>
+type Story = StoryObj<typeof Avatar>;
 
 export const Default: Story = {
   render: () => (
@@ -17,7 +17,7 @@ export const Default: Story = {
       <AvatarFallback>SC</AvatarFallback>
     </Avatar>
   ),
-}
+};
 
 export const WithFallback: Story = {
   render: () => (
@@ -29,4 +29,4 @@ export const WithFallback: Story = {
       <AvatarFallback>JD</AvatarFallback>
     </Avatar>
   ),
-}
+};

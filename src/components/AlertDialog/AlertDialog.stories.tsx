@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,17 +9,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from './AlertDialog'
-import { Button } from '../Button'
+} from './AlertDialog';
+import { Button } from '../Button';
 
 const meta: Meta<typeof AlertDialog> = {
   title: 'Components/AlertDialog',
   component: AlertDialog,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof AlertDialog>
+type Story = StoryObj<typeof AlertDialog>;
 
 export const Default: Story = {
   render: () => (
@@ -42,4 +42,4 @@ export const Default: Story = {
       </AlertDialogContent>
     </AlertDialog>
   ),
-}
+};

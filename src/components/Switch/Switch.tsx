@@ -1,7 +1,7 @@
-import { Switch as SwitchPrimitive } from '@base-ui/react/switch'
-import { cn } from '@/lib/utils'
+import { Switch as SwitchPrimitive } from '@base-ui/react/switch';
+import { cn } from '@/lib/utils';
 
-export type SwitchProps = SwitchPrimitive.Root.Props
+export type SwitchProps = SwitchPrimitive.Root.Props;
 
 export const Switch = ({ className, ...props }: SwitchProps) => (
   <SwitchPrimitive.Root
@@ -13,4 +13,4 @@ export const Switch = ({ className, ...props }: SwitchProps) => (
   >
     <SwitchPrimitive.Thumb className="block size-4 translate-x-0.5 rounded-full bg-background shadow-sm transition-transform data-[checked]:translate-x-4" />
   </SwitchPrimitive.Root>
-)
+);

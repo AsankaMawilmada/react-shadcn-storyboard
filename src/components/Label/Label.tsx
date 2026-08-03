@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-export type LabelProps = React.ComponentProps<'label'>
+export type LabelProps = React.ComponentProps<'label'>;
 
 export const Label = ({ className, ...props }: LabelProps) => (
   <label
@@ -11,4 +11,4 @@ export const Label = ({ className, ...props }: LabelProps) => (
     )}
     {...props}
   />
-)
+);

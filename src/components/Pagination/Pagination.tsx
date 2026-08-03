@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export const Pagination = ({
   className,
@@ -12,7 +12,7 @@ export const Pagination = ({
     className={cn('mx-auto flex w-full justify-center', className)}
     {...props}
   />
-)
+);
 
 export const PaginationContent = ({
   className,
@@ -22,18 +22,18 @@ export const PaginationContent = ({
     className={cn('flex flex-row items-center gap-1', className)}
     {...props}
   />
-)
+);
 
 export const PaginationItem = ({
   className,
   ...props
 }: React.LiHTMLAttributes<HTMLLIElement>) => (
   <li className={cn(className)} {...props} />
-)
+);
 
 export interface PaginationLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  isActive?: boolean
-  size?: 'default' | 'icon'
+  isActive?: boolean;
+  size?: 'default' | 'icon';
 }
 
 export const PaginationLink = ({
@@ -54,7 +54,7 @@ export const PaginationLink = ({
     )}
     {...props}
   />
-)
+);
 
 export const PaginationPrevious = ({
   className,
@@ -69,7 +69,7 @@ export const PaginationPrevious = ({
     <ChevronLeft className="size-4" />
     <span>Previous</span>
   </PaginationLink>
-)
+);
 
 export const PaginationNext = ({
   className,
@@ -84,7 +84,7 @@ export const PaginationNext = ({
     <span>Next</span>
     <ChevronRight className="size-4" />
   </PaginationLink>
-)
+);
 
 export const PaginationEllipsis = ({
   className,
@@ -98,4 +98,4 @@ export const PaginationEllipsis = ({
     <MoreHorizontal className="size-4" />
     <span className="sr-only">More pages</span>
   </span>
-)
+);

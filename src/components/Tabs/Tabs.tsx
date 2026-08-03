@@ -1,7 +1,7 @@
-import { Tabs as TabsPrimitive } from '@base-ui/react/tabs'
-import { cn } from '@/lib/utils'
+import { Tabs as TabsPrimitive } from '@base-ui/react/tabs';
+import { cn } from '@/lib/utils';
 
-export const Tabs = TabsPrimitive.Root
+export const Tabs = TabsPrimitive.Root;
 
 export const TabsList = ({ className, ...props }: TabsPrimitive.List.Props) => (
   <TabsPrimitive.List
@@ -11,7 +11,7 @@ export const TabsList = ({ className, ...props }: TabsPrimitive.List.Props) => (
     )}
     {...props}
   />
-)
+);
 
 export const TabsTrigger = ({
   className,
@@ -24,7 +24,7 @@ export const TabsTrigger = ({
     )}
     {...props}
   />
-)
+);
 
 export const TabsContent = ({
   className,
@@ -34,4 +34,4 @@ export const TabsContent = ({
     className={cn('mt-2 focus-visible:outline-none', className)}
     {...props}
   />
-)
+);

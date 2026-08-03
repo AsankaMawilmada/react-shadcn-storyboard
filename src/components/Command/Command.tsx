@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Command as CommandPrimitive } from 'cmdk'
-import { Search } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { Command as CommandPrimitive } from 'cmdk';
+import { Search } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export const Command = ({
   className,
@@ -14,7 +14,7 @@ export const Command = ({
     )}
     {...props}
   />
-)
+);
 
 export const CommandInput = ({
   className,
@@ -30,7 +30,7 @@ export const CommandInput = ({
       {...props}
     />
   </div>
-)
+);
 
 export const CommandList = ({
   className,
@@ -40,11 +40,11 @@ export const CommandList = ({
     className={cn('max-h-80 overflow-x-hidden overflow-y-auto p-1', className)}
     {...props}
   />
-)
+);
 
 export const CommandEmpty = (
   props: React.ComponentProps<typeof CommandPrimitive.Empty>,
-) => <CommandPrimitive.Empty className="py-6 text-center text-sm" {...props} />
+) => <CommandPrimitive.Empty className="py-6 text-center text-sm" {...props} />;
 
 export const CommandGroup = ({
   className,
@@ -57,7 +57,7 @@ export const CommandGroup = ({
     )}
     {...props}
   />
-)
+);
 
 export const CommandItem = ({
   className,
@@ -70,4 +70,4 @@ export const CommandItem = ({
     )}
     {...props}
   />
-)
+);

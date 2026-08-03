@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   ContextMenu,
   ContextMenuContent,
@@ -7,17 +7,17 @@ import {
   ContextMenuLabel,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from './ContextMenu'
+} from './ContextMenu';
 
 const meta: Meta<typeof ContextMenu> = {
   title: 'Components/ContextMenu',
   component: ContextMenu,
   tags: ['autodocs'],
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof ContextMenu>
+type Story = StoryObj<typeof ContextMenu>;
 
 export const Default: Story = {
   render: () => (
@@ -38,4 +38,4 @@ export const Default: Story = {
       </ContextMenuContent>
     </ContextMenu>
   ),
-}
+};

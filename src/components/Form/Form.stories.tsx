@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Form,
   FormControl,
@@ -6,25 +6,25 @@ import {
   FormField,
   FormLabel,
   FormMessage,
-} from './Form'
-import { Button } from '../Button'
-import { Input } from '../Input'
+} from './Form';
+import { Button } from '../Button';
+import { Input } from '../Input';
 
 const meta: Meta<typeof Form> = {
   title: 'Components/Form',
   component: Form,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Form>
+type Story = StoryObj<typeof Form>;
 
 export const Default: Story = {
   render: () => (
     <Form
       className="grid w-full max-w-sm gap-4"
       onFormSubmit={(values) => {
-        console.log(values)
+        console.log(values);
       }}
     >
       <FormField name="email" className="grid gap-2">
@@ -38,4 +38,4 @@ export const Default: Story = {
       <Button type="submit">Submit</Button>
     </Form>
   ),
-}
+};

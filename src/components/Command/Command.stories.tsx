@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Calculator, Calendar, Smile } from 'lucide-react'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Calculator, Calendar, Smile } from 'lucide-react';
 import {
   Command,
   CommandEmpty,
@@ -7,16 +7,16 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from './Command'
+} from './Command';
 
 const meta: Meta<typeof Command> = {
   title: 'Components/Command',
   component: Command,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Command>
+type Story = StoryObj<typeof Command>;
 
 export const Default: Story = {
   render: () => (
@@ -41,4 +41,4 @@ export const Default: Story = {
       </CommandList>
     </Command>
   ),
-}
+};

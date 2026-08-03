@@ -1,20 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ChevronsUpDown } from 'lucide-react'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ChevronsUpDown } from 'lucide-react';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from './Collapsible'
-import { Button } from '../Button'
+} from './Collapsible';
+import { Button } from '../Button';
 
 const meta: Meta<typeof Collapsible> = {
   title: 'Components/Collapsible',
   component: Collapsible,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Collapsible>
+type Story = StoryObj<typeof Collapsible>;
 
 export const Default: Story = {
   render: () => (
@@ -44,4 +44,4 @@ export const Default: Story = {
       </CollapsibleContent>
     </Collapsible>
   ),
-}
+};

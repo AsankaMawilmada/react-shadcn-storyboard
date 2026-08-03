@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { AspectRatio } from './AspectRatio'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { AspectRatio } from './AspectRatio';
 
 const meta: Meta<typeof AspectRatio> = {
   title: 'Components/AspectRatio',
   component: AspectRatio,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof AspectRatio>
+type Story = StoryObj<typeof AspectRatio>;
 
 export const Default: Story = {
   render: () => (
@@ -25,4 +25,4 @@ export const Default: Story = {
       </AspectRatio>
     </div>
   ),
-}
+};

@@ -1,8 +1,8 @@
-import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox'
-import { Check } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
+import { Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const Combobox = ComboboxPrimitive.Root
+export const Combobox = ComboboxPrimitive.Root;
 
 export const ComboboxInput = ({
   className,
@@ -15,7 +15,7 @@ export const ComboboxInput = ({
     )}
     {...props}
   />
-)
+);
 
 export const ComboboxContent = ({
   className,
@@ -35,7 +35,7 @@ export const ComboboxContent = ({
       </ComboboxPrimitive.Popup>
     </ComboboxPrimitive.Positioner>
   </ComboboxPrimitive.Portal>
-)
+);
 
 export const ComboboxList = ({
   className,
@@ -45,7 +45,7 @@ export const ComboboxList = ({
     className={cn('flex flex-col gap-0.5', className)}
     {...props}
   />
-)
+);
 
 export const ComboboxItem = ({
   className,
@@ -64,7 +64,7 @@ export const ComboboxItem = ({
       <Check className="size-4" />
     </ComboboxPrimitive.ItemIndicator>
   </ComboboxPrimitive.Item>
-)
+);
 
 export const ComboboxEmpty = ({
   className,
@@ -74,4 +74,4 @@ export const ComboboxEmpty = ({
     className={cn('py-6 text-center text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);

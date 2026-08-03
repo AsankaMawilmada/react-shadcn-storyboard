@@ -1,6 +1,6 @@
-import type { ComponentType } from 'react'
-import { expect, it } from 'vitest'
-import { render } from '@testing-library/react'
+import type { ComponentType } from 'react';
+import { expect, it } from 'vitest';
+import { render } from '@testing-library/react';
 
 /**
  * Registers one `it(...).toMatchSnapshot()` per composed story, so every
@@ -10,8 +10,8 @@ import { render } from '@testing-library/react'
 export const snapshotAllStories = (stories: Record<string, ComponentType>) => {
   for (const [name, Story] of Object.entries(stories)) {
     it(`matches snapshot: ${name}`, () => {
-      const { container } = render(<Story />)
-      expect(container).toMatchSnapshot()
-    })
+      const { container } = render(<Story />);
+      expect(container).toMatchSnapshot();
+    });
   }
-}
+};

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,16 +6,16 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from './Breadcrumb'
+} from './Breadcrumb';
 
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Components/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Breadcrumb>
+type Story = StoryObj<typeof Breadcrumb>;
 
 export const Default: Story = {
   render: () => (
@@ -35,4 +35,4 @@ export const Default: Story = {
       </BreadcrumbList>
     </Breadcrumb>
   ),
-}
+};

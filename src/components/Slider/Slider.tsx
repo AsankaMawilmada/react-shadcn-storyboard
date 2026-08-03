@@ -1,7 +1,7 @@
-import { Slider as SliderPrimitive } from '@base-ui/react/slider'
-import { cn } from '@/lib/utils'
+import { Slider as SliderPrimitive } from '@base-ui/react/slider';
+import { cn } from '@/lib/utils';
 
-export type SliderProps = SliderPrimitive.Root.Props
+export type SliderProps = SliderPrimitive.Root.Props;
 
 export const Slider = ({ className, ...props }: SliderProps) => (
   <SliderPrimitive.Root
@@ -18,4 +18,4 @@ export const Slider = ({ className, ...props }: SliderProps) => (
       </SliderPrimitive.Track>
     </SliderPrimitive.Control>
   </SliderPrimitive.Root>
-)
+);

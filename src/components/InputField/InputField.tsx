@@ -1,41 +1,41 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
-import { Input } from '../Input'
-import { Label } from '../Label'
-import { InputOTP, InputOTPGroup, InputOTPSlot } from '../InputOtp'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+import { Input } from '../Input';
+import { Label } from '../Label';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '../InputOtp';
 
 export type InputFieldType =
-  'text' | 'date' | 'number' | 'postcode' | 'email' | 'split'
-export type LabelPosition = 'above' | 'beside'
-export type IconPosition = 'left' | 'right'
+  'text' | 'date' | 'number' | 'postcode' | 'email' | 'split';
+export type LabelPosition = 'above' | 'beside';
+export type IconPosition = 'left' | 'right';
 
 export type InputFieldProps = Omit<React.ComponentProps<'input'>, 'type'> & {
-  type?: InputFieldType
-  label?: React.ReactNode
-  labelPosition?: LabelPosition
-  icon?: React.ReactNode
-  iconPosition?: IconPosition
+  type?: InputFieldType;
+  label?: React.ReactNode;
+  labelPosition?: LabelPosition;
+  icon?: React.ReactNode;
+  iconPosition?: IconPosition;
   /** Arbitrary content rendered before the input, e.g. a "$" prefix. */
-  leading?: React.ReactNode
+  leading?: React.ReactNode;
   /** Arbitrary content rendered after the input, e.g. a unit suffix. */
-  trailing?: React.ReactNode
+  trailing?: React.ReactNode;
   /** Number of segmented boxes when `type="split"`. */
-  splitLength?: number
+  splitLength?: number;
   /** Class applied to the outer label+field layout wrapper. */
-  containerClassName?: string
-}
+  containerClassName?: string;
+};
 
 const iconClassName =
-  'flex size-4 shrink-0 items-center justify-center text-muted-foreground'
+  'flex size-4 shrink-0 items-center justify-center text-muted-foreground';
 
 // Error (aria-invalid) wins over focus even when both apply — the compound
 // `aria-invalid:focus-visible:` / `has-aria-invalid:focus-within:` variants
 // carry higher CSS specificity than either single-condition rule, so this
 // holds regardless of the order Tailwind emits the underlying declarations.
 const focusErrorClassName =
-  'focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50'
+  'focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50';
 const wrapperFocusErrorClassName =
-  'focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50'
+  'focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50';
 
 // `type="split"` has no native <input> of its own (it renders InputOTP
 // instead), so a `ref` prop only ever attaches to an HTMLInputElement — it's
@@ -57,10 +57,10 @@ export const InputField = ({
   autoComplete,
   ...props
 }: InputFieldProps) => {
-  const generatedId = React.useId()
-  const inputId = id ?? generatedId
+  const generatedId = React.useId();
+  const inputId = id ?? generatedId;
 
-  let field: React.ReactNode
+  let field: React.ReactNode;
 
   if (type === 'split') {
     // icon/leading/trailing don't apply to the segmented-box layout, so
@@ -73,13 +73,13 @@ export const InputField = ({
           ))}
         </InputOTPGroup>
       </InputOTP>
-    )
+    );
   } else {
-    const nativeType = type === 'postcode' ? 'text' : type
+    const nativeType = type === 'postcode' ? 'text' : type;
     const resolvedInputMode =
-      type === 'postcode' ? (inputMode ?? 'text') : inputMode
+      type === 'postcode' ? (inputMode ?? 'text') : inputMode;
     const resolvedAutoComplete =
-      type === 'postcode' ? (autoComplete ?? 'postal-code') : autoComplete
+      type === 'postcode' ? (autoComplete ?? 'postal-code') : autoComplete;
 
     field =
       icon || leading || trailing ? (
@@ -118,7 +118,7 @@ export const InputField = ({
           className={cn('h-12', focusErrorClassName, className)}
           {...props}
         />
-      )
+      );
   }
 
   return (
@@ -141,5 +141,5 @@ export const InputField = ({
         {field}
       </div>
     </div>
-  )
-}
+  );
+};

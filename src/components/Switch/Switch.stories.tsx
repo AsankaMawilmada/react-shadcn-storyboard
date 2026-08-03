@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Switch } from './Switch'
-import { Label } from '../Label'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Switch } from './Switch';
+import { Label } from '../Label';
 
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Switch>
+type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
   render: () => (
@@ -18,7 +18,7 @@ export const Default: Story = {
       <Label htmlFor="airplane-mode">Airplane mode</Label>
     </div>
   ),
-}
+};
 
 export const Checked: Story = {
   render: () => (
@@ -27,7 +27,7 @@ export const Checked: Story = {
       <Label htmlFor="airplane-mode-checked">Airplane mode</Label>
     </div>
   ),
-}
+};
 
 export const Disabled: Story = {
   render: () => (
@@ -36,4 +36,4 @@ export const Disabled: Story = {
       <Label htmlFor="airplane-mode-disabled">Airplane mode</Label>
     </div>
   ),
-}
+};

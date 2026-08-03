@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { InputOTP, InputOTPGroup, InputOTPSlot } from './InputOtp'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from './InputOtp';
 
 const meta: Meta<typeof InputOTP> = {
   title: 'Components/InputOTP',
   component: InputOTP,
   tags: ['autodocs'],
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof InputOTP>
+type Story = StoryObj<typeof InputOTP>;
 
 export const Default: Story = {
   render: () => (
@@ -24,4 +24,4 @@ export const Default: Story = {
       </InputOTPGroup>
     </InputOTP>
   ),
-}
+};

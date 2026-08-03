@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { OTPField as OtpFieldPrimitive } from '@base-ui/react/otp-field'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { OTPField as OtpFieldPrimitive } from '@base-ui/react/otp-field';
+import { cn } from '@/lib/utils';
 
 export const InputOTP = ({
   className,
@@ -13,14 +13,14 @@ export const InputOTP = ({
     )}
     {...props}
   />
-)
+);
 
 export const InputOTPGroup = ({
   className,
   ...props
 }: React.ComponentProps<'div'>) => (
   <div className={cn('flex items-center gap-2', className)} {...props} />
-)
+);
 
 export const InputOTPSlot = ({
   className,
@@ -33,4 +33,4 @@ export const InputOTPSlot = ({
     )}
     {...props}
   />
-)
+);

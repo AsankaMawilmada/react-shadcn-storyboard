@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 const alertVariants = cva(
   'relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:size-4',
@@ -17,7 +17,7 @@ const alertVariants = cva(
       variant: 'default',
     },
   },
-)
+);
 
 export interface AlertProps
   extends
@@ -30,7 +30,7 @@ export const Alert = ({ className, variant, ...props }: AlertProps) => (
     className={cn(alertVariants({ variant }), className)}
     {...props}
   />
-)
+);
 
 export const AlertTitle = ({
   className,
@@ -40,11 +40,11 @@ export const AlertTitle = ({
     className={cn('mb-1 leading-none font-medium tracking-tight', className)}
     {...props}
   />
-)
+);
 
 export const AlertDescription = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) => (
   <p className={cn('text-sm [&_p]:leading-relaxed', className)} {...props} />
-)
+);

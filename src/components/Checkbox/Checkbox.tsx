@@ -1,8 +1,8 @@
-import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox'
-import { Check } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
+import { Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export type CheckboxProps = CheckboxPrimitive.Root.Props
+export type CheckboxProps = CheckboxPrimitive.Root.Props;
 
 export const Checkbox = ({ className, ...props }: CheckboxProps) => (
   <CheckboxPrimitive.Root
@@ -16,4 +16,4 @@ export const Checkbox = ({ className, ...props }: CheckboxProps) => (
       <Check className="size-3.5" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
-)
+);

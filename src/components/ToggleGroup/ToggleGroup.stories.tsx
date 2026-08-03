@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Bold, Italic, Underline } from 'lucide-react'
-import { ToggleGroup, ToggleGroupItem } from './ToggleGroup'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Bold, Italic, Underline } from 'lucide-react';
+import { ToggleGroup, ToggleGroupItem } from './ToggleGroup';
 
 const meta: Meta<typeof ToggleGroup> = {
   title: 'Components/ToggleGroup',
   component: ToggleGroup,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof ToggleGroup>
+type Story = StoryObj<typeof ToggleGroup>;
 
 export const Default: Story = {
   render: () => (
@@ -25,4 +25,4 @@ export const Default: Story = {
       </ToggleGroupItem>
     </ToggleGroup>
   ),
-}
+};

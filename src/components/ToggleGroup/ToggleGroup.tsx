@@ -1,15 +1,15 @@
-import * as React from 'react'
-import { ToggleGroup as ToggleGroupPrimitive } from '@base-ui/react/toggle-group'
-import type { VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
-import { Toggle, toggleVariants, type ToggleProps } from '../Toggle'
+import * as React from 'react';
+import { ToggleGroup as ToggleGroupPrimitive } from '@base-ui/react/toggle-group';
+import type { VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
+import { Toggle, toggleVariants, type ToggleProps } from '../Toggle';
 
-type ToggleGroupContextValue = VariantProps<typeof toggleVariants>
+type ToggleGroupContextValue = VariantProps<typeof toggleVariants>;
 
 const ToggleGroupContext = React.createContext<ToggleGroupContextValue>({
   variant: 'default',
   size: 'md',
-})
+});
 
 export interface ToggleGroupProps
   extends ToggleGroupPrimitive.Props, VariantProps<typeof toggleVariants> {}
@@ -29,7 +29,7 @@ export const ToggleGroup = ({
       {children}
     </ToggleGroupContext.Provider>
   </ToggleGroupPrimitive>
-)
+);
 
 export const ToggleGroupItem = ({
   className,
@@ -37,7 +37,7 @@ export const ToggleGroupItem = ({
   size,
   ...props
 }: ToggleProps) => {
-  const context = React.useContext(ToggleGroupContext)
+  const context = React.useContext(ToggleGroupContext);
   return (
     <Toggle
       variant={variant ?? context.variant}
@@ -45,5 +45,5 @@ export const ToggleGroupItem = ({
       className={className}
       {...props}
     />
-  )
-}
+  );
+};

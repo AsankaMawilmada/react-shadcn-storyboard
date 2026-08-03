@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ScrollArea } from './ScrollArea'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ScrollArea } from './ScrollArea';
 
 const meta: Meta<typeof ScrollArea> = {
   title: 'Components/ScrollArea',
   component: ScrollArea,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof ScrollArea>
+type Story = StoryObj<typeof ScrollArea>;
 
 export const Default: Story = {
   render: () => (
@@ -26,4 +26,4 @@ export const Default: Story = {
       </div>
     </ScrollArea>
   ),
-}
+};

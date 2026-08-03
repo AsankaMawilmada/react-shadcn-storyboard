@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Menubar,
   MenubarContent,
@@ -7,17 +7,17 @@ import {
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
-} from './Menubar'
+} from './Menubar';
 
 const meta: Meta<typeof Menubar> = {
   title: 'Components/Menubar',
   component: Menubar,
   tags: ['autodocs'],
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Menubar>
+type Story = StoryObj<typeof Menubar>;
 
 export const Default: Story = {
   render: () => (
@@ -56,4 +56,4 @@ export const Default: Story = {
       </MenubarMenu>
     </Menubar>
   ),
-}
+};

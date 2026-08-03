@@ -15,22 +15,22 @@
  *  3. dark-mode overrides are hand-maintained constants in this script, since
  *     no Figma dark-mode export exists — they are never derived from tokens.
  */
-import StyleDictionary from 'style-dictionary'
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import StyleDictionary from 'style-dictionary';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT = path.resolve(__dirname, '..')
-const FIGMA_DIR = path.join(ROOT, '.figma/themes')
-const CSS_DIR = path.join(ROOT, 'src/styles')
-const TS_DIR = path.join(ROOT, 'src/tokens')
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const FIGMA_DIR = path.join(ROOT, '.figma/themes');
+const CSS_DIR = path.join(ROOT, 'src/styles');
+const TS_DIR = path.join(ROOT, 'src/tokens');
 
-mkdirSync(CSS_DIR, { recursive: true })
-mkdirSync(TS_DIR, { recursive: true })
+mkdirSync(CSS_DIR, { recursive: true });
+mkdirSync(TS_DIR, { recursive: true });
 
-const figmaPath = (theme, file) => path.join(FIGMA_DIR, theme, file)
-const readJSON = (file) => JSON.parse(readFileSync(file, 'utf8'))
+const figmaPath = (theme, file) => path.join(FIGMA_DIR, theme, file);
+const readJSON = (file) => JSON.parse(readFileSync(file, 'utf8'));
 
 // ---------------------------------------------------------------------------
 // Shared value helpers
@@ -41,67 +41,67 @@ const readJSON = (file) => JSON.parse(readFileSync(file, 'utf8'))
  * to a hex string either way. */
 const flattenColorValue = (tree) => {
   const walk = (node) => {
-    if (!node || typeof node !== 'object') return
+    if (!node || typeof node !== 'object') return;
     if ('$value' in node) {
       if (
         node.$type === 'color' &&
         node.$value &&
         typeof node.$value === 'object'
       ) {
-        node.$value = node.$value.hex ?? String(node.$value)
+        node.$value = node.$value.hex ?? String(node.$value);
       }
-      return
+      return;
     }
     for (const key of Object.keys(node)) {
-      if (key.startsWith('$')) continue
-      walk(node[key])
+      if (key.startsWith('$')) continue;
+      walk(node[key]);
     }
-  }
-  walk(tree)
-  return tree
-}
+  };
+  walk(tree);
+  return tree;
+};
 
 const pxToRem = (px) => {
-  const rem = Number(px) / 16
-  return `${parseFloat(rem.toFixed(4))}rem`
-}
+  const rem = Number(px) / 16;
+  return `${parseFloat(rem.toFixed(4))}rem`;
+};
 
 const pathGet = (tree, segments) => {
-  let node = tree
+  let node = tree;
   for (const segment of segments) {
-    node = node?.[segment]
+    node = node?.[segment];
     if (node === undefined) {
-      throw new Error(`Token path not found: ${segments.join('.')}`)
+      throw new Error(`Token path not found: ${segments.join('.')}`);
     }
   }
   if (!('$value' in node)) {
     throw new Error(
       `Path ${segments.join('.')} does not resolve to a leaf token`,
-    )
+    );
   }
-  return node.$value
-}
+  return node.$value;
+};
 
 /** Minimal recursive pretty-printer for generated TS object literals. */
 const toTsLiteral = (value, indent = 0) => {
-  const pad = '  '.repeat(indent)
-  const padIn = '  '.repeat(indent + 1)
+  const pad = '  '.repeat(indent);
+  const padIn = '  '.repeat(indent + 1);
   if (typeof value === 'object' && value !== null) {
     const entries = Object.entries(value)
       .map(([key, val]) => {
         const safeKey = /^[A-Za-z_$][\w$]*$/.test(key)
           ? key
-          : JSON.stringify(key)
-        return `${padIn}${safeKey}: ${toTsLiteral(val, indent + 1)},`
+          : JSON.stringify(key);
+        return `${padIn}${safeKey}: ${toTsLiteral(val, indent + 1)},`;
       })
-      .join('\n')
-    return `{\n${entries}\n${pad}}`
+      .join('\n');
+    return `{\n${entries}\n${pad}}`;
   }
-  return JSON.stringify(value)
-}
+  return JSON.stringify(value);
+};
 
 const banner =
-  '/* GENERATED FILE — do not edit by hand.\n * Produced by scripts/transform-tokens.mjs from .figma/themes/. Run `npm run transform-tokens` to regenerate.\n */\n\n'
+  '/* GENERATED FILE — do not edit by hand.\n * Produced by scripts/transform-tokens.mjs from .figma/themes/. Run `npm run transform-tokens` to regenerate.\n */\n\n';
 
 // ---------------------------------------------------------------------------
 // Style Dictionary registration (shared across builds)
@@ -110,7 +110,7 @@ const banner =
 StyleDictionary.registerPreprocessor({
   name: 'figma/flatten-color',
   preprocessor: (tokens) => flattenColorValue(tokens),
-})
+});
 
 StyleDictionary.registerTransform({
   name: 'figma/rem',
@@ -123,7 +123,7 @@ StyleDictionary.registerTransform({
         token.path[0] === 'size')),
   transform: (token) =>
     token.path.at(-1) === 'radius-full' ? '9999px' : pxToRem(token.$value),
-})
+});
 
 // Figma's float32 export introduces artifacts like 1.100000023841858 for a
 // clean 1.1 — round any remaining raw numbers (weight, line-height) so the
@@ -134,7 +134,7 @@ StyleDictionary.registerTransform({
   filter: (token) =>
     token.$type === 'number' && typeof token.$value === 'number',
   transform: (token) => Math.round(token.$value * 1000) / 1000,
-})
+});
 
 StyleDictionary.registerTransform({
   name: 'figma/px',
@@ -145,7 +145,7 @@ StyleDictionary.registerTransform({
       (f) => token.filePath.endsWith(f),
     ),
   transform: (token) => `${token.$value}px`,
-})
+});
 
 // ---------------------------------------------------------------------------
 // Colors — curated semantic mapping, default theme + midnight theme
@@ -176,21 +176,21 @@ const COLOR_VAR_MAP = {
   link: ['text', 'link'],
   'link-hover': ['text', 'link-hover'],
   'link-pressed': ['text', 'link-pressed'],
-}
+};
 
 const buildThemeColors = async (theme, { pinBorderInputToPrimitive }) => {
   const sd = new StyleDictionary({
     source: [figmaPath(theme, 'colors.tokens.json')],
     preprocessors: ['figma/flatten-color'],
     platforms: { css: { transforms: [] } },
-  })
-  await sd.hasInitialized
-  const dictionary = await sd.getPlatformTokens('css')
-  const tree = dictionary.tokens
+  });
+  await sd.hasInitialized;
+  const dictionary = await sd.getPlatformTokens('css');
+  const tree = dictionary.tokens;
 
-  const vars = {}
+  const vars = {};
   for (const [cssVar, tokenPath] of Object.entries(COLOR_VAR_MAP)) {
-    vars[cssVar] = pathGet(tree, tokenPath)
+    vars[cssVar] = pathGet(tree, tokenPath);
   }
 
   if (pinBorderInputToPrimitive) {
@@ -199,17 +199,17 @@ const buildThemeColors = async (theme, { pinBorderInputToPrimitive }) => {
     // hand-authored look, per the design brief.
     const primitives = flattenColorValue(
       readJSON(figmaPath('default', 'style.tokens.json')),
-    )
-    const pinned = pathGet(primitives, ['_colors', '_grayscale', '_200'])
-    vars.border = pinned
-    vars.input = pinned
+    );
+    const pinned = pathGet(primitives, ['_colors', '_grayscale', '_200']);
+    vars.border = pinned;
+    vars.input = pinned;
   } else {
-    vars.border = pathGet(tree, ['border', 'default'])
-    vars.input = pathGet(tree, ['border', 'default'])
+    vars.border = pathGet(tree, ['border', 'default']);
+    vars.input = pathGet(tree, ['border', 'default']);
   }
 
-  return vars
-}
+  return vars;
+};
 
 // ---------------------------------------------------------------------------
 // Radius & spacing — full scales, straight passthrough
@@ -219,16 +219,16 @@ const buildScale = async (theme, file, groupKey) => {
   const sd = new StyleDictionary({
     source: [figmaPath(theme, file)],
     platforms: { css: { transforms: ['figma/rem'] } },
-  })
-  await sd.hasInitialized
-  const dictionary = await sd.getPlatformTokens('css')
-  const group = dictionary.tokens[groupKey]
-  const result = {}
+  });
+  await sd.hasInitialized;
+  const dictionary = await sd.getPlatformTokens('css');
+  const group = dictionary.tokens[groupKey];
+  const result = {};
   for (const [key, token] of Object.entries(group)) {
-    result[key.replace(`${groupKey}-`, '')] = token.$value
+    result[key.replace(`${groupKey}-`, '')] = token.$value;
   }
-  return result
-}
+  return result;
+};
 
 // ---------------------------------------------------------------------------
 // Typography
@@ -238,24 +238,24 @@ const buildTypography = async (theme) => {
   const sd = new StyleDictionary({
     source: [figmaPath(theme, 'text.tokens.json')],
     platforms: { css: { transforms: ['figma/round-number', 'figma/rem'] } },
-  })
-  await sd.hasInitialized
-  const dictionary = await sd.getPlatformTokens('css')
-  const t = dictionary.tokens
+  });
+  await sd.hasInitialized;
+  const dictionary = await sd.getPlatformTokens('css');
+  const t = dictionary.tokens;
   const strip = (group, prefix) =>
     Object.fromEntries(
       Object.entries(t[group]).map(([key, token]) => [
         key.replace(`${prefix}-`, ''),
         token.$value,
       ]),
-    )
+    );
   return {
     family: strip('family', 'family'),
     size: strip('size', 'size'),
     weight: strip('weight', 'weight'),
     lineHeight: strip('lineheight', 'lineheight'),
-  }
-}
+  };
+};
 
 // ---------------------------------------------------------------------------
 // Layout — desktop/tablet/mobile, each an ISOLATED StyleDictionary instance
@@ -263,16 +263,16 @@ const buildTypography = async (theme) => {
 // never collide in a shared `source` glob.
 // ---------------------------------------------------------------------------
 
-const DEVICES = ['mobile', 'tablet', 'desktop']
+const DEVICES = ['mobile', 'tablet', 'desktop'];
 
 const buildLayoutDevice = async (device) => {
   const sd = new StyleDictionary({
     source: [figmaPath('default', `${device}.tokens.json`)],
     platforms: { css: { transforms: ['figma/px'] } },
-  })
-  await sd.hasInitialized
-  const dictionary = await sd.getPlatformTokens('css')
-  const t = dictionary.tokens
+  });
+  await sd.hasInitialized;
+  const dictionary = await sd.getPlatformTokens('css');
+  const t = dictionary.tokens;
   return {
     margin: t.margin.$value,
     gutter: t.gutter.$value,
@@ -288,8 +288,8 @@ const buildLayoutDevice = async (device) => {
     containers: Object.fromEntries(
       Object.entries(t.containers).map(([key, token]) => [key, token.$value]),
     ),
-  }
-}
+  };
+};
 
 // ---------------------------------------------------------------------------
 // Component-state tokens — raw data only, never imported by button.tsx.
@@ -310,25 +310,25 @@ StyleDictionary.registerFormat({
         'path' in node &&
         '$value' in node
       ) {
-        return node.value ?? node.$value
+        return node.value ?? node.$value;
       }
-      const out = {}
+      const out = {};
       for (const [key, val] of Object.entries(node)) {
-        if (key.startsWith('$')) continue
-        out[key] = rebuild(val)
+        if (key.startsWith('$')) continue;
+        out[key] = rebuild(val);
       }
-      return out
-    }
+      return out;
+    };
     // NOTE: dictionary.tokens here only contains `buttons` (see file filter
     // below) — dictionary.unfilteredTokens is required to also get `link`.
-    const full = rebuild(dictionary.unfilteredTokens)
+    const full = rebuild(dictionary.unfilteredTokens);
     return (
       banner +
       `export const componentState = ${toTsLiteral(full)} as const\n\n` +
       'export default componentState\n'
-    )
+    );
   },
-})
+});
 
 const buildComponentState = async () => {
   const sd = new StyleDictionary({
@@ -346,9 +346,9 @@ const buildComponentState = async () => {
         ],
       },
     },
-  })
-  await sd.buildAllPlatforms()
-}
+  });
+  await sd.buildAllPlatforms();
+};
 
 // ---------------------------------------------------------------------------
 // Assemble outputs
@@ -357,7 +357,7 @@ const buildComponentState = async () => {
 const cssVarBlock = (vars, indent = '  ') =>
   Object.entries(vars)
     .map(([key, value]) => `${indent}--${key}: ${value};`)
-    .join('\n')
+    .join('\n');
 
 // Hand-maintained — no Figma dark-mode export exists for this theme.
 const DARK_MODE_COLORS = {
@@ -387,29 +387,29 @@ const DARK_MODE_COLORS = {
   link: '#C9A6FF',
   'link-hover': '#DCC4FF',
   'link-pressed': '#B088F0',
-}
+};
 
 const main = async () => {
   const defaultColors = await buildThemeColors('default', {
     pinBorderInputToPrimitive: true,
-  })
+  });
   const midnightColors = await buildThemeColors('midnight', {
     pinBorderInputToPrimitive: false,
-  })
+  });
 
-  const radius = await buildScale('default', 'radius.tokens.json', 'radius')
-  const spacing = await buildScale('default', 'spacing.tokens.json', 'spacing')
-  const typography = await buildTypography('default')
+  const radius = await buildScale('default', 'radius.tokens.json', 'radius');
+  const spacing = await buildScale('default', 'spacing.tokens.json', 'spacing');
+  const typography = await buildTypography('default');
 
   const [mobile, tablet, desktop] = await Promise.all(
     DEVICES.map(buildLayoutDevice),
-  )
+  );
 
-  await buildComponentState()
+  await buildComponentState();
 
   // ---- src/styles/tokens.css ----
   const fontFamily = (name) =>
-    `"${name}", ui-sans-serif, system-ui, -apple-system, sans-serif`
+    `"${name}", ui-sans-serif, system-ui, -apple-system, sans-serif`;
 
   const typographyVars = {
     'font-sans': fontFamily(typography.family.base),
@@ -429,14 +429,14 @@ const main = async () => {
         v,
       ]),
     ),
-  }
+  };
 
   const radiusVars = Object.fromEntries(
     Object.entries(radius).map(([k, v]) => [`radius-${k}`, v]),
-  )
+  );
   const spacingVars = Object.fromEntries(
     Object.entries(spacing).map(([k, v]) => [`spacing-${k}`, v]),
-  )
+  );
 
   const layoutStaticVars = {
     'layout-paragraph-max-width': mobile.paragraphMaxWidth,
@@ -446,12 +446,12 @@ const main = async () => {
     ...Object.fromEntries(
       Object.entries(desktop.containers).map(([k, v]) => [`layout-${k}`, v]),
     ),
-  }
+  };
   const layoutResponsiveVars = (device) => ({
     'layout-margin': device.margin,
     'layout-gutter': device.gutter,
     'layout-content-max-width': device.contentMaxWidth,
-  })
+  });
 
   const tokensCss = `${banner}:root {
   /* colors — default theme */
@@ -499,8 +499,8 @@ ${cssVarBlock(DARK_MODE_COLORS)}
 .dark {
 ${cssVarBlock(DARK_MODE_COLORS)}
 }
-`
-  writeFileSync(path.join(CSS_DIR, 'tokens.css'), tokensCss)
+`;
+  writeFileSync(path.join(CSS_DIR, 'tokens.css'), tokensCss);
 
   // ---- src/styles/theme.css ----
   // Deliberately NOT registering spacingVars here: Tailwind v4 shares the
@@ -528,62 +528,63 @@ ${Object.keys(typographyVars)
   .map((key) => `  --${key}: var(--${key});`)
   .join('\n')}
 }
-`
-  writeFileSync(path.join(CSS_DIR, 'theme.css'), themeCss)
+`;
+  writeFileSync(path.join(CSS_DIR, 'theme.css'), themeCss);
 
   // ---- src/tokens/*.ts ----
   const primitives = flattenColorValue(
     readJSON(figmaPath('default', 'style.tokens.json')),
-  )
+  );
   const rebuildPrimitives = (node) => {
-    if (node && typeof node === 'object' && '$value' in node) return node.$value
-    const out = {}
+    if (node && typeof node === 'object' && '$value' in node)
+      return node.$value;
+    const out = {};
     for (const [key, val] of Object.entries(node)) {
-      if (key.startsWith('$')) continue
-      out[key] = rebuildPrimitives(val)
+      if (key.startsWith('$')) continue;
+      out[key] = rebuildPrimitives(val);
     }
-    return out
-  }
+    return out;
+  };
 
   writeFileSync(
     path.join(TS_DIR, 'colors.ts'),
     `${banner}export const colors = {\n  default: ${toTsLiteral(defaultColors, 1)},\n  midnight: ${toTsLiteral(midnightColors, 1)},\n} as const\n\nexport const primitives = ${toTsLiteral(rebuildPrimitives(primitives))} as const\n\nexport default colors\n`,
-  )
+  );
 
   writeFileSync(
     path.join(TS_DIR, 'radius.ts'),
     `${banner}export const radius = ${toTsLiteral(radius)} as const\n\nexport default radius\n`,
-  )
+  );
 
   writeFileSync(
     path.join(TS_DIR, 'spacing.ts'),
     `${banner}export const spacing = ${toTsLiteral(spacing)} as const\n\nexport default spacing\n`,
-  )
+  );
 
   writeFileSync(
     path.join(TS_DIR, 'typography.ts'),
     `${banner}export const typography = ${toTsLiteral(typography)} as const\n\nexport default typography\n`,
-  )
+  );
 
   writeFileSync(
     path.join(TS_DIR, 'layout.ts'),
     `${banner}export const layout = {\n  mobile: ${toTsLiteral(mobile, 1)},\n  tablet: ${toTsLiteral(tablet, 1)},\n  desktop: ${toTsLiteral(desktop, 1)},\n} as const\n\nexport default layout\n`,
-  )
+  );
 
   writeFileSync(
     path.join(TS_DIR, 'index.ts'),
     `${banner}export * from './colors'\nexport * from './radius'\nexport * from './spacing'\nexport * from './typography'\nexport * from './layout'\nexport * from './component-state'\n`,
-  )
+  );
 
-  console.log('Token transform complete:')
-  console.log('  src/styles/tokens.css')
-  console.log('  src/styles/theme.css')
+  console.log('Token transform complete:');
+  console.log('  src/styles/tokens.css');
+  console.log('  src/styles/theme.css');
   console.log(
     '  src/tokens/{colors,radius,spacing,typography,layout,component-state,index}.ts',
-  )
-}
+  );
+};
 
 main().catch((error) => {
-  console.error(error)
-  process.exit(1)
-})
+  console.error(error);
+  process.exit(1);
+});

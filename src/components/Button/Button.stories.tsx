@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ArrowRight, Mail, Trash2 } from 'lucide-react'
-import { Button } from './Button'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ArrowRight, Mail, Trash2 } from 'lucide-react';
+import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -26,34 +26,34 @@ const meta: Meta<typeof Button> = {
       options: ['sm', 'md', 'lg', 'icon-sm', 'icon', 'icon-lg'],
     },
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: { variant: 'default' },
-}
+};
 
 export const Secondary: Story = {
   args: { variant: 'secondary' },
-}
+};
 
 export const Destructive: Story = {
   args: { variant: 'destructive' },
-}
+};
 
 export const Outline: Story = {
   args: { variant: 'outline' },
-}
+};
 
 export const Ghost: Story = {
   args: { variant: 'ghost' },
-}
+};
 
 export const Link: Story = {
   args: { variant: 'link' },
-}
+};
 
 export const Sizes: Story = {
   render: () => (
@@ -63,7 +63,7 @@ export const Sizes: Story = {
       <Button size="lg">Large</Button>
     </div>
   ),
-}
+};
 
 // Icon placement isn't a prop — it's just children order. The `gap-2` and
 // `[&_svg]:size-4` rules on buttonVariants handle spacing/sizing either way.
@@ -74,7 +74,7 @@ export const IconLeft: Story = {
       Login with Email
     </Button>
   ),
-}
+};
 
 export const IconRight: Story = {
   render: () => (
@@ -83,7 +83,7 @@ export const IconRight: Story = {
       <ArrowRight />
     </Button>
   ),
-}
+};
 
 export const IconOnly: Story = {
   render: () => (
@@ -99,8 +99,8 @@ export const IconOnly: Story = {
       </Button>
     </div>
   ),
-}
+};
 
 export const Disabled: Story = {
   args: { disabled: true },
-}
+};

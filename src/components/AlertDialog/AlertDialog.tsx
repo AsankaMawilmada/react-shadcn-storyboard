@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog'
-import { cn } from '@/lib/utils'
-import { Button, type ButtonProps } from '../Button'
+import * as React from 'react';
+import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog';
+import { cn } from '@/lib/utils';
+import { Button, type ButtonProps } from '../Button';
 
-export const AlertDialog = AlertDialogPrimitive.Root
-export const AlertDialogTrigger = AlertDialogPrimitive.Trigger
+export const AlertDialog = AlertDialogPrimitive.Root;
+export const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 
 export const AlertDialogContent = ({
   className,
@@ -23,7 +23,7 @@ export const AlertDialogContent = ({
       {children}
     </AlertDialogPrimitive.Popup>
   </AlertDialogPrimitive.Portal>
-)
+);
 
 export const AlertDialogHeader = ({
   className,
@@ -33,7 +33,7 @@ export const AlertDialogHeader = ({
     className={cn('flex flex-col gap-1.5 text-center sm:text-left', className)}
     {...props}
   />
-)
+);
 export const AlertDialogFooter = ({
   className,
   ...props
@@ -45,7 +45,7 @@ export const AlertDialogFooter = ({
     )}
     {...props}
   />
-)
+);
 
 export const AlertDialogTitle = ({
   className,
@@ -55,7 +55,7 @@ export const AlertDialogTitle = ({
     className={cn('text-lg leading-none font-semibold', className)}
     {...props}
   />
-)
+);
 
 export const AlertDialogDescription = ({
   className,
@@ -65,13 +65,13 @@ export const AlertDialogDescription = ({
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);
 
 export const AlertDialogAction = ({ className, ...props }: ButtonProps) => (
   <AlertDialogPrimitive.Close
     render={<Button className={className} {...props} />}
   />
-)
+);
 
 export const AlertDialogCancel = ({
   className,
@@ -81,4 +81,4 @@ export const AlertDialogCancel = ({
   <AlertDialogPrimitive.Close
     render={<Button variant={variant} className={className} {...props} />}
   />
-)
+);

@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 const typographyVariants = cva('', {
   variants: {
@@ -24,11 +24,11 @@ const typographyVariants = cva('', {
   defaultVariants: {
     variant: 'p',
   },
-})
+});
 
 export type TypographyVariant = NonNullable<
   VariantProps<typeof typographyVariants>['variant']
->
+>;
 
 const defaultElement: Record<TypographyVariant, React.ElementType> = {
   h1: 'h1',
@@ -42,13 +42,13 @@ const defaultElement: Record<TypographyVariant, React.ElementType> = {
   muted: 'p',
   blockquote: 'blockquote',
   a: 'a',
-}
+};
 
 export type TypographyProps<T extends React.ElementType = 'p'> = {
   /** Overrides the rendered element; defaults per-variant (e.g. h1 -> <h1>, a -> <a>). */
-  as?: T
-  variant?: TypographyVariant
-} & Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'variant'>
+  as?: T;
+  variant?: TypographyVariant;
+} & Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'variant'>;
 
 export const Typography = <T extends React.ElementType = 'p'>({
   as,
@@ -56,11 +56,11 @@ export const Typography = <T extends React.ElementType = 'p'>({
   className,
   ...props
 }: TypographyProps<T>) => {
-  const Component = as ?? defaultElement[variant]
+  const Component = as ?? defaultElement[variant];
   return (
     <Component
       className={cn(typographyVariants({ variant }), className)}
       {...props}
     />
-  )
-}
+  );
+};

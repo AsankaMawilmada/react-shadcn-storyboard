@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-export type TextareaProps = React.ComponentProps<'textarea'>
+export type TextareaProps = React.ComponentProps<'textarea'>;
 
 export const Textarea = ({ className, ...props }: TextareaProps) => (
   <textarea
@@ -11,4 +11,4 @@ export const Textarea = ({ className, ...props }: TextareaProps) => (
     )}
     {...props}
   />
-)
+);

@@ -1,17 +1,17 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
 export interface HeroImageProps extends React.ComponentProps<'div'> {
-  src: string
-  alt: string
+  src: string;
+  alt: string;
   /** Aspect ratio of the image, e.g. 16 / 9 (the default). */
-  ratio?: number
+  ratio?: number;
   /** Darkens the bottom of the image so overlaid text stays legible. */
-  overlay?: boolean
+  overlay?: boolean;
   /** Class applied to the content wrapper positioned over the image. */
-  contentClassName?: string
+  contentClassName?: string;
   /** Arbitrary overlaid content — headings, paragraphs, buttons, etc. */
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 export const HeroImage = ({
@@ -52,4 +52,4 @@ export const HeroImage = ({
       </div>
     )}
   </div>
-)
+);

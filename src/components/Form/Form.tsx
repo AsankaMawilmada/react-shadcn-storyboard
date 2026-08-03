@@ -1,10 +1,10 @@
-import { Field as FieldPrimitive } from '@base-ui/react/field'
-import { Form as FormPrimitive } from '@base-ui/react/form'
-import { cn } from '@/lib/utils'
+import { Field as FieldPrimitive } from '@base-ui/react/field';
+import { Form as FormPrimitive } from '@base-ui/react/form';
+import { cn } from '@/lib/utils';
 
-export const Form = FormPrimitive
-export const FormField = FieldPrimitive.Root
-export const FormControl = FieldPrimitive.Control
+export const Form = FormPrimitive;
+export const FormField = FieldPrimitive.Root;
+export const FormControl = FieldPrimitive.Control;
 
 export const FormLabel = ({
   className,
@@ -17,7 +17,7 @@ export const FormLabel = ({
     )}
     {...props}
   />
-)
+);
 
 export const FormDescription = ({
   className,
@@ -27,7 +27,7 @@ export const FormDescription = ({
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);
 
 export const FormMessage = ({
   className,
@@ -37,4 +37,4 @@ export const FormMessage = ({
     className={cn('text-sm text-destructive', className)}
     {...props}
   />
-)
+);

@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-export type InputProps = React.ComponentProps<'input'>
+export type InputProps = React.ComponentProps<'input'>;
 
 export const Input = ({ className, type, ...props }: InputProps) => (
   <input
@@ -12,4 +12,4 @@ export const Input = ({ className, type, ...props }: InputProps) => (
     )}
     {...props}
   />
-)
+);

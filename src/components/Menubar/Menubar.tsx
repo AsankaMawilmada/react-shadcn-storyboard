@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { Menubar as MenubarPrimitive } from '@base-ui/react/menubar'
-import { Menu as MenuPrimitive } from '@base-ui/react/menu'
-import { Check, Circle } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { Menubar as MenubarPrimitive } from '@base-ui/react/menubar';
+import { Menu as MenuPrimitive } from '@base-ui/react/menu';
+import { Check, Circle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export const Menubar = ({ className, ...props }: MenubarPrimitive.Props) => (
   <MenubarPrimitive
@@ -12,11 +12,11 @@ export const Menubar = ({ className, ...props }: MenubarPrimitive.Props) => (
     )}
     {...props}
   />
-)
+);
 
-export const MenubarMenu = MenuPrimitive.Root
-export const MenubarGroup = MenuPrimitive.Group
-export const MenubarRadioGroup = MenuPrimitive.RadioGroup
+export const MenubarMenu = MenuPrimitive.Root;
+export const MenubarGroup = MenuPrimitive.Group;
+export const MenubarRadioGroup = MenuPrimitive.RadioGroup;
 
 export const MenubarTrigger = ({
   className,
@@ -29,7 +29,7 @@ export const MenubarTrigger = ({
     )}
     {...props}
   />
-)
+);
 
 export const MenubarContent = ({
   className,
@@ -49,7 +49,7 @@ export const MenubarContent = ({
       </MenuPrimitive.Popup>
     </MenuPrimitive.Positioner>
   </MenuPrimitive.Portal>
-)
+);
 
 export const MenubarItem = ({
   className,
@@ -62,7 +62,7 @@ export const MenubarItem = ({
     )}
     {...props}
   />
-)
+);
 
 export const MenubarCheckboxItem = ({
   className,
@@ -83,7 +83,7 @@ export const MenubarCheckboxItem = ({
     </span>
     {children}
   </MenuPrimitive.CheckboxItem>
-)
+);
 
 export const MenubarRadioItem = ({
   className,
@@ -104,7 +104,7 @@ export const MenubarRadioItem = ({
     </span>
     {children}
   </MenuPrimitive.RadioItem>
-)
+);
 
 export const MenubarLabel = ({
   className,
@@ -114,14 +114,14 @@ export const MenubarLabel = ({
     className={cn('px-2 py-1.5 text-sm font-semibold', className)}
     {...props}
   />
-)
+);
 
 export const MenubarSeparator = ({
   className,
   ...props
 }: React.ComponentProps<'div'>) => (
   <div className={cn('-mx-1 my-1 h-px bg-border', className)} {...props} />
-)
+);
 
 export const MenubarShortcut = ({
   className,
@@ -134,4 +134,4 @@ export const MenubarShortcut = ({
     )}
     {...props}
   />
-)
+);

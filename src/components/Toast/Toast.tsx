@@ -1,16 +1,16 @@
-import { Toast as ToastPrimitive } from '@base-ui/react/toast'
-import { X } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Toast as ToastPrimitive } from '@base-ui/react/toast';
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const ToastProvider = ToastPrimitive.Provider
+export const ToastProvider = ToastPrimitive.Provider;
 
 // The package's top-level `@base-ui/react/toast` entry only re-exports
 // `useToastManager` as a type (`export type * from './useToastManager.js'`);
 // the real runtime function only exists on the `Toast` namespace object.
-export const useToastManager = ToastPrimitive.useToastManager
+export const useToastManager = ToastPrimitive.useToastManager;
 
 const ToastList = () => {
-  const { toasts } = useToastManager()
+  const { toasts } = useToastManager();
 
   return (
     <>
@@ -34,8 +34,8 @@ const ToastList = () => {
         </ToastPrimitive.Root>
       ))}
     </>
-  )
-}
+  );
+};
 
 export const Toaster = () => (
   <ToastPrimitive.Portal>
@@ -43,4 +43,4 @@ export const Toaster = () => (
       <ToastList />
     </ToastPrimitive.Viewport>
   </ToastPrimitive.Portal>
-)
+);

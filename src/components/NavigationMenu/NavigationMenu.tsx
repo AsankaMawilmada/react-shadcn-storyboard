@@ -1,6 +1,6 @@
-import { NavigationMenu as NavigationMenuPrimitive } from '@base-ui/react/navigation-menu'
-import { ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { NavigationMenu as NavigationMenuPrimitive } from '@base-ui/react/navigation-menu';
+import { ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export const NavigationMenu = ({
   className,
@@ -30,7 +30,7 @@ export const NavigationMenu = ({
       </NavigationMenuPrimitive.Positioner>
     </NavigationMenuPrimitive.Portal>
   </NavigationMenuPrimitive.Root>
-)
+);
 
 export const NavigationMenuList = ({
   className,
@@ -43,9 +43,9 @@ export const NavigationMenuList = ({
     )}
     {...props}
   />
-)
+);
 
-export const NavigationMenuItem = NavigationMenuPrimitive.Item
+export const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 export const NavigationMenuTrigger = ({
   className,
@@ -62,7 +62,7 @@ export const NavigationMenuTrigger = ({
     {children}
     <ChevronDown className="size-3 transition-transform duration-200 group-data-[popup-open]:rotate-180" />
   </NavigationMenuPrimitive.Trigger>
-)
+);
 
 export const NavigationMenuContent = ({
   className,
@@ -72,7 +72,7 @@ export const NavigationMenuContent = ({
     className={cn('p-4', className)}
     {...props}
   />
-)
+);
 
 export const NavigationMenuLink = ({
   className,
@@ -85,4 +85,4 @@ export const NavigationMenuLink = ({
     )}
     {...props}
   />
-)
+);

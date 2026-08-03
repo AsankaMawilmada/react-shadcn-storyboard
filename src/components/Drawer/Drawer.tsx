@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { Drawer as DrawerPrimitive } from 'vaul'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { Drawer as DrawerPrimitive } from 'vaul';
+import { cn } from '@/lib/utils';
 
 export const Drawer = ({
   shouldScaleBackground = true,
@@ -10,10 +10,10 @@ export const Drawer = ({
     shouldScaleBackground={shouldScaleBackground}
     {...props}
   />
-)
+);
 
-export const DrawerTrigger = DrawerPrimitive.Trigger
-export const DrawerClose = DrawerPrimitive.Close
+export const DrawerTrigger = DrawerPrimitive.Trigger;
+export const DrawerClose = DrawerPrimitive.Close;
 
 export const DrawerContent = ({
   className,
@@ -33,7 +33,7 @@ export const DrawerContent = ({
       {children}
     </DrawerPrimitive.Content>
   </DrawerPrimitive.Portal>
-)
+);
 
 export const DrawerHeader = ({
   className,
@@ -43,7 +43,7 @@ export const DrawerHeader = ({
     className={cn('grid gap-1.5 p-4 text-center sm:text-left', className)}
     {...props}
   />
-)
+);
 
 export const DrawerFooter = ({
   className,
@@ -53,7 +53,7 @@ export const DrawerFooter = ({
     className={cn('mt-auto flex flex-col gap-2 p-4', className)}
     {...props}
   />
-)
+);
 
 export const DrawerTitle = ({
   className,
@@ -63,7 +63,7 @@ export const DrawerTitle = ({
     className={cn('text-lg leading-none font-semibold', className)}
     {...props}
   />
-)
+);
 
 export const DrawerDescription = ({
   className,
@@ -73,4 +73,4 @@ export const DrawerDescription = ({
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);

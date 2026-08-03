@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ArrowRightIcon } from './ArrowRightIcon'
-import * as Icons from './index'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ArrowRightIcon } from './ArrowRightIcon';
+import * as Icons from './index';
 
 const iconEntries = Object.entries(Icons).filter(([name]) =>
   name.endsWith('Icon'),
-) as Array<[string, typeof ArrowRightIcon]>
+) as Array<[string, typeof ArrowRightIcon]>;
 
-const SIZES = [16, 20, 24, 32, 48, 64]
-const COLORS = ['currentColor', '#2563eb', '#dc2626', '#16a34a', '#d97706']
+const SIZES = [16, 20, 24, 32, 48, 64];
+const COLORS = ['currentColor', '#2563eb', '#dc2626', '#16a34a', '#d97706'];
 
 const meta: Meta<typeof ArrowRightIcon> = {
   title: 'Icons',
@@ -23,12 +23,12 @@ const meta: Meta<typeof ArrowRightIcon> = {
   args: {
     size: 24,
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof ArrowRightIcon>
+type Story = StoryObj<typeof ArrowRightIcon>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const AllIcons: Story = {
   render: () => (
@@ -44,7 +44,7 @@ export const AllIcons: Story = {
       ))}
     </div>
   ),
-}
+};
 
 export const Sizes: Story = {
   render: () => (
@@ -57,7 +57,7 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
-}
+};
 
 export const Colors: Story = {
   render: () => (
@@ -70,7 +70,7 @@ export const Colors: Story = {
       ))}
     </div>
   ),
-}
+};
 
 export const Backgrounds: Story = {
   render: () => (
@@ -83,4 +83,4 @@ export const Backgrounds: Story = {
       ))}
     </div>
   ),
-}
+};

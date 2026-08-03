@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Combobox,
   ComboboxContent,
@@ -6,19 +6,19 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-} from './Combobox'
+} from './Combobox';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Components/Combobox',
   component: Combobox,
   tags: ['autodocs'],
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Combobox>
+type Story = StoryObj<typeof Combobox>;
 
-const frameworks = ['React', 'Vue', 'Svelte', 'Angular', 'Solid', 'Qwik']
+const frameworks = ['React', 'Vue', 'Svelte', 'Angular', 'Solid', 'Qwik'];
 
 export const Default: Story = {
   render: () => (
@@ -36,4 +36,4 @@ export const Default: Story = {
       </ComboboxContent>
     </Combobox>
   ),
-}
+};

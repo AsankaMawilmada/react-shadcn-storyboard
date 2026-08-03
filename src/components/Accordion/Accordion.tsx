@@ -1,8 +1,8 @@
-import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion'
-import { ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
+import { ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const Accordion = AccordionPrimitive.Root
+export const Accordion = AccordionPrimitive.Root;
 
 export const AccordionItem = ({
   className,
@@ -12,7 +12,7 @@ export const AccordionItem = ({
     className={cn('border-b border-border', className)}
     {...props}
   />
-)
+);
 
 export const AccordionTrigger = ({
   className,
@@ -31,7 +31,7 @@ export const AccordionTrigger = ({
       <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform duration-200" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
-)
+);
 
 export const AccordionContent = ({
   className,
@@ -47,4 +47,4 @@ export const AccordionContent = ({
   >
     <div className="pb-4">{children}</div>
   </AccordionPrimitive.Panel>
-)
+);

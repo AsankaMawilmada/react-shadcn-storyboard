@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { ChevronRight, MoreHorizontal } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { ChevronRight, MoreHorizontal } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export const Breadcrumb = (props: React.HTMLAttributes<HTMLElement>) => (
   <nav aria-label="breadcrumb" {...props} />
-)
+);
 
 export const BreadcrumbList = ({
   className,
@@ -17,7 +17,7 @@ export const BreadcrumbList = ({
     )}
     {...props}
   />
-)
+);
 
 export const BreadcrumbItem = ({
   className,
@@ -27,7 +27,7 @@ export const BreadcrumbItem = ({
     className={cn('inline-flex items-center gap-1.5', className)}
     {...props}
   />
-)
+);
 
 export const BreadcrumbLink = ({
   className,
@@ -37,7 +37,7 @@ export const BreadcrumbLink = ({
     className={cn('transition-colors hover:text-foreground', className)}
     {...props}
   />
-)
+);
 
 export const BreadcrumbPage = ({
   className,
@@ -50,7 +50,7 @@ export const BreadcrumbPage = ({
     className={cn('font-normal text-foreground', className)}
     {...props}
   />
-)
+);
 
 export const BreadcrumbSeparator = ({
   className,
@@ -65,7 +65,7 @@ export const BreadcrumbSeparator = ({
   >
     {children ?? <ChevronRight />}
   </li>
-)
+);
 
 export const BreadcrumbEllipsis = ({
   className,
@@ -80,4 +80,4 @@ export const BreadcrumbEllipsis = ({
     <MoreHorizontal className="size-4" />
     <span className="sr-only">More</span>
   </span>
-)
+);

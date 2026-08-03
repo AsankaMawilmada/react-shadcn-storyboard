@@ -1,7 +1,7 @@
-import { ScrollArea as ScrollAreaPrimitive } from '@base-ui/react/scroll-area'
-import { cn } from '@/lib/utils'
+import { ScrollArea as ScrollAreaPrimitive } from '@base-ui/react/scroll-area';
+import { cn } from '@/lib/utils';
 
-export type ScrollAreaProps = ScrollAreaPrimitive.Root.Props
+export type ScrollAreaProps = ScrollAreaPrimitive.Root.Props;
 
 export const ScrollArea = ({
   className,
@@ -18,9 +18,9 @@ export const ScrollArea = ({
     <ScrollBar />
     <ScrollAreaPrimitive.Corner />
   </ScrollAreaPrimitive.Root>
-)
+);
 
-export type ScrollBarProps = ScrollAreaPrimitive.Scrollbar.Props
+export type ScrollBarProps = ScrollAreaPrimitive.Scrollbar.Props;
 
 export const ScrollBar = ({
   className,
@@ -41,4 +41,4 @@ export const ScrollBar = ({
   >
     <ScrollAreaPrimitive.Thumb className="relative flex-1 rounded-full bg-border" />
   </ScrollAreaPrimitive.Scrollbar>
-)
+);

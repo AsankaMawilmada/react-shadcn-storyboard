@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Progress } from './Progress'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Progress } from './Progress';
 
 const meta: Meta<typeof Progress> = {
   title: 'Components/Progress',
@@ -9,9 +9,9 @@ const meta: Meta<typeof Progress> = {
     value: 60,
     className: 'w-64',
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Progress>
+type Story = StoryObj<typeof Progress>;
 
-export const Default: Story = {}
+export const Default: Story = {};

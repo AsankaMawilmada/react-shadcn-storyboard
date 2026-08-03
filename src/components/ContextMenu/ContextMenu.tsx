@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { ContextMenu as ContextMenuPrimitive } from '@base-ui/react/context-menu'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { ContextMenu as ContextMenuPrimitive } from '@base-ui/react/context-menu';
+import { cn } from '@/lib/utils';
 
-export const ContextMenu = ContextMenuPrimitive.Root
-export const ContextMenuTrigger = ContextMenuPrimitive.Trigger
-export const ContextMenuGroup = ContextMenuPrimitive.Group
+export const ContextMenu = ContextMenuPrimitive.Root;
+export const ContextMenuTrigger = ContextMenuPrimitive.Trigger;
+export const ContextMenuGroup = ContextMenuPrimitive.Group;
 
 export const ContextMenuContent = ({
   className,
@@ -24,7 +24,7 @@ export const ContextMenuContent = ({
       </ContextMenuPrimitive.Popup>
     </ContextMenuPrimitive.Positioner>
   </ContextMenuPrimitive.Portal>
-)
+);
 
 export const ContextMenuItem = ({
   className,
@@ -37,7 +37,7 @@ export const ContextMenuItem = ({
     )}
     {...props}
   />
-)
+);
 
 export const ContextMenuLabel = ({
   className,
@@ -47,11 +47,11 @@ export const ContextMenuLabel = ({
     className={cn('px-2 py-1.5 text-sm font-semibold', className)}
     {...props}
   />
-)
+);
 
 export const ContextMenuSeparator = ({
   className,
   ...props
 }: React.ComponentProps<'div'>) => (
   <div className={cn('-mx-1 my-1 h-px bg-border', className)} {...props} />
-)
+);

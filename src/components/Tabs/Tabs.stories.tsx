@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './Tabs'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
   component: Tabs,
   tags: ['autodocs'],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof Tabs>
+type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
   render: () => (
@@ -27,4 +27,4 @@ export const Default: Story = {
       <TabsContent value="password">Change your password here.</TabsContent>
     </Tabs>
   ),
-}
+};

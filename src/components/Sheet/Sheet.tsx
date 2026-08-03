@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { Dialog as DialogPrimitive } from '@base-ui/react/dialog'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { X } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import * as React from 'react';
+import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const Sheet = DialogPrimitive.Root
-export const SheetTrigger = DialogPrimitive.Trigger
-export const SheetClose = DialogPrimitive.Close
+export const Sheet = DialogPrimitive.Root;
+export const SheetTrigger = DialogPrimitive.Trigger;
+export const SheetClose = DialogPrimitive.Close;
 
 const sheetVariants = cva(
   'fixed z-50 gap-4 border-border bg-background p-6 shadow-lg outline-none transition-transform duration-300 ease-in-out',
@@ -25,7 +25,7 @@ const sheetVariants = cva(
       side: 'right',
     },
   },
-)
+);
 
 export interface SheetContentProps
   extends DialogPrimitive.Popup.Props, VariantProps<typeof sheetVariants> {}
@@ -49,7 +49,7 @@ export const SheetContent = ({
       </DialogPrimitive.Close>
     </DialogPrimitive.Popup>
   </DialogPrimitive.Portal>
-)
+);
 
 export const SheetHeader = ({
   className,
@@ -59,7 +59,7 @@ export const SheetHeader = ({
     className={cn('flex flex-col gap-1.5 text-center sm:text-left', className)}
     {...props}
   />
-)
+);
 
 export const SheetFooter = ({
   className,
@@ -72,7 +72,7 @@ export const SheetFooter = ({
     )}
     {...props}
   />
-)
+);
 
 export const SheetTitle = ({
   className,
@@ -82,7 +82,7 @@ export const SheetTitle = ({
     className={cn('text-lg leading-none font-semibold', className)}
     {...props}
   />
-)
+);
 
 export const SheetDescription = ({
   className,
@@ -92,4 +92,4 @@ export const SheetDescription = ({
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
-)
+);

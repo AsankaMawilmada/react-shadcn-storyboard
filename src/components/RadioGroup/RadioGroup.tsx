@@ -1,10 +1,10 @@
-import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group'
-import { Radio as RadioPrimitive } from '@base-ui/react/radio'
-import { cn } from '@/lib/utils'
+import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group';
+import { Radio as RadioPrimitive } from '@base-ui/react/radio';
+import { cn } from '@/lib/utils';
 
-export const RadioGroup = RadioGroupPrimitive
+export const RadioGroup = RadioGroupPrimitive;
 
-export type RadioGroupItemProps = RadioPrimitive.Root.Props
+export type RadioGroupItemProps = RadioPrimitive.Root.Props;
 
 export const RadioGroupItem = ({
   className,
@@ -21,4 +21,4 @@ export const RadioGroupItem = ({
       <span className="size-2 rounded-full bg-primary" />
     </RadioPrimitive.Indicator>
   </RadioPrimitive.Root>
-)
+);

@@ -1,8 +1,8 @@
-import { PreviewCard as HoverCardPrimitive } from '@base-ui/react/preview-card'
-import { cn } from '@/lib/utils'
+import { PreviewCard as HoverCardPrimitive } from '@base-ui/react/preview-card';
+import { cn } from '@/lib/utils';
 
-export const HoverCard = HoverCardPrimitive.Root
-export const HoverCardTrigger = HoverCardPrimitive.Trigger
+export const HoverCard = HoverCardPrimitive.Root;
+export const HoverCardTrigger = HoverCardPrimitive.Trigger;
 
 export const HoverCardContent = ({
   className,
@@ -22,4 +22,4 @@ export const HoverCardContent = ({
       </HoverCardPrimitive.Popup>
     </HoverCardPrimitive.Positioner>
   </HoverCardPrimitive.Portal>
-)
+);
