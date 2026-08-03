@@ -3,6 +3,14 @@
 @import './styles/tokens.css';
 
 @layer base {
+  :root {
+    /* Without this, browsers fall back to the OS preference for anything
+     * not fully custom-styled (default scrollbars, native form-control
+     * accents, print backgrounds) — even with no @media (prefers-color-scheme)
+     * left in our own CSS. `only` also blocks browser-level forced-dark
+     * overrides (e.g. mobile "force dark" reader modes). */
+    color-scheme: only light;
+  }
   * {
     @apply border-border outline-ring/50;
   }

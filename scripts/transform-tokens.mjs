@@ -488,14 +488,9 @@ ${cssVarBlock(layoutResponsiveVars(desktop))}
 ${cssVarBlock(midnightColors)}
 }
 
-/* Hand-maintained dark mode — no Figma dark-mode export exists, so these
-   values are not token-derived. Applies to the default theme only. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-${cssVarBlock(DARK_MODE_COLORS)}
-  }
-}
-
+/* Theming is controlled entirely by the explicit data-theme attribute (see
+ * ThemeProvider) — deliberately no @media (prefers-color-scheme: dark) here,
+ * so the OS/browser color scheme never overrides it. */
 .dark {
 ${cssVarBlock(DARK_MODE_COLORS)}
 }

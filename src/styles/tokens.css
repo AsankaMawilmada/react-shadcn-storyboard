@@ -145,39 +145,9 @@
   --input: #342B47;
 }
 
-/* Hand-maintained dark mode — no Figma dark-mode export exists, so these
-   values are not token-derived. Applies to the default theme only. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-  --background: #0B0B0F;
-  --foreground: #F5F3FA;
-  --card: #141018;
-  --card-foreground: #F5F3FA;
-  --popover: #141018;
-  --popover-foreground: #F5F3FA;
-  --primary: #9B5CFF;
-  --primary-foreground: #17131F;
-  --secondary: #211B2E;
-  --secondary-foreground: #F5F3FA;
-  --muted: #211B2E;
-  --muted-foreground: #B9B0CC;
-  --accent: #3D2E5C;
-  --accent-foreground: #DCC4FF;
-  --destructive: #FF6B6B;
-  --destructive-foreground: #17131F;
-  --success: #4ADE80;
-  --success-foreground: #17131F;
-  --warning: #FBBF24;
-  --warning-foreground: #17131F;
-  --border: #2A2340;
-  --input: #2A2340;
-  --ring: #C9A6FF;
-  --link: #C9A6FF;
-  --link-hover: #DCC4FF;
-  --link-pressed: #B088F0;
-  }
-}
-
+/* Theming is controlled entirely by the explicit data-theme attribute (see
+ * ThemeProvider) — deliberately no @media (prefers-color-scheme: dark) here,
+ * so the OS/browser color scheme never overrides it. */
 .dark {
   --background: #0B0B0F;
   --foreground: #F5F3FA;
