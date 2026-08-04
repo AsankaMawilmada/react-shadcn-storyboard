@@ -10,20 +10,23 @@ export default meta;
 
 type Story = StoryObj<typeof Typography>;
 
-export const H1: Story = {
-  args: { variant: 'h1', children: 'Taxing Laughter: The Joke Tax Chronicles' },
+export const Display1: Story = {
+  args: {
+    variant: 'Display1',
+    children: 'Taxing Laughter: The Joke Tax Chronicles',
+  },
 };
 
-export const H2: Story = {
-  args: { variant: 'h2', children: 'The People of the Kingdom' },
+export const Display2: Story = {
+  args: { variant: 'Display2', children: 'The People of the Kingdom' },
 };
 
-export const H3: Story = {
-  args: { variant: 'h3', children: 'The Joke Tax' },
+export const Display3: Story = {
+  args: { variant: 'Display3', children: 'The Joke Tax' },
 };
 
-export const H4: Story = {
-  args: { variant: 'h4', children: 'People stopped telling jokes' },
+export const Display4: Story = {
+  args: { variant: 'Display4', children: 'People stopped telling jokes' },
 };
 
 export const P: Story = {
@@ -65,6 +68,9 @@ export const Link: Story = {
   name: 'Link (wired to --link tokens)',
   args: {
     variant: 'a',
+    // Every variant renders as <span> by default — `as="a"` is what makes
+    // this an actual, functional, keyboard-focusable link.
+    as: 'a',
     href: '#',
     children: 'Read the documentation',
   },

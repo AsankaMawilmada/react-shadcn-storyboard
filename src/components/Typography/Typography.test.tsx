@@ -1,101 +1,112 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
+import { Typography } from './Typography';
 import * as stories from './Typography.stories';
 
-const { H1, H2, H3, H4, P, Blockquote, Lead, Large, Small, Muted, Link } =
-  composeStories(stories);
+const {
+  Display1,
+  Display2,
+  Display3,
+  Display4,
+  P,
+  Blockquote,
+  Lead,
+  Large,
+  Small,
+  Muted,
+  Link,
+} = composeStories(stories);
 
 describe('Typography', () => {
-  it('renders the h1 variant as an <h1>', () => {
-    render(<H1 />);
-    expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: 'Taxing Laughter: The Joke Tax Chronicles',
-      }),
-    ).toBeInTheDocument();
+  it('renders the Display1 variant as a <span>', () => {
+    const { container } = render(<Display1 />);
+    expect(container.querySelector('span')).toHaveTextContent(
+      'Taxing Laughter: The Joke Tax Chronicles',
+    );
   });
 
-  it('renders the h2 variant as an <h2>', () => {
-    render(<H2 />);
-    expect(
-      screen.getByRole('heading', {
-        level: 2,
-        name: 'The People of the Kingdom',
-      }),
-    ).toBeInTheDocument();
+  it('renders the Display2 variant as a <span>', () => {
+    const { container } = render(<Display2 />);
+    expect(container.querySelector('span')).toHaveTextContent(
+      'The People of the Kingdom',
+    );
   });
 
-  it('renders the h3 variant as an <h3>', () => {
-    render(<H3 />);
-    expect(
-      screen.getByRole('heading', { level: 3, name: 'The Joke Tax' }),
-    ).toBeInTheDocument();
+  it('renders the Display3 variant as a <span>', () => {
+    const { container } = render(<Display3 />);
+    expect(container.querySelector('span')).toHaveTextContent('The Joke Tax');
   });
 
-  it('renders the h4 variant as an <h4>', () => {
-    render(<H4 />);
-    expect(
-      screen.getByRole('heading', {
-        level: 4,
-        name: 'People stopped telling jokes',
-      }),
-    ).toBeInTheDocument();
+  it('renders the Display4 variant as a <span>', () => {
+    const { container } = render(<Display4 />);
+    expect(container.querySelector('span')).toHaveTextContent(
+      'People stopped telling jokes',
+    );
   });
 
-  it('renders the p variant as a <p>', () => {
+  it('renders the p variant as a <span>', () => {
     const { container } = render(<P />);
-    const paragraph = container.querySelector('p');
-    expect(paragraph).not.toBeNull();
-    expect(paragraph).toHaveTextContent(
+    expect(container.querySelector('span')).toHaveTextContent(
       'The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.',
     );
   });
 
-  it('renders the blockquote variant as a <blockquote>', () => {
+  it('renders the blockquote variant as a <span>', () => {
     const { container } = render(<Blockquote />);
-    const quote = container.querySelector('blockquote');
-    expect(quote).not.toBeNull();
-    expect(quote).toHaveTextContent(
+    expect(container.querySelector('span')).toHaveTextContent(
       'After all," he said, "everyone enjoys a good joke, so it\'s only fair that they pay for the privilege.',
     );
   });
 
-  it('renders the lead variant as a <p>', () => {
+  it('renders the lead variant as a <span>', () => {
     const { container } = render(<Lead />);
-    const lead = container.querySelector('p');
-    expect(lead).not.toBeNull();
-    expect(lead).toHaveTextContent(
+    expect(container.querySelector('span')).toHaveTextContent(
       'A modal dialog that interrupts the user with important content.',
     );
   });
 
-  it('renders the large variant as a <div>', () => {
+  it('renders the large variant as a <span>', () => {
     const { container } = render(<Large />);
-    const large = container.querySelector('div');
-    expect(large).not.toBeNull();
-    expect(large).toHaveTextContent('Are you sure absolutely sure?');
+    expect(container.querySelector('span')).toHaveTextContent(
+      'Are you sure absolutely sure?',
+    );
   });
 
-  it('renders the small variant as a <small>', () => {
+  it('renders the small variant as a <span>', () => {
     const { container } = render(<Small />);
-    const small = container.querySelector('small');
-    expect(small).not.toBeNull();
-    expect(small).toHaveTextContent('Email address');
+    expect(container.querySelector('span')).toHaveTextContent('Email address');
   });
 
-  it('renders the muted variant as a <p>', () => {
+  it('renders the muted variant as a <span>', () => {
     const { container } = render(<Muted />);
-    const muted = container.querySelector('p');
-    expect(muted).not.toBeNull();
-    expect(muted).toHaveTextContent('Enter your email address.');
+    expect(container.querySelector('span')).toHaveTextContent(
+      'Enter your email address.',
+    );
   });
 
-  it('renders the link variant as an <a> with its href', () => {
+  it('renders no non-span elements by default, regardless of variant', () => {
+    const { container } = render(<Display1 />);
+    expect(
+      container.querySelector('h1,h2,h3,h4,p,small,blockquote,a'),
+    ).toBeNull();
+  });
+
+  it('renders the link variant as a real <a> once `as="a"` is passed', () => {
     render(<Link />);
     const link = screen.getByRole('link', { name: 'Read the documentation' });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', '#');
+  });
+
+  it('the `as` prop overrides the rendered element for any variant', () => {
+    render(
+      <Typography variant='p' as='h2'>
+        Overridden
+      </Typography>,
+    );
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Overridden' }),
+    ).toBeInTheDocument();
   });
 });

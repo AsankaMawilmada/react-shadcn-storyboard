@@ -2,71 +2,71 @@
 
 exports[`Typography snapshots > matches snapshot: Blockquote 1`] = `
 <div>
-  <blockquote
+  <span
     class="mt-4 border-l-2 border-border pl-6 italic"
   >
     "After all," he said, "everyone enjoys a good joke, so it's only fair that they pay for the privilege."
-  </blockquote>
+  </span>
 </div>
 `;
 
-exports[`Typography snapshots > matches snapshot: H1 1`] = `
+exports[`Typography snapshots > matches snapshot: Display1 1`] = `
 <div>
-  <h1
+  <span
     class="scroll-m-20 text-4xl font-bold tracking-tight text-balance"
   >
     Taxing Laughter: The Joke Tax Chronicles
-  </h1>
+  </span>
 </div>
 `;
 
-exports[`Typography snapshots > matches snapshot: H2 1`] = `
+exports[`Typography snapshots > matches snapshot: Display2 1`] = `
 <div>
-  <h2
+  <span
     class="scroll-m-20 border-b border-border pb-2 text-3xl font-semibold tracking-tight first:mt-0"
   >
     The People of the Kingdom
-  </h2>
+  </span>
 </div>
 `;
 
-exports[`Typography snapshots > matches snapshot: H3 1`] = `
+exports[`Typography snapshots > matches snapshot: Display3 1`] = `
 <div>
-  <h3
+  <span
     class="scroll-m-20 text-2xl font-semibold tracking-tight"
   >
     The Joke Tax
-  </h3>
+  </span>
 </div>
 `;
 
-exports[`Typography snapshots > matches snapshot: H4 1`] = `
+exports[`Typography snapshots > matches snapshot: Display4 1`] = `
 <div>
-  <h4
+  <span
     class="scroll-m-20 text-xl font-semibold tracking-tight"
   >
     People stopped telling jokes
-  </h4>
+  </span>
 </div>
 `;
 
 exports[`Typography snapshots > matches snapshot: Large 1`] = `
 <div>
-  <div
+  <span
     class="text-lg font-semibold"
   >
     Are you sure absolutely sure?
-  </div>
+  </span>
 </div>
 `;
 
 exports[`Typography snapshots > matches snapshot: Lead 1`] = `
 <div>
-  <p
+  <span
     class="text-xl text-muted-foreground"
   >
     A modal dialog that interrupts the user with important content.
-  </p>
+  </span>
 </div>
 `;
 
@@ -83,30 +83,30 @@ exports[`Typography snapshots > matches snapshot: Link 1`] = `
 
 exports[`Typography snapshots > matches snapshot: Muted 1`] = `
 <div>
-  <p
+  <span
     class="text-sm text-muted-foreground"
   >
     Enter your email address.
-  </p>
+  </span>
 </div>
 `;
 
 exports[`Typography snapshots > matches snapshot: P 1`] = `
 <div>
-  <p
+  <span
     class="leading-relaxed [&:not(:first-child)]:mt-4"
   >
     The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.
-  </p>
+  </span>
 </div>
 `;
 
 exports[`Typography snapshots > matches snapshot: Small 1`] = `
 <div>
-  <small
+  <span
     class="text-sm leading-none font-medium"
   >
     Email address
-  </small>
+  </span>
 </div>
 `;
