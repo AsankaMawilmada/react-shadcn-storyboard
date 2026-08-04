@@ -16,9 +16,10 @@
  *     no Figma dark-mode export exists — they are never derived from tokens.
  */
 import StyleDictionary from 'style-dictionary';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import prettier from 'prettier';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -570,6 +571,23 @@ ${Object.keys(typographyVars)
     path.join(TS_DIR, 'index.ts'),
     `${banner}export * from './colors'\nexport * from './radius'\nexport * from './spacing'\nexport * from './typography'\nexport * from './layout'\nexport * from './component-state'\n`,
   );
+
+  // toTsLiteral (above) and Style Dictionary's own JS formatters both emit
+  // double-quoted strings, regardless of the project's prettier config —
+  // reformat every generated file here instead of hand-tracking quote style
+  // (or any other prettier setting) separately.
+  const prettierConfig = await prettier.resolveConfig(
+    path.join(TS_DIR, 'index.ts'),
+  );
+  for (const file of readdirSync(TS_DIR)) {
+    if (!file.endsWith('.ts')) continue;
+    const filePath = path.join(TS_DIR, file);
+    const formatted = await prettier.format(readFileSync(filePath, 'utf8'), {
+      ...prettierConfig,
+      filepath: filePath,
+    });
+    writeFileSync(filePath, formatted);
+  }
 
   console.log('Token transform complete:');
   console.log('  src/styles/tokens.css');
