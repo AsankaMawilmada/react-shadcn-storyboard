@@ -492,7 +492,7 @@ ${cssVarBlock(midnightColors)}
 /* Theming is controlled entirely by the explicit data-theme attribute (see
  * ThemeProvider) — deliberately no @media (prefers-color-scheme: dark) here,
  * so the OS/browser color scheme never overrides it. */
-.dark {
+.midnight {
 ${cssVarBlock(DARK_MODE_COLORS)}
 }
 `;
