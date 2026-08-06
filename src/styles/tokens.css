@@ -32,51 +32,51 @@
   --input: #EAECF0;
 
   /* radius scale */
-  --radius-xs: 0.25rem;
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.25rem;
-  --radius-full: 9999px;
+  --radius-radius-xs: 0.25rem;
+  --radius-radius-sm: 0.375rem;
+  --radius-radius-md: 0.5rem;
+  --radius-radius-xl: 0.75rem;
+  --radius-radius-2xl: 1rem;
+  --radius-radius-3xl: 1.25rem;
+  --radius-radius-full: 9999px;
 
   /* spacing scale */
-  --spacing-none: 0rem;
-  --spacing-xxs: 0.125rem;
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.375rem;
-  --spacing-md: 0.5rem;
-  --spacing-lg: 0.75rem;
-  --spacing-xl: 1rem;
-  --spacing-2xl: 1.25rem;
-  --spacing-3xl: 1.5rem;
-  --spacing-4xl: 2rem;
-  --spacing-6xl: 3rem;
-  --spacing-7xl: 4rem;
-  --spacing-8xl: 5rem;
-  --spacing-10xl: 8rem;
+  --spacing-spacing-none: 0rem;
+  --spacing-spacing-xxs: 0.125rem;
+  --spacing-spacing-xs: 0.25rem;
+  --spacing-spacing-sm: 0.375rem;
+  --spacing-spacing-md: 0.5rem;
+  --spacing-spacing-lg: 0.75rem;
+  --spacing-spacing-xl: 1rem;
+  --spacing-spacing-2xl: 1.25rem;
+  --spacing-spacing-3xl: 1.5rem;
+  --spacing-spacing-4xl: 2rem;
+  --spacing-spacing-6xl: 3rem;
+  --spacing-spacing-7xl: 4rem;
+  --spacing-spacing-8xl: 5rem;
+  --spacing-spacing-10xl: 8rem;
 
   /* typography */
-  --font-sans: "NaN Holo", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-heading: "NaN Holo", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-md: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --text-5xl: 3rem;
-  --text-6xl: 3.75rem;
-  --text-7xl: 4.5rem;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
-  --leading-tight: 1.1;
-  --leading-snug: 1.25;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.75;
+  --family-family-base: "NaN Holo", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --family-family-heading: "NaN Holo", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --size-size-xs: 0.75rem;
+  --size-size-sm: 0.875rem;
+  --size-size-md: 1rem;
+  --size-size-lg: 1.125rem;
+  --size-size-xl: 1.25rem;
+  --size-size-2xl: 1.5rem;
+  --size-size-3xl: 1.875rem;
+  --size-size-4xl: 2.25rem;
+  --size-size-5xl: 3rem;
+  --size-size-6xl: 3.75rem;
+  --size-size-7xl: 4.5rem;
+  --weight-weight-regular: 400;
+  --weight-weight-medium: 500;
+  --weight-weight-bold: 700;
+  --lineheight-lineheight-tight: 1.1;
+  --lineheight-lineheight-snug: 1.25;
+  --lineheight-lineheight-normal: 1.5;
+  --lineheight-lineheight-relaxed: 1.75;
 
   /* layout — mobile-first base (see @media overrides below) */
   --layout-margin: 16px;
@@ -148,7 +148,7 @@
 /* Theming is controlled entirely by the explicit data-theme attribute (see
  * ThemeProvider) — deliberately no @media (prefers-color-scheme: dark) here,
  * so the OS/browser color scheme never overrides it. */
-.dark {
+.midnight {
   --background: #0B0B0F;
   --foreground: #F5F3FA;
   --card: #141018;

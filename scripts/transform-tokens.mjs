@@ -413,30 +413,52 @@ const main = async () => {
     `"${name}", ui-sans-serif, system-ui, -apple-system, sans-serif`;
 
   const typographyVars = {
-    'font-sans': fontFamily(typography.family.base),
-    'font-heading': fontFamily(typography.family.heading),
+    'family-family-base': fontFamily(typography.family.base),
+    'family-family-heading': fontFamily(typography.family.heading),
     ...Object.fromEntries(
-      Object.entries(typography.size).map(([k, v]) => [`text-${k}`, v]),
+      Object.entries(typography.size).map(([k, v]) => [`size-size-${k}`, v]),
     ),
     ...Object.fromEntries(
       Object.entries(typography.weight).map(([k, v]) => [
-        `font-weight-${k}`,
+        `weight-weight-${k}`,
         v,
       ]),
     ),
     ...Object.fromEntries(
       Object.entries(typography.lineHeight).map(([k, v]) => [
-        `leading-${k}`,
+        `lineheight-lineheight-${k}`,
         v,
+      ]),
+    ),
+  };
+  const typographyTailwindAlias = {
+    'font-sans': 'family-family-base',
+    'font-heading': 'family-family-heading',
+    ...Object.fromEntries(
+      Object.keys(typography.size).map((k) => [`text-${k}`, `size-size-${k}`]),
+    ),
+    ...Object.fromEntries(
+      Object.keys(typography.weight).map((k) => [
+        `font-weight-${k}`,
+        `weight-weight-${k}`,
+      ]),
+    ),
+    ...Object.fromEntries(
+      Object.keys(typography.lineHeight).map((k) => [
+        `leading-${k}`,
+        `lineheight-lineheight-${k}`,
       ]),
     ),
   };
 
   const radiusVars = Object.fromEntries(
-    Object.entries(radius).map(([k, v]) => [`radius-${k}`, v]),
+    Object.entries(radius).map(([k, v]) => [`radius-radius-${k}`, v]),
+  );
+  const radiusTailwindAlias = Object.fromEntries(
+    Object.keys(radius).map((k) => [`radius-${k}`, `radius-radius-${k}`]),
   );
   const spacingVars = Object.fromEntries(
-    Object.entries(spacing).map(([k, v]) => [`spacing-${k}`, v]),
+    Object.entries(spacing).map(([k, v]) => [`spacing-spacing-${k}`, v]),
   );
 
   const layoutStaticVars = {
@@ -516,12 +538,12 @@ ${Object.keys(defaultColors)
   .map((key) => `  --color-${key}: var(--${key});`)
   .join('\n')}
 
-${Object.keys(radiusVars)
-  .map((key) => `  --${key}: var(--${key});`)
+${Object.entries(radiusTailwindAlias)
+  .map(([tailwindName, rawName]) => `  --${tailwindName}: var(--${rawName});`)
   .join('\n')}
 
-${Object.keys(typographyVars)
-  .map((key) => `  --${key}: var(--${key});`)
+${Object.entries(typographyTailwindAlias)
+  .map(([tailwindName, rawName]) => `  --${tailwindName}: var(--${rawName});`)
   .join('\n')}
 }
 `;
