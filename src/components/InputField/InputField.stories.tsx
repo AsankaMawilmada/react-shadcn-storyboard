@@ -66,6 +66,27 @@ export const SplitType: Story = {
   args: { type: 'split', label: 'Verification code', splitLength: 6 },
 };
 
+export const DateDropdownType: Story = {
+  args: { type: 'datedropdown', label: 'Date of birth' },
+};
+
+export const DateDropdownTypeWithValue: Story = {
+  args: {
+    type: 'datedropdown',
+    label: 'Date of birth',
+    defaultValue: '1990-06-15',
+  },
+};
+
+export const DateDropdownTypeCustomYearRange: Story = {
+  args: {
+    type: 'datedropdown',
+    label: 'Expiry date',
+    minYear: new Date().getFullYear(),
+    maxYear: new Date().getFullYear() + 10,
+  },
+};
+
 export const Disabled: Story = {
   args: { label: 'Full name', disabled: true, value: 'Disabled value' },
 };
@@ -104,6 +125,14 @@ export const ErrorStateSplit: Story = {
   },
 };
 
+export const ErrorStateDateDropdown: Story = {
+  args: {
+    label: 'Date of birth',
+    type: 'datedropdown',
+    'aria-invalid': true,
+  },
+};
+
 function ControlledSplitField(args: React.ComponentProps<typeof InputField>) {
   const [value, setValue] = React.useState('');
   return <InputField {...args} value={value} onValueChange={setValue} />;
@@ -119,4 +148,21 @@ function ControlledSplitField(args: React.ComponentProps<typeof InputField>) {
 export const SplitTypeControlledExternally: Story = {
   render: ControlledSplitField,
   args: { type: 'split', label: 'Verification code', splitLength: 6 },
+};
+
+function ControlledDateDropdownField(
+  args: React.ComponentProps<typeof InputField>,
+) {
+  const [value, setValue] = React.useState('');
+  return <InputField {...args} value={value} onValueChange={setValue} />;
+}
+
+/**
+ * Same Controller/Field-adapter story as `SplitTypeControlledExternally`,
+ * for `type="datedropdown"`. `value`/`onValueChange` carry an ISO
+ * `YYYY-MM-DD` string (or `''` while incomplete).
+ */
+export const DateDropdownTypeControlledExternally: Story = {
+  render: ControlledDateDropdownField,
+  args: { type: 'datedropdown', label: 'Date of birth' },
 };

@@ -14,13 +14,14 @@ export const SelectTrigger = ({
   <SelectPrimitive.Trigger
     className={cn(
       'flex h-9 w-full items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm outline-none transition-colors data-[placeholder]:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[popup-open]:ring-2 data-[popup-open]:ring-ring',
+      'aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive aria-invalid:focus-visible:ring-destructive',
       className,
     )}
     {...props}
   >
     {children}
-    <SelectPrimitive.Icon className="flex shrink-0 items-center text-muted-foreground">
-      <ChevronDown className="size-4" />
+    <SelectPrimitive.Icon className='flex shrink-0 items-center text-muted-foreground'>
+      <ChevronDown className='size-4' />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 );
@@ -31,7 +32,7 @@ export const SelectContent = ({
   ...props
 }: SelectPrimitive.Popup.Props) => (
   <SelectPrimitive.Portal>
-    <SelectPrimitive.Positioner sideOffset={8} className="z-50" align="start">
+    <SelectPrimitive.Positioner sideOffset={8} className='z-50' align='start'>
       <SelectPrimitive.Popup
         className={cn(
           'max-h-96 min-w-[8rem] overflow-y-auto rounded-md border border-border bg-popover p-1 text-popover-foreground shadow-md outline-none data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
@@ -58,8 +59,8 @@ export const SelectItem = ({
     {...props}
   >
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-    <SelectPrimitive.ItemIndicator className="absolute right-2 flex items-center">
-      <Check className="size-4" />
+    <SelectPrimitive.ItemIndicator className='absolute right-2 flex items-center'>
+      <Check className='size-4' />
     </SelectPrimitive.ItemIndicator>
   </SelectPrimitive.Item>
 );

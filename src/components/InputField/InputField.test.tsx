@@ -17,6 +17,11 @@ const {
   ErrorStateWithIcon,
   ErrorStateSplit,
   SplitTypeControlledExternally,
+  DateDropdownType,
+  DateDropdownTypeWithValue,
+  DateDropdownTypeCustomYearRange,
+  ErrorStateDateDropdown,
+  DateDropdownTypeControlledExternally,
 } = composeStories(stories);
 
 describe('InputField', () => {
@@ -135,5 +140,67 @@ describe('InputField', () => {
     expect(slots[0]).toHaveValue('1');
     expect(slots[1]).toHaveValue('2');
     expect(slots[2]).toHaveValue('3');
+  });
+
+  it('datedropdown type renders three dropdowns for day/month/year', () => {
+    render(<DateDropdownType />);
+    const dropdowns = screen.getAllByRole('combobox');
+    expect(dropdowns).toHaveLength(3);
+    expect(dropdowns[0]).toHaveTextContent('Day');
+    expect(dropdowns[1]).toHaveTextContent('Month');
+    expect(dropdowns[2]).toHaveTextContent('Year');
+  });
+
+  it('datedropdown type pre-fills all three dropdowns from defaultValue', () => {
+    render(<DateDropdownTypeWithValue />);
+    const dropdowns = screen.getAllByRole('combobox');
+    expect(dropdowns[0]).toHaveTextContent('15');
+    expect(dropdowns[1]).toHaveTextContent('June');
+    expect(dropdowns[2]).toHaveTextContent('1990');
+  });
+
+  it('datedropdown type respects a custom minYear/maxYear range', async () => {
+    const user = userEvent.setup();
+    render(<DateDropdownTypeCustomYearRange />);
+    const currentYear = new Date().getFullYear();
+    await user.click(screen.getAllByRole('combobox')[2]);
+    const listbox = await screen.findByRole('listbox');
+    expect(
+      screen.getByRole('option', { name: String(currentYear) }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: String(currentYear + 10) }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('option', { name: String(currentYear - 1) }),
+    ).not.toBeInTheDocument();
+    expect(listbox).toBeInTheDocument();
+  });
+
+  it('forwards aria-invalid to all three dropdown triggers', () => {
+    render(<ErrorStateDateDropdown />);
+    for (const dropdown of screen.getAllByRole('combobox')) {
+      expect(dropdown).toHaveAttribute('aria-invalid', 'true');
+    }
+  });
+
+  it('datedropdown type can be driven by external controlled state (value/onValueChange)', async () => {
+    const user = userEvent.setup();
+    render(<DateDropdownTypeControlledExternally />);
+    const [dayTrigger, monthTrigger, yearTrigger] =
+      screen.getAllByRole('combobox');
+
+    await user.click(dayTrigger);
+    await user.click(await screen.findByRole('option', { name: '15' }));
+
+    await user.click(monthTrigger);
+    await user.click(await screen.findByRole('option', { name: 'June' }));
+
+    await user.click(yearTrigger);
+    await user.click(await screen.findByRole('option', { name: '1990' }));
+
+    expect(dayTrigger).toHaveTextContent('15');
+    expect(monthTrigger).toHaveTextContent('June');
+    expect(yearTrigger).toHaveTextContent('1990');
   });
 });
