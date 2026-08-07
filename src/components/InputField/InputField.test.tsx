@@ -13,6 +13,10 @@ const {
   PostcodeType,
   SplitType,
   Disabled,
+  ErrorState,
+  ErrorStateWithIcon,
+  ErrorStateSplit,
+  SplitTypeControlledExternally,
 } = composeStories(stories);
 
 describe('InputField', () => {
@@ -88,5 +92,48 @@ describe('InputField', () => {
     const input = screen.getByDisplayValue('Disabled value');
     await user.type(input, 'more text');
     expect(input).toHaveValue('Disabled value');
+  });
+
+  it('forwards aria-invalid to the native input for error styling', () => {
+    render(<ErrorState />);
+    expect(screen.getByLabelText('Email')).toHaveAttribute(
+      'aria-invalid',
+      'true',
+    );
+  });
+
+  it('forwards aria-invalid to the input in the icon-wrapper layout', () => {
+    render(<ErrorStateWithIcon />);
+    expect(screen.getByLabelText('Email')).toHaveAttribute(
+      'aria-invalid',
+      'true',
+    );
+  });
+
+  it('forwards aria-invalid to every slot for split type', () => {
+    render(<ErrorStateSplit />);
+    const slots = screen.getAllByRole('textbox');
+    expect(slots.length).toBeGreaterThan(0);
+    for (const slot of slots) {
+      expect(slot).toHaveAttribute('aria-invalid', 'true');
+    }
+  });
+
+  it('split type accepts an initial value via defaultValue', () => {
+    render(<ErrorStateSplit />);
+    const slots = screen.getAllByRole('textbox');
+    expect(slots[0]).toHaveValue('1');
+    expect(slots[1]).toHaveValue('2');
+  });
+
+  it('split type can be driven by external controlled state (value/onValueChange)', async () => {
+    const user = userEvent.setup();
+    render(<SplitTypeControlledExternally />);
+    const slots = screen.getAllByRole('textbox');
+    await user.click(slots[0]);
+    await user.keyboard('123');
+    expect(slots[0]).toHaveValue('1');
+    expect(slots[1]).toHaveValue('2');
+    expect(slots[2]).toHaveValue('3');
   });
 });

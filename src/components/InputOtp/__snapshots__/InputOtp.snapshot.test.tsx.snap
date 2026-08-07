@@ -12,7 +12,7 @@ exports[`InputOTP snapshots > matches snapshot: Default 1`] = `
       <input
         autocomplete="one-time-code"
         autocorrect="off"
-        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         data-length="6"
         enterkeyhint="next"
         id="base-ui-_r_0_"
@@ -27,7 +27,7 @@ exports[`InputOTP snapshots > matches snapshot: Default 1`] = `
       <input
         autocomplete="off"
         autocorrect="off"
-        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         data-length="6"
         enterkeyhint="next"
         id="base-ui-_r_0_-2"
@@ -41,7 +41,7 @@ exports[`InputOTP snapshots > matches snapshot: Default 1`] = `
       <input
         autocomplete="off"
         autocorrect="off"
-        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         data-length="6"
         enterkeyhint="next"
         id="base-ui-_r_0_-3"
@@ -55,7 +55,7 @@ exports[`InputOTP snapshots > matches snapshot: Default 1`] = `
       <input
         autocomplete="off"
         autocorrect="off"
-        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         data-length="6"
         enterkeyhint="next"
         id="base-ui-_r_0_-4"
@@ -69,7 +69,7 @@ exports[`InputOTP snapshots > matches snapshot: Default 1`] = `
       <input
         autocomplete="off"
         autocorrect="off"
-        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         data-length="6"
         enterkeyhint="next"
         id="base-ui-_r_0_-5"
@@ -83,7 +83,7 @@ exports[`InputOTP snapshots > matches snapshot: Default 1`] = `
       <input
         autocomplete="off"
         autocorrect="off"
-        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50"
+        class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
         data-length="6"
         enterkeyhint="done"
         id="base-ui-_r_0_-6"

@@ -29,6 +29,7 @@ export const InputOTPSlot = ({
   <OtpFieldPrimitive.Input
     className={cn(
       'flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50',
+      'focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50',
       className,
     )}
     {...props}

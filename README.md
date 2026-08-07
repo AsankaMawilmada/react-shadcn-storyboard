@@ -290,12 +290,20 @@ Tailwind entry CSS:
 @import 'tailwindcss';
 @import '@inoaspect/react-components/styles/theme.css';
 @import '@inoaspect/react-components/styles/tokens.css';
+@import '@inoaspect/react-components/styles/input-field.css';
 @source '../node_modules/@inoaspect/react-components/dist';
 ```
 
 (`@source` path relative to that CSS file.) Without the `@source` line,
 Tailwind never sees the class names referenced inside the shipped
 components and generates none of the utility CSS they need.
+
+Most components apply Tailwind utility classes directly, discovered via that
+`@source` scan. `InputField` is the exception — its styles are consolidated
+into named classes (`.input-field`, `.input-field-wrapper`, ...) defined with
+`@apply` in `styles/input-field.css`, so that stylesheet must be imported
+explicitly like `theme.css`/`tokens.css` above, not just discovered via
+`@source`.
 
 ### Use it
 

@@ -9,7 +9,10 @@ export type InputFieldType =
 export type LabelPosition = 'above' | 'beside';
 export type IconPosition = 'left' | 'right';
 
-export type InputFieldProps = Omit<React.ComponentProps<'input'>, 'type'> & {
+export type InputFieldProps = Omit<
+  React.ComponentProps<'input'>,
+  'type' | 'value' | 'defaultValue'
+> & {
   type?: InputFieldType;
   label?: React.ReactNode;
   labelPosition?: LabelPosition;
@@ -23,23 +26,29 @@ export type InputFieldProps = Omit<React.ComponentProps<'input'>, 'type'> & {
   splitLength?: number;
   /** Class applied to the outer label+field layout wrapper. */
   containerClassName?: string;
+  /**
+   * Controlled value. For `type="split"` this is the composed OTP string
+   * rather than a native input value.
+   */
+  value?: string;
+  /** Uncontrolled initial value. See `value` for `type="split"` semantics. */
+  defaultValue?: string;
+  /**
+   * Fired with the composed value when `type="split"`. Native `onChange`
+   * doesn't apply there since there's no single `<input>` to attach it to —
+   * use this to wire the segmented field to external state or a validation
+   * library's `Controller`/`Field` render-prop adapter (e.g. react-hook-form
+   * `Controller`, Formik `Field`).
+   */
+  onValueChange?: (value: string) => void;
 };
 
-const iconClassName =
-  'flex size-4 shrink-0 items-center justify-center text-muted-foreground';
-
-// Error (aria-invalid) wins over focus even when both apply — the compound
-// `aria-invalid:focus-visible:` / `has-aria-invalid:focus-within:` variants
-// carry higher CSS specificity than either single-condition rule, so this
-// holds regardless of the order Tailwind emits the underlying declarations.
-const focusErrorClassName =
-  'focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50';
-const wrapperFocusErrorClassName =
-  'focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50 has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50';
-
 // `type="split"` has no native <input> of its own (it renders InputOTP
-// instead), so a `ref` prop only ever attaches to an HTMLInputElement — it's
-// silently unused when `type="split"`, since `...props` isn't spread there.
+// instead). `value`/`defaultValue`/`name`/`onValueChange` are wired through
+// to the underlying OTP field so it can still be driven by external state or
+// a validation library's Controller/Field adapter, but a `ref` prop only
+// ever attaches to an HTMLInputElement — it's silently unused when
+// `type="split"`, since `...props` isn't spread there.
 export const InputField = ({
   type = 'text',
   label,
@@ -55,6 +64,7 @@ export const InputField = ({
   disabled,
   inputMode,
   autoComplete,
+  onValueChange,
   ...props
 }: InputFieldProps) => {
   const generatedId = React.useId();
@@ -66,10 +76,17 @@ export const InputField = ({
     // icon/leading/trailing don't apply to the segmented-box layout, so
     // they're intentionally not rendered here.
     field = (
-      <InputOTP length={splitLength} disabled={disabled}>
+      <InputOTP
+        length={splitLength}
+        disabled={disabled}
+        name={props.name}
+        value={props.value}
+        defaultValue={props.defaultValue}
+        onValueChange={onValueChange}
+      >
         <InputOTPGroup>
           {Array.from({ length: splitLength }, (_, index) => (
-            <InputOTPSlot key={index} />
+            <InputOTPSlot key={index} aria-invalid={props['aria-invalid']} />
           ))}
         </InputOTPGroup>
       </InputOTP>
@@ -83,16 +100,10 @@ export const InputField = ({
 
     field =
       icon || leading || trailing ? (
-        <div
-          className={cn(
-            'flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50',
-            wrapperFocusErrorClassName,
-            className,
-          )}
-        >
+        <div className={cn('input-field-wrapper', className)}>
           {leading}
           {icon && iconPosition === 'left' && (
-            <span className={iconClassName}>{icon}</span>
+            <span className='input-field-icon'>{icon}</span>
           )}
           <input
             id={inputId}
@@ -100,11 +111,11 @@ export const InputField = ({
             disabled={disabled}
             inputMode={resolvedInputMode}
             autoComplete={resolvedAutoComplete}
-            className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
+            className='input-field-wrapper__input'
             {...props}
           />
           {icon && iconPosition === 'right' && (
-            <span className={iconClassName}>{icon}</span>
+            <span className='input-field-icon'>{icon}</span>
           )}
           {trailing}
         </div>
@@ -115,7 +126,7 @@ export const InputField = ({
           disabled={disabled}
           inputMode={resolvedInputMode}
           autoComplete={resolvedAutoComplete}
-          className={cn('h-12', focusErrorClassName, className)}
+          className={cn('input-field', className)}
           {...props}
         />
       );
@@ -124,20 +135,24 @@ export const InputField = ({
   return (
     <div
       className={cn(
-        'flex flex-col gap-1.5',
-        labelPosition === 'beside' && 'sm:flex-row sm:items-center sm:gap-3',
+        'input-field-container',
+        labelPosition === 'beside' && 'input-field-container--beside',
         containerClassName,
       )}
     >
       {label && (
         <Label
           htmlFor={type === 'split' ? undefined : inputId}
-          className={cn(labelPosition === 'beside' && 'sm:w-32 sm:shrink-0')}
+          className={cn(
+            labelPosition === 'beside' && 'input-field-label--beside',
+          )}
         >
           {label}
         </Label>
       )}
-      <div className={cn(labelPosition === 'beside' && 'sm:flex-1')}>
+      <div
+        className={cn(labelPosition === 'beside' && 'input-field-slot--beside')}
+      >
         {field}
       </div>
     </div>

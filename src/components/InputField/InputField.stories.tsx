@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Mail, Search } from 'lucide-react';
 import { InputField } from './InputField';
@@ -38,11 +39,11 @@ export const WithRightIcon: Story = {
 };
 
 export const WithLeadingContent: Story = {
-  args: { label: 'Price', leading: <span className="text-sm">$</span> },
+  args: { label: 'Price', leading: <span className='text-sm'>$</span> },
 };
 
 export const WithTrailingContent: Story = {
-  args: { label: 'Weight', trailing: <span className="text-sm">kg</span> },
+  args: { label: 'Weight', trailing: <span className='text-sm'>kg</span> },
 };
 
 export const EmailType: Story = {
@@ -67,4 +68,55 @@ export const SplitType: Story = {
 
 export const Disabled: Story = {
   args: { label: 'Full name', disabled: true, value: 'Disabled value' },
+};
+
+/**
+ * `aria-invalid` is a plain forwarded prop, so it's the same attribute a
+ * validation library sets when a field fails validation (e.g.
+ * react-hook-form's `aria-invalid={!!errors.email}` or Formik's
+ * `aria-invalid={touched.email && !!errors.email}`).
+ */
+export const ErrorState: Story = {
+  args: {
+    label: 'Email',
+    type: 'email',
+    defaultValue: 'not-an-email',
+    'aria-invalid': true,
+  },
+};
+
+export const ErrorStateWithIcon: Story = {
+  args: {
+    label: 'Email',
+    icon: <Mail />,
+    defaultValue: 'not-an-email',
+    'aria-invalid': true,
+  },
+};
+
+export const ErrorStateSplit: Story = {
+  args: {
+    label: 'Verification code',
+    type: 'split',
+    splitLength: 6,
+    defaultValue: '12',
+    'aria-invalid': true,
+  },
+};
+
+function ControlledSplitField(args: React.ComponentProps<typeof InputField>) {
+  const [value, setValue] = React.useState('');
+  return <InputField {...args} value={value} onValueChange={setValue} />;
+}
+
+/**
+ * `type="split"` has no single native `<input>`, so it can't be spread with
+ * a plain `{...register('code')}`. It's still controllable from any
+ * validation library through the same `value`/`onValueChange` contract a
+ * `Controller` (react-hook-form) or `<Field>` render prop (Formik) provides.
+ * This story stands in for that adapter with local `useState`.
+ */
+export const SplitTypeControlledExternally: Story = {
+  render: ControlledSplitField,
+  args: { type: 'split', label: 'Verification code', splitLength: 6 },
 };
