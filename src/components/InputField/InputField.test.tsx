@@ -22,6 +22,7 @@ const {
   DateDropdownTypeCustomYearRange,
   ErrorStateDateDropdown,
   DateDropdownTypeControlledExternally,
+  ErrorMessageOnly,
 } = composeStories(stories);
 
 describe('InputField', () => {
@@ -202,5 +203,50 @@ describe('InputField', () => {
     expect(dayTrigger).toHaveTextContent('15');
     expect(monthTrigger).toHaveTextContent('June');
     expect(yearTrigger).toHaveTextContent('1990');
+  });
+
+  it('renders errorMessage below the field, linked via aria-describedby', () => {
+    render(<ErrorState />);
+    const input = screen.getByLabelText('Email');
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Enter a valid email address.');
+    expect(input.getAttribute('aria-describedby')).toBe(alert.id);
+  });
+
+  it('renders errorMessage for the icon-wrapper layout, linked via aria-describedby', () => {
+    render(<ErrorStateWithIcon />);
+    const input = screen.getByLabelText('Email');
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Enter a valid email address.');
+    expect(input.getAttribute('aria-describedby')).toBe(alert.id);
+  });
+
+  it('renders errorMessage for split type, linked to every slot via aria-describedby', () => {
+    render(<ErrorStateSplit />);
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Enter the full 6-digit code.');
+    for (const slot of screen.getAllByRole('textbox')) {
+      expect(slot.getAttribute('aria-describedby')).toBe(alert.id);
+    }
+  });
+
+  it('renders errorMessage for datedropdown type, linked to every trigger via aria-describedby', () => {
+    render(<ErrorStateDateDropdown />);
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Enter your full date of birth.');
+    for (const dropdown of screen.getAllByRole('combobox')) {
+      expect(dropdown.getAttribute('aria-describedby')).toBe(alert.id);
+    }
+  });
+
+  it('errorMessage alone (no explicit aria-invalid) still marks the field invalid', () => {
+    render(<ErrorMessageOnly />);
+    expect(screen.getByLabelText('Email')).toHaveAttribute(
+      'aria-invalid',
+      'true',
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Enter a valid email address.',
+    );
   });
 });

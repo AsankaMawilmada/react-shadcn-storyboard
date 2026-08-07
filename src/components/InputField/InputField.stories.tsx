@@ -103,6 +103,7 @@ export const ErrorState: Story = {
     type: 'email',
     defaultValue: 'not-an-email',
     'aria-invalid': true,
+    errorMessage: 'Enter a valid email address.',
   },
 };
 
@@ -112,6 +113,7 @@ export const ErrorStateWithIcon: Story = {
     icon: <Mail />,
     defaultValue: 'not-an-email',
     'aria-invalid': true,
+    errorMessage: 'Enter a valid email address.',
   },
 };
 
@@ -122,6 +124,7 @@ export const ErrorStateSplit: Story = {
     splitLength: 6,
     defaultValue: '12',
     'aria-invalid': true,
+    errorMessage: 'Enter the full 6-digit code.',
   },
 };
 
@@ -130,6 +133,22 @@ export const ErrorStateDateDropdown: Story = {
     label: 'Date of birth',
     type: 'datedropdown',
     'aria-invalid': true,
+    errorMessage: 'Enter your full date of birth.',
+  },
+};
+
+/**
+ * `errorMessage` alone (no explicit `aria-invalid`) is enough to trigger the
+ * invalid styling — useful for consumers who only track a message string
+ * (e.g. `errors.email?.message` from react-hook-form) and don't separately
+ * compute a boolean.
+ */
+export const ErrorMessageOnly: Story = {
+  args: {
+    label: 'Email',
+    type: 'email',
+    defaultValue: 'not-an-email',
+    errorMessage: 'Enter a valid email address.',
   },
 };
 

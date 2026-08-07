@@ -11,7 +11,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownType 1`] = `
       Date of birth
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-date-dropdown"
@@ -168,7 +168,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeControlledExte
       Date of birth
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-date-dropdown"
@@ -178,7 +178,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeControlledExte
           aria-haspopup="listbox"
           class="flex h-9 w-full items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm outline-none transition-colors data-[placeholder]:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[popup-open]:ring-2 data-[popup-open]:ring-ring aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive aria-invalid:focus-visible:ring-destructive input-field-date-dropdown__trigger"
           data-placeholder=""
-          id="base-ui-_r_20_"
+          id="base-ui-_r_21_"
           role="combobox"
           tabindex="0"
           type="button"
@@ -213,7 +213,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeControlledExte
         </button>
         <input
           aria-hidden="true"
-          id="base-ui-_r_20_-hidden-input"
+          id="base-ui-_r_21_-hidden-input"
           style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
           tabindex="-1"
           value=""
@@ -223,7 +223,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeControlledExte
           aria-haspopup="listbox"
           class="flex h-9 w-full items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm outline-none transition-colors data-[placeholder]:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[popup-open]:ring-2 data-[popup-open]:ring-ring aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive aria-invalid:focus-visible:ring-destructive input-field-date-dropdown__trigger"
           data-placeholder=""
-          id="base-ui-_r_23_"
+          id="base-ui-_r_24_"
           role="combobox"
           tabindex="0"
           type="button"
@@ -258,7 +258,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeControlledExte
         </button>
         <input
           aria-hidden="true"
-          id="base-ui-_r_23_-hidden-input"
+          id="base-ui-_r_24_-hidden-input"
           style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
           tabindex="-1"
           value=""
@@ -268,7 +268,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeControlledExte
           aria-haspopup="listbox"
           class="flex h-9 w-full items-center justify-between gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm outline-none transition-colors data-[placeholder]:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[popup-open]:ring-2 data-[popup-open]:ring-ring aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive aria-invalid:focus-visible:ring-destructive input-field-date-dropdown__trigger"
           data-placeholder=""
-          id="base-ui-_r_26_"
+          id="base-ui-_r_27_"
           role="combobox"
           tabindex="0"
           type="button"
@@ -303,7 +303,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeControlledExte
         </button>
         <input
           aria-hidden="true"
-          id="base-ui-_r_26_-hidden-input"
+          id="base-ui-_r_27_-hidden-input"
           style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
           tabindex="-1"
           value=""
@@ -325,7 +325,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeCustomYearRang
       Expiry date
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-date-dropdown"
@@ -482,7 +482,7 @@ exports[`InputField snapshots > matches snapshot: DateDropdownTypeWithValue 1`] 
       Date of birth
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-date-dropdown"
@@ -631,7 +631,7 @@ exports[`InputField snapshots > matches snapshot: DateType 1`] = `
       Date of birth
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
         class="input-field"
@@ -656,7 +656,7 @@ exports[`InputField snapshots > matches snapshot: Disabled 1`] = `
       Full name
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
         class="input-field"
@@ -683,7 +683,7 @@ exports[`InputField snapshots > matches snapshot: EmailType 1`] = `
       Email
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
         class="input-field"
@@ -691,6 +691,41 @@ exports[`InputField snapshots > matches snapshot: EmailType 1`] = `
         placeholder="you@example.com"
         type="email"
       />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputField snapshots > matches snapshot: ErrorMessageOnly 1`] = `
+<div>
+  <div
+    class="input-field-container"
+  >
+    <label
+      class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for="_r_1s_"
+    >
+      Email
+    </label>
+    <div
+      class="input-field-slot"
+    >
+      <input
+        aria-describedby="_r_1s_-error"
+        aria-invalid="true"
+        class="input-field"
+        id="_r_1s_"
+        placeholder="Enter text..."
+        type="email"
+        value="not-an-email"
+      />
+      <p
+        class="input-field-error"
+        id="_r_1s_-error"
+        role="alert"
+      >
+        Enter a valid email address.
+      </p>
     </div>
   </div>
 </div>
@@ -708,9 +743,10 @@ exports[`InputField snapshots > matches snapshot: ErrorState 1`] = `
       Email
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
+        aria-describedby="_r_1d_-error"
         aria-invalid="true"
         class="input-field"
         id="_r_1d_"
@@ -718,6 +754,13 @@ exports[`InputField snapshots > matches snapshot: ErrorState 1`] = `
         type="email"
         value="not-an-email"
       />
+      <p
+        class="input-field-error"
+        id="_r_1d_-error"
+        role="alert"
+      >
+        Enter a valid email address.
+      </p>
     </div>
   </div>
 </div>
@@ -734,12 +777,13 @@ exports[`InputField snapshots > matches snapshot: ErrorStateDateDropdown 1`] = `
       Date of birth
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-date-dropdown"
       >
         <button
+          aria-describedby="_r_1i_-error"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-invalid="true"
@@ -786,6 +830,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateDateDropdown 1`] = `
           value=""
         />
         <button
+          aria-describedby="_r_1i_-error"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-invalid="true"
@@ -832,6 +877,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateDateDropdown 1`] = `
           value=""
         />
         <button
+          aria-describedby="_r_1i_-error"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-invalid="true"
@@ -878,6 +924,13 @@ exports[`InputField snapshots > matches snapshot: ErrorStateDateDropdown 1`] = `
           value=""
         />
       </div>
+      <p
+        class="input-field-error"
+        id="_r_1i_-error"
+        role="alert"
+      >
+        Enter your full date of birth.
+      </p>
     </div>
   </div>
 </div>
@@ -894,7 +947,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
       Verification code
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="flex items-center gap-2 has-[input:disabled]:opacity-50"
@@ -905,6 +958,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
           class="flex items-center gap-2"
         >
           <input
+            aria-describedby="_r_1f_-error"
             aria-invalid="true"
             autocomplete="one-time-code"
             autocorrect="off"
@@ -922,6 +976,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
             value="1"
           />
           <input
+            aria-describedby="_r_1f_-error"
             aria-invalid="true"
             autocomplete="off"
             autocorrect="off"
@@ -938,6 +993,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
             value="2"
           />
           <input
+            aria-describedby="_r_1f_-error"
             aria-invalid="true"
             autocomplete="off"
             autocorrect="off"
@@ -953,6 +1009,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
             value=""
           />
           <input
+            aria-describedby="_r_1f_-error"
             aria-invalid="true"
             autocomplete="off"
             autocorrect="off"
@@ -968,6 +1025,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
             value=""
           />
           <input
+            aria-describedby="_r_1f_-error"
             aria-invalid="true"
             autocomplete="off"
             autocorrect="off"
@@ -983,6 +1041,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
             value=""
           />
           <input
+            aria-describedby="_r_1f_-error"
             aria-invalid="true"
             autocomplete="off"
             autocorrect="off"
@@ -1012,6 +1071,13 @@ exports[`InputField snapshots > matches snapshot: ErrorStateSplit 1`] = `
         type="text"
         value="12"
       />
+      <p
+        class="input-field-error"
+        id="_r_1f_-error"
+        role="alert"
+      >
+        Enter the full 6-digit code.
+      </p>
     </div>
   </div>
 </div>
@@ -1029,7 +1095,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateWithIcon 1`] = `
       Email
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-wrapper"
@@ -1063,6 +1129,7 @@ exports[`InputField snapshots > matches snapshot: ErrorStateWithIcon 1`] = `
           </svg>
         </span>
         <input
+          aria-describedby="_r_1e_-error"
           aria-invalid="true"
           class="input-field-wrapper__input"
           id="_r_1e_"
@@ -1071,6 +1138,13 @@ exports[`InputField snapshots > matches snapshot: ErrorStateWithIcon 1`] = `
           value="not-an-email"
         />
       </div>
+      <p
+        class="input-field-error"
+        id="_r_1e_-error"
+        role="alert"
+      >
+        Enter a valid email address.
+      </p>
     </div>
   </div>
 </div>
@@ -1082,7 +1156,7 @@ exports[`InputField snapshots > matches snapshot: FieldOnly 1`] = `
     class="input-field-container"
   >
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
         class="input-field"
@@ -1107,7 +1181,7 @@ exports[`InputField snapshots > matches snapshot: NumberType 1`] = `
       Quantity
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
         class="input-field"
@@ -1132,7 +1206,7 @@ exports[`InputField snapshots > matches snapshot: PostcodeType 1`] = `
       Postcode
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
         autocomplete="postal-code"
@@ -1158,7 +1232,7 @@ exports[`InputField snapshots > matches snapshot: SplitType 1`] = `
       Verification code
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="flex items-center gap-2 has-[input:disabled]:opacity-50"
@@ -1283,7 +1357,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
       Verification code
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="flex items-center gap-2 has-[input:disabled]:opacity-50"
@@ -1298,7 +1372,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
             class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
             data-length="6"
             enterkeyhint="next"
-            id="base-ui-_r_1t_"
+            id="base-ui-_r_1u_"
             inputmode="numeric"
             maxlength="6"
             pattern="\\d{1}"
@@ -1313,7 +1387,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
             class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
             data-length="6"
             enterkeyhint="next"
-            id="base-ui-_r_1t_-2"
+            id="base-ui-_r_1u_-2"
             inputmode="numeric"
             pattern="\\d{1}"
             spellcheck="false"
@@ -1327,7 +1401,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
             class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
             data-length="6"
             enterkeyhint="next"
-            id="base-ui-_r_1t_-3"
+            id="base-ui-_r_1u_-3"
             inputmode="numeric"
             pattern="\\d{1}"
             spellcheck="false"
@@ -1341,7 +1415,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
             class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
             data-length="6"
             enterkeyhint="next"
-            id="base-ui-_r_1t_-4"
+            id="base-ui-_r_1u_-4"
             inputmode="numeric"
             pattern="\\d{1}"
             spellcheck="false"
@@ -1355,7 +1429,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
             class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
             data-length="6"
             enterkeyhint="next"
-            id="base-ui-_r_1t_-5"
+            id="base-ui-_r_1u_-5"
             inputmode="numeric"
             pattern="\\d{1}"
             spellcheck="false"
@@ -1369,7 +1443,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
             class="flex size-9 items-center justify-center rounded-md border border-input text-center text-sm shadow-sm outline-none transition-colors data-[filled]:border-ring disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50"
             data-length="6"
             enterkeyhint="done"
-            id="base-ui-_r_1t_-6"
+            id="base-ui-_r_1u_-6"
             inputmode="numeric"
             pattern="\\d{1}"
             spellcheck="false"
@@ -1382,7 +1456,7 @@ exports[`InputField snapshots > matches snapshot: SplitTypeControlledExternally 
       <input
         aria-hidden="true"
         autocomplete="one-time-code"
-        id="base-ui-_r_1t_-hidden-input"
+        id="base-ui-_r_1u_-hidden-input"
         inputmode="numeric"
         maxlength="6"
         minlength="6"
@@ -1409,7 +1483,7 @@ exports[`InputField snapshots > matches snapshot: WithLabelAbove 1`] = `
       Full name
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <input
         class="input-field"
@@ -1434,7 +1508,7 @@ exports[`InputField snapshots > matches snapshot: WithLabelBeside 1`] = `
       Full name
     </label>
     <div
-      class="input-field-slot--beside"
+      class="input-field-slot input-field-slot--beside"
     >
       <input
         class="input-field"
@@ -1459,7 +1533,7 @@ exports[`InputField snapshots > matches snapshot: WithLeadingContent 1`] = `
       Price
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-wrapper"
@@ -1493,7 +1567,7 @@ exports[`InputField snapshots > matches snapshot: WithLeftIcon 1`] = `
       Search
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-wrapper"
@@ -1548,7 +1622,7 @@ exports[`InputField snapshots > matches snapshot: WithRightIcon 1`] = `
       Email
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-wrapper"
@@ -1605,7 +1679,7 @@ exports[`InputField snapshots > matches snapshot: WithTrailingContent 1`] = `
       Weight
     </label>
     <div
-      class=""
+      class="input-field-slot"
     >
       <div
         class="input-field-wrapper"

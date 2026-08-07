@@ -14,8 +14,14 @@
   .input-field-label--beside {
     @apply sm:w-32 sm:shrink-0;
   }
+  .input-field-slot {
+    @apply flex flex-col gap-1.5;
+  }
   .input-field-slot--beside {
     @apply sm:flex-1;
+  }
+  .input-field-error {
+    @apply text-sm text-destructive;
   }
 
   .input-field-icon {

@@ -68,6 +68,11 @@ export type InputFieldProps = Omit<
   /** Class applied to the outer label+field layout wrapper. */
   containerClassName?: string;
   /**
+   * Message shown below the field when present. Also implies `aria-invalid`
+   * (styling the field as invalid) unless `aria-invalid` is explicitly set.
+   */
+  errorMessage?: React.ReactNode;
+  /**
    * Controlled value. For `type="split"`/`type="datedropdown"` this is the
    * composed value (OTP string, or `YYYY-MM-DD`) rather than a native input
    * value.
@@ -107,16 +112,27 @@ export const InputField = ({
   minYear = new Date().getFullYear() - 100,
   maxYear = new Date().getFullYear(),
   containerClassName,
+  errorMessage,
   className,
   id,
   disabled,
   inputMode,
   autoComplete,
   onValueChange,
+  'aria-invalid': ariaInvalidProp,
+  'aria-describedby': ariaDescribedByProp,
   ...props
 }: InputFieldProps) => {
   const generatedId = React.useId();
   const inputId = id ?? generatedId;
+  const errorMessageId = errorMessage ? `${inputId}-error` : undefined;
+  // An explicit `aria-invalid` always wins; otherwise an error message alone
+  // is enough to style the field as invalid, so consumers who only pass
+  // `errorMessage` don't also have to separately set `aria-invalid`.
+  const invalid = ariaInvalidProp ?? (errorMessage ? true : undefined);
+  const describedBy =
+    [ariaDescribedByProp, errorMessageId].filter(Boolean).join(' ') ||
+    undefined;
 
   // Lifted here (rather than inside the `datedropdown` branch below) because
   // hooks can't be called conditionally — harmless no-ops for every other
@@ -175,7 +191,11 @@ export const InputField = ({
       >
         <InputOTPGroup>
           {Array.from({ length: splitLength }, (_, index) => (
-            <InputOTPSlot key={index} aria-invalid={props['aria-invalid']} />
+            <InputOTPSlot
+              key={index}
+              aria-invalid={invalid}
+              aria-describedby={describedBy}
+            />
           ))}
         </InputOTPGroup>
       </InputOTP>
@@ -188,7 +208,6 @@ export const InputField = ({
       { length: Math.max(maxYear - minYear + 1, 0) },
       (_, i) => minYear + i,
     );
-    const invalid = props['aria-invalid'];
     const dropdownName = props.name;
 
     field = (
@@ -203,6 +222,7 @@ export const InputField = ({
         >
           <SelectTrigger
             aria-invalid={invalid}
+            aria-describedby={describedBy}
             className='input-field-date-dropdown__trigger'
           >
             <SelectValue placeholder='Day' />
@@ -232,6 +252,7 @@ export const InputField = ({
         >
           <SelectTrigger
             aria-invalid={invalid}
+            aria-describedby={describedBy}
             className='input-field-date-dropdown__trigger'
           >
             <SelectValue placeholder='Month' />
@@ -260,6 +281,7 @@ export const InputField = ({
         >
           <SelectTrigger
             aria-invalid={invalid}
+            aria-describedby={describedBy}
             className='input-field-date-dropdown__trigger'
           >
             <SelectValue placeholder='Year' />
@@ -294,6 +316,8 @@ export const InputField = ({
             disabled={disabled}
             inputMode={resolvedInputMode}
             autoComplete={resolvedAutoComplete}
+            aria-invalid={invalid}
+            aria-describedby={describedBy}
             className='input-field-wrapper__input'
             {...props}
           />
@@ -309,6 +333,8 @@ export const InputField = ({
           disabled={disabled}
           inputMode={resolvedInputMode}
           autoComplete={resolvedAutoComplete}
+          aria-invalid={invalid}
+          aria-describedby={describedBy}
           className={cn('input-field', className)}
           {...props}
         />
@@ -336,9 +362,17 @@ export const InputField = ({
         </Label>
       )}
       <div
-        className={cn(labelPosition === 'beside' && 'input-field-slot--beside')}
+        className={cn(
+          'input-field-slot',
+          labelPosition === 'beside' && 'input-field-slot--beside',
+        )}
       >
         {field}
+        {errorMessage && (
+          <p id={errorMessageId} role='alert' className='input-field-error'>
+            {errorMessage}
+          </p>
+        )}
       </div>
     </div>
   );
