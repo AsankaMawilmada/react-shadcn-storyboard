@@ -19,9 +19,10 @@
 //                      Rewrites every relative import/export in
 //                      dist/**/*.{js,d.ts} to an explicit .js (or
 //                      <dir>/index.js).
-// 4. copyStyles      — copies src/styles/*.css to dist/styles/ (nothing
-//                      imports them as JS modules, so steps 1-3 never
-//                      touch them).
+// 4. copyStyles      — copies src/styles/*.css, plus any component-colocated
+//                      src/components/**/*.css (e.g. InputField.css), to
+//                      dist/styles/ (kebab-cased) — nothing imports CSS as a
+//                      JS module, so steps 1-3 never touch it.
 import { execSync } from 'node:child_process';
 import {
   cpSync,
@@ -105,11 +106,35 @@ const fixLibExtensions = () => {
   );
 };
 
+const collectCssFiles = (dir) => {
+  const files = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) files.push(...collectCssFiles(fullPath));
+    else if (entry.name.endsWith('.css')) files.push(fullPath);
+  }
+  return files;
+};
+
+// Component source files are PascalCase (InputField.tsx and friends);
+// published CSS stays lowercase-kebab to match the existing
+// theme.css/tokens.css convention regardless of how the component itself
+// is cased.
+const toKebabCase = (name) =>
+  name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+
 const copyStyles = () => {
-  cpSync(path.join(ROOT, 'src/styles'), path.join(DIST, 'styles'), {
-    recursive: true,
-  });
-  console.log('Copied src/styles -> dist/styles');
+  const stylesDist = path.join(DIST, 'styles');
+  cpSync(path.join(ROOT, 'src/styles'), stylesDist, { recursive: true });
+
+  const componentCss = collectCssFiles(path.join(ROOT, 'src/components'));
+  for (const file of componentCss) {
+    cpSync(file, path.join(stylesDist, toKebabCase(path.basename(file))));
+  }
+
+  console.log(
+    `Copied src/styles -> dist/styles (+ ${componentCss.length} component-colocated CSS file(s))`,
+  );
 };
 
 console.log('[1/4] tsc');

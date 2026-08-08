@@ -291,6 +291,7 @@ Tailwind entry CSS:
 @import '@inoaspect/react-components/styles/theme.css';
 @import '@inoaspect/react-components/styles/tokens.css';
 @import '@inoaspect/react-components/styles/input-field.css';
+@import '@inoaspect/react-components/styles/date-select.css';
 @source '../node_modules/@inoaspect/react-components/dist';
 ```
 
@@ -299,11 +300,15 @@ Tailwind never sees the class names referenced inside the shipped
 components and generates none of the utility CSS they need.
 
 Most components apply Tailwind utility classes directly, discovered via that
-`@source` scan. `InputField` is the exception — its styles are consolidated
-into named classes (`.input-field`, `.input-field-wrapper`, ...) defined with
-`@apply` in `styles/input-field.css`, so that stylesheet must be imported
-explicitly like `theme.css`/`tokens.css` above, not just discovered via
-`@source`.
+`@source` scan. `InputField` and `DateSelect` are the exception — their
+styles are consolidated into named classes (`.input-field`, `.date-select`,
+...) defined with `@apply` in a CSS file colocated with the component's
+source (`src/components/InputField/InputField.css`,
+`src/components/DateSelect/DateSelect.css`). The build copies each into
+`dist/styles/<kebab-name>.css` (see `scripts/build-lib.mjs`), so they must
+be imported explicitly like `theme.css`/`tokens.css` above, not just
+discovered via `@source`. They're unrelated components — import whichever
+one(s) you actually use.
 
 ### Use it
 
