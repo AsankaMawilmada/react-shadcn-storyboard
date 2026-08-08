@@ -1,9 +1,11 @@
-/* Hand-written component styles for DateSelect. Colocated with the
- * component source; the build copies it into dist/styles/date-select.css
- * (see scripts/build-lib.mjs) so it ships and imports the same way as
- * theme.css/tokens.css — consumers must `@import` it explicitly (see
- * README "Wire up styles"). Processed by Tailwind's `@apply` in the
- * consuming app's own build, same as the `@layer base` rules in index.css.
+/* Hand-written component styles for DateSelect, as plain CSS (no
+ * `@apply`). Colocated with the component source; the build copies it into
+ * dist/styles/date-select.css (see scripts/build-lib.mjs) so it ships and
+ * imports the same way as theme.css/tokens.css — consumers must `@import`
+ * it explicitly (see README "Wire up styles"). Still wrapped in
+ * `@layer components` so a consumer can override any of this with a plain
+ * Tailwind utility class passed via `className` (utilities always win over
+ * `@layer components`, regardless of source order).
  */
 @layer components {
   /* Three independent Select triggers, so there's no shared base
@@ -11,9 +13,11 @@
    * — see the note there). Left at Select's own natural h-9 rather than
    * forced taller; a row of comboboxes reads fine at that height. */
   .date-select {
-    @apply flex w-full gap-2;
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
   }
   .date-select__trigger {
-    @apply flex-1;
+    flex: 1;
   }
 }

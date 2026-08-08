@@ -1,32 +1,60 @@
-/* Hand-written component styles for InputField. Colocated with the
- * component source; the build copies it into dist/styles/input-field.css
- * (see scripts/build-lib.mjs) so it ships and imports the same way as
- * theme.css/tokens.css — consumers must `@import` it explicitly (see
- * README "Wire up styles"). Processed by Tailwind's `@apply` in the
- * consuming app's own build, same as the `@layer base` rules in index.css.
+/* Hand-written component styles for InputField, as plain CSS (no
+ * `@apply`) — colocated with the component source; the build copies it
+ * into dist/styles/input-field.css (see scripts/build-lib.mjs) so it ships
+ * and imports the same way as theme.css/tokens.css — consumers must
+ * `@import` it explicitly (see README "Wire up styles"). Still wrapped in
+ * `@layer components` so a consumer can override any of this with a plain
+ * Tailwind utility class passed via `className` (utilities always win over
+ * `@layer components`, regardless of source order — see the note on
+ * `.input-field` below). References a couple of variables Tailwind itself
+ * defines by default (`--default-transition-*`), which only exist once
+ * `@import 'tailwindcss'` has run in the consuming app.
  */
 @layer components {
   .input-field-container {
-    @apply flex flex-col gap-1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
   }
-  .input-field-container--beside {
-    @apply sm:flex-row sm:items-center sm:gap-3;
+  @media (width >= 40rem) {
+    .input-field-container--beside {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+    }
   }
-  .input-field-label--beside {
-    @apply sm:w-32 sm:shrink-0;
+  @media (width >= 40rem) {
+    .input-field-label--beside {
+      width: 8rem;
+      flex-shrink: 0;
+    }
   }
+
   .input-field-slot {
-    @apply flex flex-col gap-1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
   }
-  .input-field-slot--beside {
-    @apply sm:flex-1;
+  @media (width >= 40rem) {
+    .input-field-slot--beside {
+      flex: 1;
+    }
   }
+
   .input-field-error {
-    @apply text-sm text-destructive;
+    font-size: var(--size-size-sm);
+    line-height: var(--text-sm--line-height);
+    color: var(--destructive);
   }
 
   .input-field-icon {
-    @apply flex size-4 shrink-0 items-center justify-center text-muted-foreground;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    color: var(--muted-foreground);
   }
 
   /* Deliberately self-contained (border/bg/shadow included, not just the
@@ -35,34 +63,121 @@
    * `@layer components` for equal specificity, regardless of source order,
    * so if this used Input (whose own classes include `h-9`/`ring-2` as
    * plain utilities) those utilities would silently beat any conflicting
-   * `h-12`/`ring-4` declared here — @apply can extend a component's styling
-   * but can never override its utility classes. Error (aria-invalid) wins
-   * over focus even when both apply — the compound
-   * `aria-invalid:focus-visible:` variant carries higher CSS specificity
-   * than the single-condition `focus-visible:` rule, regardless of the
-   * order Tailwind emits the underlying declarations. */
+   * `height`/ring values declared here — a `@layer components` rule can
+   * extend a component's styling but can never override its utility
+   * classes. Error (aria-invalid) wins over focus even when both apply —
+   * the compound `[aria-invalid=true]:focus-visible` selector carries
+   * higher specificity than `:focus-visible` alone. */
   .input-field {
-    @apply flex h-12 w-full items-center rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors;
-    @apply placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50;
-    @apply focus-visible:outline-none;
-    @apply focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/50 focus-visible:ring-offset-0;
-    @apply aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive/50 aria-invalid:ring-offset-0;
-    @apply aria-invalid:focus-visible:border-destructive aria-invalid:focus-visible:ring-destructive/50;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius-radius-md);
+    background-color: var(--background);
+    font-size: var(--size-size-sm);
+    line-height: var(--text-sm--line-height);
+    box-shadow:
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+    transition-property:
+      color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke;
+    transition-timing-function: var(--default-transition-timing-function);
+    transition-duration: var(--default-transition-duration);
+  }
+  .input-field::placeholder {
+    color: var(--muted-foreground);
+  }
+  .input-field:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  .input-field:focus-visible {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow:
+      0 0 0 4px color-mix(in oklab, var(--primary) 50%, transparent),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+  .input-field[aria-invalid='true'] {
+    border-color: var(--destructive);
+    box-shadow:
+      0 0 0 4px color-mix(in oklab, var(--destructive) 50%, transparent),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+  .input-field[aria-invalid='true']:focus-visible {
+    border-color: var(--destructive);
+    box-shadow:
+      0 0 0 4px color-mix(in oklab, var(--destructive) 50%, transparent),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
 
   /* The icon/leading/trailing layout: a bordered div standing in for the
    * input's own border, with a borderless <input> inside it. Same
    * focus/error precedence rule as `.input-field`, but keyed off
-   * `focus-within`/`has-aria-invalid` since the ring lives on the wrapper,
-   * not the input itself. */
+   * `:focus-within`/`:has([aria-invalid=true])` since the ring lives on the
+   * wrapper, not the input itself. */
   .input-field-wrapper {
-    @apply flex h-12 w-full items-center gap-2 rounded-md border border-input bg-background px-4 shadow-sm transition-colors;
-    @apply has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50;
-    @apply focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/50;
-    @apply has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/50;
-    @apply has-aria-invalid:focus-within:border-destructive has-aria-invalid:focus-within:ring-destructive/50;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+    gap: 0.5rem;
+    padding-inline: 1rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius-radius-md);
+    background-color: var(--background);
+    box-shadow:
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+    transition-property:
+      color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke;
+    transition-timing-function: var(--default-transition-timing-function);
+    transition-duration: var(--default-transition-duration);
+  }
+  .input-field-wrapper:has(:disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  .input-field-wrapper:focus-within {
+    border-color: var(--primary);
+    box-shadow:
+      0 0 0 4px color-mix(in oklab, var(--primary) 50%, transparent),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+  .input-field-wrapper:has([aria-invalid='true']) {
+    border-color: var(--destructive);
+    box-shadow:
+      0 0 0 4px color-mix(in oklab, var(--destructive) 50%, transparent),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+  .input-field-wrapper:has([aria-invalid='true']):focus-within {
+    border-color: var(--destructive);
+    box-shadow:
+      0 0 0 4px color-mix(in oklab, var(--destructive) 50%, transparent),
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   .input-field-wrapper__input {
-    @apply flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed;
+    flex: 1;
+    background-color: transparent;
+    outline: none;
+    font-size: var(--size-size-sm);
+    line-height: var(--text-sm--line-height);
+  }
+  .input-field-wrapper__input::placeholder {
+    color: var(--muted-foreground);
+  }
+  .input-field-wrapper__input:disabled {
+    cursor: not-allowed;
   }
 }
