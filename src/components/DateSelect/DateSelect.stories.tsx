@@ -29,7 +29,20 @@ export const Disabled: Story = {
 };
 
 export const ErrorState: Story = {
-  args: { 'aria-invalid': true },
+  args: {
+    'aria-invalid': true,
+    errorMessage: 'Enter your full date of birth.',
+  },
+};
+
+/**
+ * `errorMessage` alone (no explicit `aria-invalid`) is enough to trigger the
+ * invalid styling — useful for consumers who only track a message string
+ * (e.g. `errors.dob?.message` from react-hook-form) and don't separately
+ * compute a boolean.
+ */
+export const ErrorMessageOnly: Story = {
+  args: { errorMessage: 'Enter your full date of birth.' },
 };
 
 function ControlledField(args: React.ComponentProps<typeof DateSelect>) {

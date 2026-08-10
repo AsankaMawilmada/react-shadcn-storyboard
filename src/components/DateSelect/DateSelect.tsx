@@ -69,6 +69,12 @@ export type DateSelectProps = {
   name?: string;
   'aria-invalid'?: React.AriaAttributes['aria-invalid'];
   'aria-describedby'?: string;
+  /**
+   * Message shown below the dropdowns when present. Also implies
+   * `aria-invalid` (styling every trigger as invalid) unless `aria-invalid`
+   * is explicitly set.
+   */
+  errorMessage?: React.ReactNode;
   /** Class applied to the row of three dropdowns. */
   className?: string;
 };
@@ -89,10 +95,21 @@ export const DateSelect = ({
   maxYear = new Date().getFullYear(),
   disabled,
   name,
-  'aria-invalid': ariaInvalid,
-  'aria-describedby': ariaDescribedBy,
+  'aria-invalid': ariaInvalidProp,
+  'aria-describedby': ariaDescribedByProp,
+  errorMessage,
   className,
 }: DateSelectProps) => {
+  const generatedId = React.useId();
+  const errorMessageId = errorMessage ? `${generatedId}-error` : undefined;
+  // An explicit `aria-invalid` always wins; otherwise an error message alone
+  // is enough to style every trigger as invalid, so consumers who only pass
+  // `errorMessage` don't also have to separately set `aria-invalid`.
+  const invalid = ariaInvalidProp ?? (errorMessage ? true : undefined);
+  const describedBy =
+    [ariaDescribedByProp, errorMessageId].filter(Boolean).join(' ') ||
+    undefined;
+
   const parsedInitial = parseIsoDate(value ?? defaultValue);
   const [day, setDay] = React.useState(parsedInitial.day);
   const [month, setMonth] = React.useState(parsedInitial.month);
@@ -130,89 +147,96 @@ export const DateSelect = ({
   );
 
   return (
-    <div className={cn('date-select', className)}>
-      <Select
-        value={day ? pad2(day) : null}
-        onValueChange={(next) =>
-          commitDate(next ? Number(next) : undefined, month, year)
-        }
-        disabled={disabled}
-        name={name ? `${name}-day` : undefined}
-      >
-        <SelectTrigger
-          aria-invalid={ariaInvalid}
-          aria-describedby={ariaDescribedBy}
-          className='date-select__trigger'
+    <div className='date-select-container'>
+      <div className={cn('date-select', className)}>
+        <Select
+          value={day ? pad2(day) : null}
+          onValueChange={(next) =>
+            commitDate(next ? Number(next) : undefined, month, year)
+          }
+          disabled={disabled}
+          name={name ? `${name}-day` : undefined}
         >
-          <SelectValue placeholder='Day' />
-        </SelectTrigger>
-        <SelectContent>
-          {Array.from({ length: maxDay }, (_, i) => i + 1).map((d) => (
-            <SelectItem key={d} value={pad2(d)}>
-              {d}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <Select
-        items={MONTHS}
-        value={month ? pad2(month) : null}
-        onValueChange={(next) => {
-          const nextMonth = next ? Number(next) : undefined;
-          const nextMaxDay = daysInMonth(year, nextMonth);
-          commitDate(
-            day && day > nextMaxDay ? undefined : day,
-            nextMonth,
-            year,
-          );
-        }}
-        disabled={disabled}
-        name={name ? `${name}-month` : undefined}
-      >
-        <SelectTrigger
-          aria-invalid={ariaInvalid}
-          aria-describedby={ariaDescribedBy}
-          className='date-select__trigger'
+          <SelectTrigger
+            aria-invalid={invalid}
+            aria-describedby={describedBy}
+            className='date-select__trigger'
+          >
+            <SelectValue placeholder='Day' />
+          </SelectTrigger>
+          <SelectContent>
+            {Array.from({ length: maxDay }, (_, i) => i + 1).map((d) => (
+              <SelectItem key={d} value={pad2(d)}>
+                {d}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select
+          items={MONTHS}
+          value={month ? pad2(month) : null}
+          onValueChange={(next) => {
+            const nextMonth = next ? Number(next) : undefined;
+            const nextMaxDay = daysInMonth(year, nextMonth);
+            commitDate(
+              day && day > nextMaxDay ? undefined : day,
+              nextMonth,
+              year,
+            );
+          }}
+          disabled={disabled}
+          name={name ? `${name}-month` : undefined}
         >
-          <SelectValue placeholder='Month' />
-        </SelectTrigger>
-        <SelectContent>
-          {MONTHS.map((m) => (
-            <SelectItem key={m.value} value={m.value}>
-              {m.label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <Select
-        value={year ? String(year) : null}
-        onValueChange={(next) => {
-          const nextYear = next ? Number(next) : undefined;
-          const nextMaxDay = daysInMonth(nextYear, month);
-          commitDate(
-            day && day > nextMaxDay ? undefined : day,
-            month,
-            nextYear,
-          );
-        }}
-        disabled={disabled}
-        name={name ? `${name}-year` : undefined}
-      >
-        <SelectTrigger
-          aria-invalid={ariaInvalid}
-          aria-describedby={ariaDescribedBy}
-          className='date-select__trigger'
+          <SelectTrigger
+            aria-invalid={invalid}
+            aria-describedby={describedBy}
+            className='date-select__trigger'
+          >
+            <SelectValue placeholder='Month' />
+          </SelectTrigger>
+          <SelectContent>
+            {MONTHS.map((m) => (
+              <SelectItem key={m.value} value={m.value}>
+                {m.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select
+          value={year ? String(year) : null}
+          onValueChange={(next) => {
+            const nextYear = next ? Number(next) : undefined;
+            const nextMaxDay = daysInMonth(nextYear, month);
+            commitDate(
+              day && day > nextMaxDay ? undefined : day,
+              month,
+              nextYear,
+            );
+          }}
+          disabled={disabled}
+          name={name ? `${name}-year` : undefined}
         >
-          <SelectValue placeholder='Year' />
-        </SelectTrigger>
-        <SelectContent>
-          {years.map((y) => (
-            <SelectItem key={y} value={String(y)}>
-              {y}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+          <SelectTrigger
+            aria-invalid={invalid}
+            aria-describedby={describedBy}
+            className='date-select__trigger'
+          >
+            <SelectValue placeholder='Year' />
+          </SelectTrigger>
+          <SelectContent>
+            {years.map((y) => (
+              <SelectItem key={y} value={String(y)}>
+                {y}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      {errorMessage && (
+        <p id={errorMessageId} role='alert' className='date-select-error'>
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };

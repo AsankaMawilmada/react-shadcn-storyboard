@@ -10,6 +10,7 @@ const {
   CustomYearRange,
   Disabled,
   ErrorState,
+  ErrorMessageOnly,
   ControlledExternally,
 } = composeStories(stories);
 
@@ -62,11 +63,32 @@ describe('DateSelect', () => {
     }
   });
 
-  it('forwards aria-describedby to all three triggers', () => {
+  it('forwards aria-describedby to all three triggers, merged with the error message id', () => {
     render(<ErrorState aria-describedby='external-hint' />);
+    const alert = screen.getByRole('alert');
     for (const dropdown of screen.getAllByRole('combobox')) {
-      expect(dropdown).toHaveAttribute('aria-describedby', 'external-hint');
+      const describedBy = dropdown.getAttribute('aria-describedby');
+      expect(describedBy?.split(' ')).toEqual(['external-hint', alert.id]);
     }
+  });
+
+  it('renders errorMessage below the dropdowns, linked to every trigger via aria-describedby', () => {
+    render(<ErrorState />);
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Enter your full date of birth.');
+    for (const dropdown of screen.getAllByRole('combobox')) {
+      expect(dropdown.getAttribute('aria-describedby')).toBe(alert.id);
+    }
+  });
+
+  it('errorMessage alone (no explicit aria-invalid) still marks every trigger invalid', () => {
+    render(<ErrorMessageOnly />);
+    for (const dropdown of screen.getAllByRole('combobox')) {
+      expect(dropdown).toHaveAttribute('aria-invalid', 'true');
+    }
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Enter your full date of birth.',
+    );
   });
 
   it('can be driven by external controlled state (value/onValueChange)', async () => {

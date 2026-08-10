@@ -8,6 +8,12 @@
  * `@layer components`, regardless of source order).
  */
 @layer components {
+  .date-select-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
   /* Three independent Select triggers, so there's no shared base
    * component's utilities to fight (unlike InputField.css's `.input-field`
    * — see the note there). Left at Select's own natural h-9 rather than
@@ -19,5 +25,11 @@
   }
   .date-select__trigger {
     flex: 1;
+  }
+
+  .date-select-error {
+    font-size: var(--size-size-sm);
+    line-height: var(--text-sm--line-height);
+    color: var(--destructive);
   }
 }
