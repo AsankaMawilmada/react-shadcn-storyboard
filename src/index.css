@@ -4,6 +4,7 @@
 @import './components/InputField/InputField.css';
 @import './components/DateSelect/DateSelect.css';
 @import './components/Select/Select.css';
+@import './components/RadioButtonGroup/RadioButtonGroup.css';
 
 @layer base {
   :root {
