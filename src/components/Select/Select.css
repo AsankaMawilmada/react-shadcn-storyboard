@@ -1,0 +1,17 @@
+/* Hand-written component styles for Select, as plain CSS (no `@apply`).
+ * Colocated with the component source; the build copies it into
+ * dist/styles/select.css (see scripts/build-lib.mjs) so it ships and
+ * imports the same way as theme.css/tokens.css — consumers must `@import`
+ * it explicitly (see README "Wire up styles"). Still wrapped in
+ * `@layer components` so a consumer can override any of this with a plain
+ * Tailwind utility class passed via `className` (utilities always win over
+ * `@layer components`, regardless of source order).
+ */
+@layer components {
+  .select-error {
+    margin-top: 0.375rem;
+    font-size: var(--size-size-sm);
+    line-height: var(--text-sm--line-height);
+    color: var(--destructive);
+  }
+}

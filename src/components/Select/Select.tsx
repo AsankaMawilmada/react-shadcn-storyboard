@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Select as SelectPrimitive } from '@base-ui/react/select';
 import { Check, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -78,4 +79,18 @@ export const SelectLabel = ({
     )}
     {...props}
   />
+);
+
+// `Select` is a compositional primitive (its `Root` renders no DOM element
+// of its own — see Base UI's docs), unlike InputField/DateSelect, so there's
+// no single point to auto-derive `aria-invalid`/`aria-describedby` the way
+// those do from an `errorMessage` prop. This is a plain styled message —
+// wire it up yourself: give it an `id`, set `aria-invalid`/
+// `aria-describedby={id}` on `SelectTrigger` (already styled for
+// `aria-invalid`), and render this conditionally.
+export const SelectErrorMessage = ({
+  className,
+  ...props
+}: React.ComponentProps<'p'>) => (
+  <p role='alert' className={cn('select-error', className)} {...props} />
 );

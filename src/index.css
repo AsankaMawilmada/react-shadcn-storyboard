@@ -3,6 +3,7 @@
 @import './styles/tokens.css';
 @import './components/InputField/InputField.css';
 @import './components/DateSelect/DateSelect.css';
+@import './components/Select/Select.css';
 
 @layer base {
   :root {

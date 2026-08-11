@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { composeStories } from '@storybook/react';
 import * as stories from './Select.stories';
 
-const { Default } = composeStories(stories);
+const { Default, ErrorState } = composeStories(stories);
 
 describe('Select', () => {
   it('is closed until the trigger is clicked', () => {
@@ -43,5 +43,14 @@ describe('Select', () => {
     await user.click(bananaOption);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     expect(screen.getByRole('combobox')).toHaveTextContent('banana');
+  });
+
+  it('renders an error message linked to the trigger via aria-describedby', () => {
+    render(<ErrorState />);
+    const trigger = screen.getByRole('combobox');
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Please select a fruit.');
+    expect(trigger).toHaveAttribute('aria-invalid', 'true');
+    expect(trigger.getAttribute('aria-describedby')).toBe(alert.id);
   });
 });
