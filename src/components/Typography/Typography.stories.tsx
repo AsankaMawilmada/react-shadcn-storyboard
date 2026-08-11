@@ -64,6 +64,15 @@ export const Muted: Story = {
   args: { variant: 'muted', children: 'Enter your email address.' },
 };
 
+export const RelaxedLineHeightOverride: Story = {
+  name: 'lineHeight override (small, relaxed)',
+  args: {
+    variant: 'small',
+    lineHeight: 'relaxed',
+    children: 'Email address',
+  },
+};
+
 export const Link: Story = {
   name: 'Link (wired to --link tokens)',
   args: {

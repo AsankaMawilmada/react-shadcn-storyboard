@@ -16,6 +16,7 @@ const {
   Small,
   Muted,
   Link,
+  RelaxedLineHeightOverride,
 } = composeStories(stories);
 
 describe('Typography', () => {
@@ -97,6 +98,18 @@ describe('Typography', () => {
     const link = screen.getByRole('link', { name: 'Read the documentation' });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', '#');
+  });
+
+  it("lineHeight overrides the variant's built-in line-height", () => {
+    const { container } = render(<RelaxedLineHeightOverride />);
+    const el = container.querySelector('span');
+    expect(el).toHaveClass('leading-relaxed');
+    expect(el).not.toHaveClass('leading-none');
+  });
+
+  it("the variant's built-in line-height is kept when lineHeight isn't passed", () => {
+    const { container } = render(<Small />);
+    expect(container.querySelector('span')).toHaveClass('leading-none');
   });
 
   it('the `as` prop overrides the rendered element for any variant', () => {

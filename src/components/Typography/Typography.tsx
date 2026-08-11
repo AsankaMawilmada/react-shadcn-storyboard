@@ -21,6 +21,18 @@ const typographyVariants = cva('', {
       // scale, so it tracks the design system's own link palette.
       a: 'font-medium text-link underline underline-offset-4 hover:text-link-hover active:text-link-pressed',
     },
+    // Optional — omitted means the variant's own built-in line-height (e.g.
+    // `p`'s leading-relaxed, `small`'s leading-none) is left alone. Maps
+    // 1:1 to the `typography.lineHeight` design tokens via Tailwind's
+    // `leading-*` utilities (theme.css aliases --leading-tight etc. to
+    // those tokens), so this stays in sync with Figma if the token values
+    // ever change.
+    lineHeight: {
+      tight: 'leading-tight',
+      snug: 'leading-snug',
+      normal: 'leading-normal',
+      relaxed: 'leading-relaxed',
+    },
   },
   defaultVariants: {
     variant: 'p',
@@ -31,23 +43,30 @@ export type TypographyVariant = NonNullable<
   VariantProps<typeof typographyVariants>['variant']
 >;
 
+export type TypographyLineHeight = NonNullable<
+  VariantProps<typeof typographyVariants>['lineHeight']
+>;
+
 export type TypographyProps<T extends React.ElementType = 'span'> = {
   /** Overrides the rendered element — every variant renders as <span> by
    * default (e.g. pass as="a" for a real, functional link). */
   as?: T;
   variant?: TypographyVariant;
+  /** Overrides the variant's built-in line-height. */
+  lineHeight?: TypographyLineHeight;
 } & Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'variant'>;
 
 export const Typography = <T extends React.ElementType = 'span'>({
   as,
   variant = 'p',
+  lineHeight,
   className,
   ...props
 }: TypographyProps<T>) => {
   const Component = as ?? 'span';
   return (
     <Component
-      className={cn(typographyVariants({ variant }), className)}
+      className={cn(typographyVariants({ variant, lineHeight }), className)}
       {...props}
     />
   );

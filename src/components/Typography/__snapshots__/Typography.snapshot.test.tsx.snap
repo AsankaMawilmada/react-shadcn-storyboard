@@ -101,6 +101,16 @@ exports[`Typography snapshots > matches snapshot: P 1`] = `
 </div>
 `;
 
+exports[`Typography snapshots > matches snapshot: RelaxedLineHeightOverride 1`] = `
+<div>
+  <span
+    class="text-sm font-medium leading-relaxed"
+  >
+    Email address
+  </span>
+</div>
+`;
+
 exports[`Typography snapshots > matches snapshot: Small 1`] = `
 <div>
   <span
