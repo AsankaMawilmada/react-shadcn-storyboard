@@ -39,6 +39,14 @@ export const Vertical: Story = {
   args: { label: 'View', orientation: 'vertical' },
 };
 
+export const Small: Story = {
+  args: { label: 'View', size: 'sm' },
+};
+
+export const Large: Story = {
+  args: { label: 'View', size: 'lg' },
+};
+
 export const DisabledItem: Story = {
   args: {
     label: 'Plan',

@@ -37,6 +37,12 @@ export type RadioButtonGroupProps = Omit<
    * @default 'horizontal'
    */
   orientation?: 'horizontal' | 'vertical';
+  /**
+   * Matches `Button`'s `size` scale (`sm`/`md`/`lg`) so a button group sits
+   * flush against `Button`s of the same size in the same row.
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg';
   /** Class applied to the outer label+group+message wrapper. */
   containerClassName?: string;
   /** Class applied to the row of buttons itself. */
@@ -56,6 +62,7 @@ export const RadioButtonGroup = ({
   label,
   errorMessage,
   orientation = 'horizontal',
+  size = 'md',
   containerClassName,
   className,
   id,
@@ -89,6 +96,7 @@ export const RadioButtonGroup = ({
         aria-labelledby={labelId}
         aria-orientation={orientation}
         data-orientation={orientation}
+        data-size={size}
         className={cn('radio-button-group', className)}
         {...props}
       >

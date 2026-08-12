@@ -7,23 +7,24 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ControlledExternally 1`]
   >
     <span
       class="radio-button-group-label"
-      id="_r_1v_-label"
+      id="_r_2l_-label"
     >
       Plan
     </span>
     <div
-      aria-labelledby="_r_1v_-label"
+      aria-labelledby="_r_2l_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
       data-orientation="horizontal"
-      id="_r_1v_"
+      data-size="md"
+      id="_r_2l_"
       role="radiogroup"
     >
       <span
         aria-checked="false"
         class="radio-button-group-item"
         data-unchecked=""
-        id="base-ui-_r_21_"
+        id="base-ui-_r_2n_"
         role="radio"
         tabindex="0"
       >
@@ -31,7 +32,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ControlledExternally 1`]
       </span>
       <input
         aria-hidden="true"
-        id="base-ui-_r_22_"
+        id="base-ui-_r_2o_"
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
@@ -41,7 +42,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ControlledExternally 1`]
         aria-checked="false"
         class="radio-button-group-item"
         data-unchecked=""
-        id="base-ui-_r_24_"
+        id="base-ui-_r_2q_"
         role="radio"
         tabindex="-1"
       >
@@ -49,7 +50,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ControlledExternally 1`]
       </span>
       <input
         aria-hidden="true"
-        id="base-ui-_r_25_"
+        id="base-ui-_r_2r_"
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
@@ -59,7 +60,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ControlledExternally 1`]
         aria-checked="false"
         class="radio-button-group-item"
         data-unchecked=""
-        id="base-ui-_r_27_"
+        id="base-ui-_r_2t_"
         role="radio"
         tabindex="-1"
       >
@@ -67,7 +68,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ControlledExternally 1`]
       </span>
       <input
         aria-hidden="true"
-        id="base-ui-_r_28_"
+        id="base-ui-_r_2u_"
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
@@ -87,6 +88,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: Default 1`] = `
       aria-orientation="horizontal"
       class="radio-button-group"
       data-orientation="horizontal"
+      data-size="md"
       id="_r_0_"
       role="radiogroup"
     >
@@ -156,16 +158,17 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
   >
     <span
       class="radio-button-group-label"
-      id="_r_19_-label"
+      id="_r_1v_-label"
     >
       Plan
     </span>
     <div
-      aria-labelledby="_r_19_-label"
+      aria-labelledby="_r_1v_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
       data-orientation="horizontal"
-      id="_r_19_"
+      data-size="md"
+      id="_r_1v_"
       role="radiogroup"
     >
       <span
@@ -173,7 +176,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
         class="radio-button-group-item"
         data-checked=""
         data-composite-item-active=""
-        id="base-ui-_r_1b_"
+        id="base-ui-_r_21_"
         role="radio"
         tabindex="0"
       >
@@ -182,7 +185,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
       <input
         aria-hidden="true"
         checked=""
-        id="base-ui-_r_1c_"
+        id="base-ui-_r_22_"
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
@@ -192,7 +195,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
         aria-checked="false"
         class="radio-button-group-item"
         data-unchecked=""
-        id="base-ui-_r_1e_"
+        id="base-ui-_r_24_"
         role="radio"
         tabindex="-1"
       >
@@ -200,7 +203,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
       </span>
       <input
         aria-hidden="true"
-        id="base-ui-_r_1f_"
+        id="base-ui-_r_25_"
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
@@ -212,7 +215,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
         class="radio-button-group-item"
         data-disabled=""
         data-unchecked=""
-        id="base-ui-_r_1h_"
+        id="base-ui-_r_27_"
         role="radio"
         tabindex="-1"
       >
@@ -221,7 +224,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
       <input
         aria-hidden="true"
         disabled=""
-        id="base-ui-_r_1i_"
+        id="base-ui-_r_28_"
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
@@ -239,17 +242,104 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
   >
     <span
       class="radio-button-group-label"
-      id="_r_1k_-label"
+      id="_r_2a_-label"
     >
       Plan
     </span>
     <div
-      aria-describedby="_r_1k_-error"
+      aria-describedby="_r_2a_-error"
       aria-invalid="true"
+      aria-labelledby="_r_2a_-label"
+      aria-orientation="horizontal"
+      class="radio-button-group"
+      data-orientation="horizontal"
+      data-size="md"
+      id="_r_2a_"
+      role="radiogroup"
+    >
+      <span
+        aria-checked="false"
+        class="radio-button-group-item"
+        data-unchecked=""
+        id="base-ui-_r_2c_"
+        role="radio"
+        tabindex="0"
+      >
+        Basic
+      </span>
+      <input
+        aria-hidden="true"
+        id="base-ui-_r_2d_"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="basic"
+      />
+      <span
+        aria-checked="false"
+        class="radio-button-group-item"
+        data-unchecked=""
+        id="base-ui-_r_2f_"
+        role="radio"
+        tabindex="-1"
+      >
+        Pro
+      </span>
+      <input
+        aria-hidden="true"
+        id="base-ui-_r_2g_"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="pro"
+      />
+      <span
+        aria-checked="false"
+        class="radio-button-group-item"
+        data-unchecked=""
+        id="base-ui-_r_2i_"
+        role="radio"
+        tabindex="-1"
+      >
+        Enterprise
+      </span>
+      <input
+        aria-hidden="true"
+        id="base-ui-_r_2j_"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="enterprise"
+      />
+    </div>
+    <p
+      class="radio-button-group-error"
+      id="_r_2a_-error"
+      role="alert"
+    >
+      Please choose a plan.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`RadioButtonGroup snapshots > matches snapshot: Large 1`] = `
+<div>
+  <div
+    class="radio-button-group-container"
+  >
+    <span
+      class="radio-button-group-label"
+      id="_r_1k_-label"
+    >
+      View
+    </span>
+    <div
       aria-labelledby="_r_1k_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
       data-orientation="horizontal"
+      data-size="lg"
       id="_r_1k_"
       role="radiogroup"
     >
@@ -261,7 +351,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
         role="radio"
         tabindex="0"
       >
-        Basic
+        Day
       </span>
       <input
         aria-hidden="true"
@@ -269,7 +359,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
-        value="basic"
+        value="day"
       />
       <span
         aria-checked="false"
@@ -279,7 +369,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
         role="radio"
         tabindex="-1"
       >
-        Pro
+        Week
       </span>
       <input
         aria-hidden="true"
@@ -287,7 +377,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
-        value="pro"
+        value="week"
       />
       <span
         aria-checked="false"
@@ -297,7 +387,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
         role="radio"
         tabindex="-1"
       >
-        Enterprise
+        Month
       </span>
       <input
         aria-hidden="true"
@@ -305,16 +395,88 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
         style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
         tabindex="-1"
         type="radio"
-        value="enterprise"
+        value="month"
       />
     </div>
-    <p
-      class="radio-button-group-error"
-      id="_r_1k_-error"
-      role="alert"
+  </div>
+</div>
+`;
+
+exports[`RadioButtonGroup snapshots > matches snapshot: Small 1`] = `
+<div>
+  <div
+    class="radio-button-group-container"
+  >
+    <span
+      class="radio-button-group-label"
+      id="_r_19_-label"
     >
-      Please choose a plan.
-    </p>
+      View
+    </span>
+    <div
+      aria-labelledby="_r_19_-label"
+      aria-orientation="horizontal"
+      class="radio-button-group"
+      data-orientation="horizontal"
+      data-size="sm"
+      id="_r_19_"
+      role="radiogroup"
+    >
+      <span
+        aria-checked="false"
+        class="radio-button-group-item"
+        data-unchecked=""
+        id="base-ui-_r_1b_"
+        role="radio"
+        tabindex="0"
+      >
+        Day
+      </span>
+      <input
+        aria-hidden="true"
+        id="base-ui-_r_1c_"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="day"
+      />
+      <span
+        aria-checked="false"
+        class="radio-button-group-item"
+        data-unchecked=""
+        id="base-ui-_r_1e_"
+        role="radio"
+        tabindex="-1"
+      >
+        Week
+      </span>
+      <input
+        aria-hidden="true"
+        id="base-ui-_r_1f_"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="week"
+      />
+      <span
+        aria-checked="false"
+        class="radio-button-group-item"
+        data-unchecked=""
+        id="base-ui-_r_1h_"
+        role="radio"
+        tabindex="-1"
+      >
+        Month
+      </span>
+      <input
+        aria-hidden="true"
+        id="base-ui-_r_1i_"
+        style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
+        tabindex="-1"
+        type="radio"
+        value="month"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -335,6 +497,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: Vertical 1`] = `
       aria-orientation="vertical"
       class="radio-button-group"
       data-orientation="vertical"
+      data-size="md"
       id="_r_u_"
       role="radiogroup"
     >
@@ -413,6 +576,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: WithDefaultValue 1`] = `
       aria-orientation="horizontal"
       class="radio-button-group"
       data-orientation="horizontal"
+      data-size="md"
       id="_r_j_"
       role="radiogroup"
     >
@@ -493,6 +657,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: WithLabel 1`] = `
       aria-orientation="horizontal"
       class="radio-button-group"
       data-orientation="horizontal"
+      data-size="md"
       id="_r_b_"
       role="radiogroup"
     >

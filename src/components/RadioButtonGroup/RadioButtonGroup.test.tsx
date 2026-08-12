@@ -9,6 +9,8 @@ const {
   WithLabel,
   WithDefaultValue,
   Vertical,
+  Small,
+  Large,
   DisabledItem,
   ErrorState,
   ControlledExternally,
@@ -70,6 +72,21 @@ describe('RadioButtonGroup', () => {
     const group = screen.getByRole('radiogroup');
     expect(group).toHaveAttribute('aria-orientation', 'vertical');
     expect(group).toHaveAttribute('data-orientation', 'vertical');
+  });
+
+  it('defaults to size="md"', () => {
+    render(<Default />);
+    expect(screen.getByRole('radiogroup')).toHaveAttribute('data-size', 'md');
+  });
+
+  it('sets data-size to match the size prop', () => {
+    render(<Small />);
+    expect(screen.getByRole('radiogroup')).toHaveAttribute('data-size', 'sm');
+    render(<Large />);
+    expect(screen.getAllByRole('radiogroup')[1]).toHaveAttribute(
+      'data-size',
+      'lg',
+    );
   });
 
   it('disables an individual item without affecting the others', async () => {

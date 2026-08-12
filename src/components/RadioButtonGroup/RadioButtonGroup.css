@@ -42,11 +42,17 @@
     border-color: var(--destructive);
   }
 
+  /* Height/padding/radius mirror Button's sm/md/lg scale (see
+   * Button.tsx's `buttonVariants`) so a RadioButtonGroup sits flush
+   * against Buttons of the same size in the same row. `md` is the
+   * unstyled default, matching how `data-orientation="vertical"` above is
+   * an override rather than every state being spelled out. */
   .radio-button-group-item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    height: 2.25rem;
+    padding-inline: 1rem;
     font-size: var(--size-size-sm);
     font-weight: 500;
     color: var(--foreground);
@@ -57,6 +63,21 @@
     transition-property: background-color, color;
     transition-timing-function: var(--default-transition-timing-function);
     transition-duration: var(--default-transition-duration);
+  }
+  .radio-button-group[data-size='sm'] {
+    border-radius: var(--radius-radius-sm);
+  }
+  .radio-button-group[data-size='sm'] .radio-button-group-item {
+    height: 2rem;
+    padding-inline: 0.75rem;
+    font-size: var(--size-size-xs);
+  }
+  .radio-button-group[data-size='lg'] {
+    border-radius: var(--radius-radius-xl);
+  }
+  .radio-button-group[data-size='lg'] .radio-button-group-item {
+    height: 2.5rem;
+    padding-inline: 1.5rem;
   }
   .radio-button-group-item:not(:first-child) {
     border-left: 1px solid var(--input);
