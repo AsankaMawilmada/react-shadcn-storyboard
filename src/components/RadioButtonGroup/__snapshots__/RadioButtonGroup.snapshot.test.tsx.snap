@@ -15,8 +15,6 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ControlledExternally 1`]
       aria-labelledby="_r_2l_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="md"
       id="_r_2l_"
       role="radiogroup"
     >
@@ -87,8 +85,6 @@ exports[`RadioButtonGroup snapshots > matches snapshot: Default 1`] = `
     <div
       aria-orientation="horizontal"
       class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="md"
       id="_r_0_"
       role="radiogroup"
     >
@@ -166,8 +162,6 @@ exports[`RadioButtonGroup snapshots > matches snapshot: DisabledItem 1`] = `
       aria-labelledby="_r_1v_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="md"
       id="_r_1v_"
       role="radiogroup"
     >
@@ -252,8 +246,6 @@ exports[`RadioButtonGroup snapshots > matches snapshot: ErrorState 1`] = `
       aria-labelledby="_r_2a_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="md"
       id="_r_2a_"
       role="radiogroup"
     >
@@ -337,9 +329,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: Large 1`] = `
     <div
       aria-labelledby="_r_1k_-label"
       aria-orientation="horizontal"
-      class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="lg"
+      class="radio-button-group radio-button-group--lg"
       id="_r_1k_"
       role="radiogroup"
     >
@@ -416,9 +406,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: Small 1`] = `
     <div
       aria-labelledby="_r_19_-label"
       aria-orientation="horizontal"
-      class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="sm"
+      class="radio-button-group radio-button-group--sm"
       id="_r_19_"
       role="radiogroup"
     >
@@ -495,9 +483,7 @@ exports[`RadioButtonGroup snapshots > matches snapshot: Vertical 1`] = `
     <div
       aria-labelledby="_r_u_-label"
       aria-orientation="vertical"
-      class="radio-button-group"
-      data-orientation="vertical"
-      data-size="md"
+      class="radio-button-group radio-button-group--vertical"
       id="_r_u_"
       role="radiogroup"
     >
@@ -575,8 +561,6 @@ exports[`RadioButtonGroup snapshots > matches snapshot: WithDefaultValue 1`] = `
       aria-labelledby="_r_j_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="md"
       id="_r_j_"
       role="radiogroup"
     >
@@ -656,8 +640,6 @@ exports[`RadioButtonGroup snapshots > matches snapshot: WithLabel 1`] = `
       aria-labelledby="_r_b_-label"
       aria-orientation="horizontal"
       class="radio-button-group"
-      data-orientation="horizontal"
-      data-size="md"
       id="_r_b_"
       role="radiogroup"
     >

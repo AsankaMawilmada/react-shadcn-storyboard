@@ -67,25 +67,28 @@ describe('RadioButtonGroup', () => {
     );
   });
 
-  it('sets aria-orientation and data-orientation when orientation="vertical"', () => {
+  it('sets aria-orientation and a vertical layout class when orientation="vertical"', () => {
     render(<Vertical />);
     const group = screen.getByRole('radiogroup');
     expect(group).toHaveAttribute('aria-orientation', 'vertical');
-    expect(group).toHaveAttribute('data-orientation', 'vertical');
+    expect(group).toHaveClass('radio-button-group--vertical');
   });
 
-  it('defaults to size="md"', () => {
+  it('defaults to size="md" (no size override class)', () => {
     render(<Default />);
-    expect(screen.getByRole('radiogroup')).toHaveAttribute('data-size', 'md');
+    const group = screen.getByRole('radiogroup');
+    expect(group).not.toHaveClass('radio-button-group--sm');
+    expect(group).not.toHaveClass('radio-button-group--lg');
   });
 
-  it('sets data-size to match the size prop', () => {
+  it('adds a size class to match the size prop', () => {
     render(<Small />);
-    expect(screen.getByRole('radiogroup')).toHaveAttribute('data-size', 'sm');
+    expect(screen.getByRole('radiogroup')).toHaveClass(
+      'radio-button-group--sm',
+    );
     render(<Large />);
-    expect(screen.getAllByRole('radiogroup')[1]).toHaveAttribute(
-      'data-size',
-      'lg',
+    expect(screen.getAllByRole('radiogroup')[1]).toHaveClass(
+      'radio-button-group--lg',
     );
   });
 

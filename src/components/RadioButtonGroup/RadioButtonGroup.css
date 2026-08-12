@@ -23,9 +23,9 @@
   /* A segmented control: one shared border around the group, a divider
    * between each button rather than individual borders, so it reads as one
    * control with several positions instead of a row of separate buttons.
-   * `data-orientation="vertical"` (set by the component alongside
-   * `aria-orientation`) switches the row to a column and the dividers from
-   * left- to top-edges to match. */
+   * `.radio-button-group--vertical` (added by the component alongside the
+   * real `aria-orientation` attribute) switches the row to a column and the
+   * dividers from left- to top-edges to match. */
   .radio-button-group {
     display: inline-flex;
     flex-direction: row;
@@ -34,7 +34,7 @@
     border-radius: var(--radius-radius-md);
     overflow: hidden;
   }
-  .radio-button-group[data-orientation='vertical'] {
+  .radio-button-group--vertical {
     flex-direction: column;
     width: 100%;
   }
@@ -45,7 +45,7 @@
   /* Height/padding/radius mirror Button's sm/md/lg scale (see
    * Button.tsx's `buttonVariants`) so a RadioButtonGroup sits flush
    * against Buttons of the same size in the same row. `md` is the
-   * unstyled default, matching how `data-orientation="vertical"` above is
+   * unstyled default, matching how `.radio-button-group--vertical` above is
    * an override rather than every state being spelled out. */
   .radio-button-group-item {
     display: inline-flex;
@@ -64,26 +64,25 @@
     transition-timing-function: var(--default-transition-timing-function);
     transition-duration: var(--default-transition-duration);
   }
-  .radio-button-group[data-size='sm'] {
+  .radio-button-group--sm {
     border-radius: var(--radius-radius-sm);
   }
-  .radio-button-group[data-size='sm'] .radio-button-group-item {
+  .radio-button-group--sm .radio-button-group-item {
     height: 2rem;
     padding-inline: 0.75rem;
     font-size: var(--size-size-xs);
   }
-  .radio-button-group[data-size='lg'] {
+  .radio-button-group--lg {
     border-radius: var(--radius-radius-xl);
   }
-  .radio-button-group[data-size='lg'] .radio-button-group-item {
+  .radio-button-group--lg .radio-button-group-item {
     height: 2.5rem;
     padding-inline: 1.5rem;
   }
   .radio-button-group-item:not(:first-child) {
     border-left: 1px solid var(--input);
   }
-  .radio-button-group[data-orientation='vertical']
-    .radio-button-group-item:not(:first-child) {
+  .radio-button-group--vertical .radio-button-group-item:not(:first-child) {
     border-left: none;
     border-top: 1px solid var(--input);
   }
