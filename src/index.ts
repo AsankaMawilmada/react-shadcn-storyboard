@@ -24,6 +24,7 @@ export * from './components/Input';
 export * from './components/InputField';
 export * from './components/InputOtp';
 export * from './components/Label';
+export * from './components/Link';
 export * from './components/Menubar';
 export * from './components/NavigationMenu';
 export * from './components/Pagination';

@@ -1,0 +1,159 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Link snapshots > matches snapshot: AsButton 1`] = `
+<div>
+  <button
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    type="button"
+  >
+    Clear filters
+  </button>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: Default 1`] = `
+<div>
+  <a
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    href="#"
+  >
+    Learn more
+  </a>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: Disabled 1`] = `
+<div>
+  <a
+    aria-disabled="true"
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    href="#"
+    tabindex="-1"
+  >
+    Learn more
+    <svg
+      fill="none"
+      height="16"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5 12h14m0 0-6-6m6 6-6 6"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </a>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: DisabledAsButton 1`] = `
+<div>
+  <button
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    disabled=""
+    type="button"
+  >
+    Clear filters
+  </button>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: Inline 1`] = `
+<div>
+  <a
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 underline underline-offset-4"
+    href="#"
+  >
+    Learn more
+  </a>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: Large 1`] = `
+<div>
+  <a
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    href="#"
+  >
+    Learn more
+  </a>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: Small 1`] = `
+<div>
+  <a
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-xs [&_svg]:size-3.5 font-medium hover:underline underline-offset-4"
+    href="#"
+  >
+    Learn more
+  </a>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: Standalone 1`] = `
+<div>
+  <a
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    href="#"
+  >
+    Learn more
+  </a>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: WithLeftIcon 1`] = `
+<div>
+  <a
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    href="#"
+  >
+    <svg
+      fill="none"
+      height="16"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="m5 13 4.5 4.5L19 7"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    Learn more
+  </a>
+</div>
+`;
+
+exports[`Link snapshots > matches snapshot: WithRightIcon 1`] = `
+<div>
+  <a
+    class="inline-flex items-center gap-1.5 rounded-sm outline-none transition-colors text-link visited:text-link hover:text-link-hover active:text-link-pressed focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 text-sm [&_svg]:size-4 font-medium hover:underline underline-offset-4"
+    href="#"
+  >
+    Learn more
+    <svg
+      fill="none"
+      height="16"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5 12h14m0 0-6-6m6 6-6 6"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </a>
+</div>
+`;
