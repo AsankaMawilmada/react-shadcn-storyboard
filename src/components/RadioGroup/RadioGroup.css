@@ -1,0 +1,112 @@
+/* Hand-written component styles for RadioGroup, as plain CSS (no `@apply`).
+ * Colocated with the component source; the build copies it into
+ * dist/styles/radio-group.css (see scripts/build-lib.mjs) so it ships and
+ * imports the same way as theme.css/tokens.css — consumers must `@import`
+ * it explicitly (see README "Wire up styles"). Still wrapped in
+ * `@layer components` so a consumer can override any of this with a plain
+ * Tailwind utility class passed via `className` (utilities always win over
+ * `@layer components`, regardless of source order).
+ */
+@layer components {
+  .radio-group-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .radio-group-label {
+    font-size: var(--size-size-sm);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  /* A segmented control: one shared border around the group, a divider
+   * between each button rather than individual borders, so it reads as one
+   * control with several positions instead of a row of separate buttons.
+   * `width: fit-content` is the default (sizes to its content); `.radio-
+   * group--full-width` stretches it to fill its container instead, giving
+   * every item an equal share. */
+  .radio-group {
+    display: inline-flex;
+    flex-direction: row;
+    width: fit-content;
+    border: 1px solid var(--input);
+    border-radius: var(--radius-radius-md);
+    overflow: hidden;
+  }
+  .radio-group--full-width {
+    display: flex;
+    width: 100%;
+  }
+  .radio-group[aria-invalid='true'] {
+    border-color: var(--destructive);
+  }
+
+  .radio-group-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    /* Lets the label below actually shrink+truncate instead of forcing
+     * the flex item (and the whole group, in full-width mode) to grow to
+     * fit the untruncated text — the default flex `min-width: auto`
+     * would otherwise win over `overflow: hidden` on the label. */
+    min-width: 0;
+    height: 2.25rem;
+    padding-inline: 1rem;
+    font-size: var(--size-size-sm);
+    font-weight: 500;
+    color: var(--foreground);
+    background-color: var(--background);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition-property: background-color, color;
+    transition-timing-function: var(--default-transition-timing-function);
+    transition-duration: var(--default-transition-duration);
+  }
+  .radio-group--full-width .radio-group-item {
+    flex: 1 1 0%;
+  }
+  .radio-group-item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  /* `visibility: hidden` (not `display: none`) keeps the icon's box in
+   * layout while unchecked, so its box already occupies space — pairs
+   * with `keepMounted` on Radio.Indicator in RadioGroup.tsx. Without
+   * this, the label shifts sideways every time an item is (de)selected. */
+  .radio-group-item-icon[data-unchecked] {
+    visibility: hidden;
+  }
+  .radio-group-item-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .radio-group-item:not(:first-child) {
+    border-left: 1px solid var(--input);
+  }
+  .radio-group-item:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+  .radio-group-item:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--ring);
+  }
+  .radio-group-item[data-checked] {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  .radio-group-item[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .radio-group-error {
+    font-size: var(--size-size-sm);
+    line-height: var(--text-sm--line-height);
+    color: var(--destructive);
+  }
+}
