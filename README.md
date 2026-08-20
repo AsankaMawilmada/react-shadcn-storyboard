@@ -113,6 +113,22 @@ Two themes ship today: **default** (Figma-sourced) and **midnight** (hand-author
 proves the `data-theme` override mechanism). Switch at runtime with
 `ThemeProvider`/`useTheme` from `src/components/theme-provider.tsx`.
 
+### Refreshing tokens from Figma via MCP
+
+If a Figma MCP server is connected to your Claude Code session, run
+`/sync-figma-tokens` to pull the latest variables and merge them into
+`.figma/themes/<theme>/*.tokens.json` — see
+[`.claude/commands/sync-figma-tokens.md`](.claude/commands/sync-figma-tokens.md)
+for the step-by-step flow and
+[`scripts/figma-variables-to-tokens.mjs`](scripts/figma-variables-to-tokens.mjs)
+for the conversion logic (a flat Figma-variables JSON dump → this repo's
+`$type`/`$value` token tree, deep-merged into the existing file). Figma's
+Variables REST API requires an Enterprise plan; MCP (via Figma's desktop
+app in Dev Mode) doesn't have that restriction, which is why this goes
+through MCP rather than a headless REST script. There's deliberately no
+plain npm script for this — pulling variables requires an MCP-connected
+agent in the loop, it isn't something a script can do unattended.
+
 `--border` and `--input` intentionally pin to a primitive gray swatch rather
 than a semantic token, matching the original hand-authored look. Component-state
 tokens (per-variant button/link hover/disabled/focus colors) are exported as
